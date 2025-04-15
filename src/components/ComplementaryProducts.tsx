@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useProject } from "@/context/ProjectContext";
 import { searchProducts, isBoxCompatibleProduct } from "@/services/productService";
-import { ComplementaryProductData } from "@/types/box";
+import { ComplementaryProductData, Product } from "@/types/box";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,7 +16,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { searchProducts } from "@/data/sampleSwitchData";
 
 const ComplementaryProducts = () => {
   const { complementaryProducts, addComplementaryProduct, removeComplementaryProduct } = useProject();
@@ -87,13 +86,13 @@ const ComplementaryProducts = () => {
                             onClick={() => {
                               setSelectedProduct({
                                 sku: product.sku,
-                                name: product.productName,
+                                name: product.name,
                               });
                               setSearchQuery("");
                             }}
                           >
                             <Package className="mr-2 h-4 w-4" />
-                            {product.sku} - {product.productName}
+                            {product.sku} - {product.name}
                           </Button>
                         ))}
                       </div>

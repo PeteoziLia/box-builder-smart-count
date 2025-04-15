@@ -178,19 +178,19 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
             
             <div className="mt-2 text-sm">
               <div className="mb-1">
-                <span className="font-medium">Selected Product:</span> {selectedProduct.productName}
+                <span className="font-medium">Selected Product:</span> {selectedProduct.name}
               </div>
               <div className="mb-1">
                 <span className="font-medium">SKU:</span> {selectedProduct.sku}
               </div>
               <div className="mb-1">
-                <span className="font-medium">Module Size:</span> {selectedProduct.moduleSize}
+                <span className="font-medium">Module Size:</span> {selectedProduct.attributes.moduleSize}
               </div>
               <div className="mb-1">
-                <span className="font-medium">Price:</span> {formatPrice(selectedProduct.price)}
+                <span className="font-medium">Price:</span> {formatPrice(selectedProduct.regularPrice)}
               </div>
               <div className="mb-1">
-                <span className="font-medium">Modules Needed:</span> {selectedProduct.moduleSize * quantity}
+                <span className="font-medium">Modules Needed:</span> {selectedProduct.attributes.moduleSize * quantity}
               </div>
               <div>
                 <span className="font-medium">Modules Remaining in Box:</span> {getRemainingModules(boxId)}
@@ -204,4 +204,3 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
 };
 
 export default ProductSearch;
-

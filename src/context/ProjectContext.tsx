@@ -1,5 +1,5 @@
+
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { SwitchProduct } from "../data/sampleSwitchData";
 import { BoxType, BoxModuleCapacity, ComplementaryProductData, Product } from "@/types/box";
 
 export interface BoxProduct {
@@ -71,7 +71,7 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
     if (!box) return 0;
     
     return box.products.reduce(
-      (total, item) => total + (item.product.moduleSize * item.quantity),
+      (total, item) => total + (item.product.attributes.moduleSize * item.quantity),
       0
     );
   };
@@ -88,7 +88,7 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
     const box = boxes.find((b) => b.id === boxId);
     if (!box) return false;
 
-    const totalModulesNeeded = product.moduleSize * quantity;
+    const totalModulesNeeded = product.attributes.moduleSize * quantity;
     const remainingModules = getRemainingModules(boxId);
 
     if (totalModulesNeeded > remainingModules) {
@@ -131,8 +131,8 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
 
     const product = box.products[productIndex].product;
     const currentQuantity = box.products[productIndex].quantity;
-    const currentModules = product.moduleSize * currentQuantity;
-    const newModules = product.moduleSize * quantity;
+    const currentModules = product.attributes.moduleSize * currentQuantity;
+    const newModules = product.attributes.moduleSize * quantity;
     const moduleDifference = newModules - currentModules;
 
     // Check if there's enough space

@@ -25,7 +25,6 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { FileDown, FileText } from "lucide-react";
-import { SwitchProduct } from "@/data/sampleSwitchData";
 import { BoxProduct } from "@/context/ProjectContext";
 
 interface SkuSummary {
@@ -37,28 +36,47 @@ interface SkuSummary {
 }
 
 const Summary: React.FC = () => {
-  const { clientName, boxes } = useProject();
+  const { clientName, boxes, complementaryProducts } = useProject();
 
   const generateSkuSummary = (): SkuSummary[] => {
     const summary: Record<string, SkuSummary> = {};
     
     boxes.forEach(box => {
       box.products.forEach(item => {
-        const { sku, productName, price } = item.product;
+        const { sku, name, regularPrice } = item.product;
         
         if (summary[sku]) {
           summary[sku].quantity += item.quantity;
-          summary[sku].totalPrice = summary[sku].quantity * price;
+          summary[sku].totalPrice = summary[sku].quantity * regularPrice;
         } else {
           summary[sku] = {
             sku,
-            productName,
+            productName: name,
             quantity: item.quantity,
-            unitPrice: price,
-            totalPrice: item.quantity * price
+            unitPrice: regularPrice,
+            totalPrice: item.quantity * regularPrice
           };
         }
       });
+    });
+
+    // Add complementary products
+    complementaryProducts.forEach(item => {
+      const sku = item.sku;
+      if (summary[sku]) {
+        summary[sku].quantity += item.quantity;
+        summary[sku].totalPrice = summary[sku].quantity * summary[sku].unitPrice;
+      } else {
+        // Find product details from inventory if available
+        const product = boxes.flatMap(b => b.products).find(p => p.product.sku === sku)?.product;
+        summary[sku] = {
+          sku,
+          productName: item.name,
+          quantity: item.quantity,
+          unitPrice: product?.regularPrice || 0, // Use 0 if price unknown
+          totalPrice: (product?.regularPrice || 0) * item.quantity
+        };
+      }
     });
     
     return Object.values(summary).sort((a, b) => a.sku.localeCompare(b.sku));
@@ -82,11 +100,21 @@ const Summary: React.FC = () => {
     
     boxes.forEach(box => {
       const productsString = box.products
-        .map(item => `${item.product.sku} (${item.quantity}x, ${item.product.moduleSize} module${item.product.moduleSize > 1 ? 's' : ''})`)
+        .map(item => `${item.product.sku} (${item.quantity}x, ${item.product.attributes.moduleSize} module${item.product.attributes.moduleSize > 1 ? 's' : ''})`)
         .join('; ');
       
       skuCsv += `"${box.name}","${box.area}","${box.description}","${productsString}"\n`;
     });
+
+    // Add Complementary Products
+    if (complementaryProducts.length > 0) {
+      skuCsv += '\nComplementary Products\n';
+      skuCsv += 'SKU,Product Name,Quantity,Area,Description\n';
+      
+      complementaryProducts.forEach(product => {
+        skuCsv += `"${product.sku}","${product.name}",${product.quantity},"${product.area}","${product.description || ''}"\n`;
+      });
+    }
     
     // Add Client Name
     skuCsv = `Client: ${clientName}\n\n` + skuCsv;
@@ -193,10 +221,10 @@ const Summary: React.FC = () => {
                           {box.products.map(item => (
                             <TableRow key={item.product.sku}>
                               <TableCell className="font-medium">{item.product.sku}</TableCell>
-                              <TableCell>{item.product.productName}</TableCell>
+                              <TableCell>{item.product.name}</TableCell>
                               <TableCell>{item.quantity}</TableCell>
-                              <TableCell>{item.product.moduleSize}</TableCell>
-                              <TableCell>{item.quantity * item.product.moduleSize}</TableCell>
+                              <TableCell>{item.product.attributes.moduleSize}</TableCell>
+                              <TableCell>{item.quantity * item.product.attributes.moduleSize}</TableCell>
                             </TableRow>
                           ))}
                           <TableRow>
@@ -205,7 +233,7 @@ const Summary: React.FC = () => {
                             </TableCell>
                             <TableCell className="font-bold">
                               {box.products.reduce((sum, item) => 
-                                sum + (item.quantity * item.product.moduleSize), 0
+                                sum + (item.quantity * item.product.attributes.moduleSize), 0
                               )} / {box.moduleCapacity}
                             </TableCell>
                           </TableRow>
@@ -219,7 +247,7 @@ const Summary: React.FC = () => {
           )}
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button onClick={exportToCsv} disabled={boxes.length === 0}>
+          <Button onClick={exportToCsv} disabled={boxes.length === 0 && complementaryProducts.length === 0}>
             <FileDown className="mr-2 h-4 w-4" />
             Export to CSV
           </Button>
@@ -229,6 +257,42 @@ const Summary: React.FC = () => {
           </Button>
         </CardFooter>
       </Card>
+
+      {/* Complementary Products Section */}
+      {complementaryProducts.length > 0 && (
+        <Card className="w-full">
+          <CardHeader>
+            <CardTitle>Complementary Products</CardTitle>
+            <CardDescription>
+              Products not installed in boxes
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>SKU</TableHead>
+                  <TableHead>Product Name</TableHead>
+                  <TableHead>Quantity</TableHead>
+                  <TableHead>Area</TableHead>
+                  <TableHead>Description</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {complementaryProducts.map((product, index) => (
+                  <TableRow key={`${product.sku}-${index}`}>
+                    <TableCell className="font-medium">{product.sku}</TableCell>
+                    <TableCell>{product.name}</TableCell>
+                    <TableCell>{product.quantity}</TableCell>
+                    <TableCell>{product.area}</TableCell>
+                    <TableCell>{product.description || '—'}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 };

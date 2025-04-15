@@ -112,12 +112,12 @@ const BoxContent: React.FC<BoxContentProps> = ({ box }) => {
             box.products.map((item) => (
               <div key={item.product.sku} className="border rounded-lg p-4 space-y-2">
                 <div className="flex justify-between">
-                  <span className="font-medium">{item.product.productName}</span>
-                  <span>{formatPrice(item.product.price)}</span>
+                  <span className="font-medium">{item.product.name}</span>
+                  <span>{formatPrice(item.product.regularPrice)}</span>
                 </div>
                 <div className="text-sm text-muted-foreground">SKU: {item.product.sku}</div>
                 <div className="text-sm text-muted-foreground">
-                  Modules: {item.product.moduleSize * item.quantity}
+                  Modules: {item.product.attributes.moduleSize * item.quantity}
                 </div>
                 <div className="flex items-center justify-between mt-2">
                   <div className="flex items-center space-x-2">
@@ -135,7 +135,7 @@ const BoxContent: React.FC<BoxContentProps> = ({ box }) => {
                       size="icon" 
                       className="h-8 w-8"
                       onClick={() => handleIncreaseQuantity(item.product.sku, item.quantity)}
-                      disabled={item.product.moduleSize > remainingModules}
+                      disabled={item.product.attributes.moduleSize > remainingModules}
                     >
                       <Plus className="h-4 w-4" />
                     </Button>
@@ -150,7 +150,7 @@ const BoxContent: React.FC<BoxContentProps> = ({ box }) => {
                   </Button>
                 </div>
                 <div className="text-right font-medium">
-                  Total: {formatPrice(item.product.price * item.quantity)}
+                  Total: {formatPrice(item.product.regularPrice * item.quantity)}
                 </div>
               </div>
             ))
@@ -175,15 +175,15 @@ const BoxContent: React.FC<BoxContentProps> = ({ box }) => {
               {box.products.map((item) => (
                 <TableRow key={item.product.sku}>
                   <TableCell className="font-medium">{item.product.sku}</TableCell>
-                  <TableCell>{item.product.productName}</TableCell>
-                  <TableCell>{item.product.moduleSize * item.quantity}</TableCell>
-                  <TableCell>{formatPrice(item.product.price)}</TableCell>
+                  <TableCell>{item.product.name}</TableCell>
+                  <TableCell>{item.product.attributes.moduleSize * item.quantity}</TableCell>
+                  <TableCell>{formatPrice(item.product.regularPrice)}</TableCell>
                   <TableCell>
                     <div className="flex items-center justify-center">
                       <span>{item.quantity}</span>
                     </div>
                   </TableCell>
-                  <TableCell>{formatPrice(item.product.price * item.quantity)}</TableCell>
+                  <TableCell>{formatPrice(item.product.regularPrice * item.quantity)}</TableCell>
                   <TableCell>
                     <div className="flex items-center space-x-1">
                       <Button 
@@ -199,7 +199,7 @@ const BoxContent: React.FC<BoxContentProps> = ({ box }) => {
                         size="icon" 
                         className="h-7 w-7"
                         onClick={() => handleIncreaseQuantity(item.product.sku, item.quantity)}
-                        disabled={item.product.moduleSize > remainingModules}
+                        disabled={item.product.attributes.moduleSize > remainingModules}
                       >
                         <Plus className="h-3 w-3" />
                       </Button>
