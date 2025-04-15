@@ -111,7 +111,13 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                   )}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="p-0" side="bottom" align="start" alignOffset={0} sideOffset={4} className="w-[400px]">
+              <PopoverContent 
+                className="p-0 w-[400px]" 
+                side="bottom" 
+                align="start" 
+                alignOffset={0} 
+                sideOffset={4}
+              >
                 <Command shouldFilter={false}>
                   <CommandInput 
                     placeholder="Search by SKU or product name..." 
