@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import { SwitchProduct } from "../data/sampleSwitchData";
-import { BoxType, BoxModuleCapacity } from "@/types/box";
+import { BoxType, BoxModuleCapacity, ComplementaryProductData } from "@/types/box";
 
 export interface BoxProduct {
   product: SwitchProduct;
@@ -30,8 +30,12 @@ interface ProjectContextType {
   getUsedModules: (boxId: string) => number;
   getRemainingModules: (boxId: string) => number;
   getBoxById: (boxId: string) => Box | undefined;
-  getCurrentProject: () => { clientName: string; boxes: Box[] };
+  getCurrentProject: () => { clientName: string; boxes: Box[]; complementaryProducts: ComplementaryProductData[] };
   resetProject: () => void;
+  complementaryProducts: ComplementaryProductData[];
+  addComplementaryProduct: (product: ComplementaryProductData) => void;
+  updateComplementaryProduct: (index: number, product: ComplementaryProductData) => void;
+  removeComplementaryProduct: (index: number) => void;
 }
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
@@ -39,6 +43,7 @@ const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
 export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [clientName, setClientName] = useState<string>("");
   const [boxes, setBoxes] = useState<Box[]>([]);
+  const [complementaryProducts, setComplementaryProducts] = useState<ComplementaryProductData[]>([]);
 
   const addBox = (boxData: Omit<Box, 'id' | 'products'>) => {
     const newBox: Box = {
@@ -177,12 +182,28 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
     return {
       clientName,
       boxes,
+      complementaryProducts
     };
   };
 
   const resetProject = () => {
     setClientName("");
     setBoxes([]);
+    setComplementaryProducts([]);
+  };
+
+  const addComplementaryProduct = (product: ComplementaryProductData) => {
+    setComplementaryProducts([...complementaryProducts, product]);
+  };
+
+  const updateComplementaryProduct = (index: number, product: ComplementaryProductData) => {
+    const updatedProducts = [...complementaryProducts];
+    updatedProducts[index] = product;
+    setComplementaryProducts(updatedProducts);
+  };
+
+  const removeComplementaryProduct = (index: number) => {
+    setComplementaryProducts(complementaryProducts.filter((_, i) => i !== index));
   };
 
   return (
@@ -202,6 +223,10 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
         getBoxById,
         getCurrentProject,
         resetProject,
+        complementaryProducts,
+        addComplementaryProduct,
+        updateComplementaryProduct,
+        removeComplementaryProduct,
       }}
     >
       {children}

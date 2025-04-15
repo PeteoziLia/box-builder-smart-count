@@ -15,3 +15,12 @@ export interface BoxFormData {
   boxType: BoxType;
   moduleCapacity: BoxModuleCapacity;
 }
+
+export interface ComplementaryProductData {
+  sku: string;
+  name: string;
+  quantity: number;
+  area: string;
+  description?: string;
+}
+

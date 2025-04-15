@@ -1,9 +1,10 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ProjectProvider } from "@/context/ProjectContext";
 import ClientInfo from "@/components/ClientInfo";
 import BoxManager from "@/components/BoxManager";
+import ComplementaryProducts from "@/components/ComplementaryProducts";
 import Summary from "@/components/Summary";
 
 const Index = () => {
@@ -23,11 +24,16 @@ const Index = () => {
             <Tabs defaultValue="boxes" className="w-full">
               <TabsList className="mb-6">
                 <TabsTrigger value="boxes">Box Configuration</TabsTrigger>
+                <TabsTrigger value="complementary">Complementary Products</TabsTrigger>
                 <TabsTrigger value="summary">Summary & Export</TabsTrigger>
               </TabsList>
               
               <TabsContent value="boxes" className="space-y-6">
                 <BoxManager />
+              </TabsContent>
+
+              <TabsContent value="complementary" className="space-y-6">
+                <ComplementaryProducts />
               </TabsContent>
               
               <TabsContent value="summary">
