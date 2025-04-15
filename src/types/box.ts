@@ -1,3 +1,4 @@
+
 export type BoxType = '55 Box' | 'Rectangular Box';
 
 export const BOX_MODULE_CAPACITIES = {
