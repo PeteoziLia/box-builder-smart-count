@@ -42,4 +42,3 @@ export const getProductBySku = (sku: string): Product | undefined => {
 export const isBoxCompatibleProduct = (product: Product): boolean => {
   return product.attributes.moduleSize !== undefined;
 };
-

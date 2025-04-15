@@ -1,5 +1,129 @@
 
-{
-  // The contents of the products_full.json file would go here
-  // If you haven't shared the contents, please provide them
-}
+[
+  {
+    "sku": "SW-M-001",
+    "name": "Single Switch Module",
+    "description": "Basic single switch module for light control",
+    "regularPrice": 29.99,
+    "series": "Basic",
+    "brand": "SmartSwitch",
+    "attributes": {
+      "moduleSize": 1,
+      "category": "Switch",
+      "smartHomeCompatible": true
+    }
+  },
+  {
+    "sku": "SW-M-002",
+    "name": "Double Switch Module",
+    "description": "Dual switch module for controlling two separate lights",
+    "regularPrice": 39.99,
+    "series": "Basic",
+    "brand": "SmartSwitch",
+    "attributes": {
+      "moduleSize": 2,
+      "category": "Switch",
+      "smartHomeCompatible": true
+    }
+  },
+  {
+    "sku": "SW-D-001",
+    "name": "Dimmer Module",
+    "description": "Dimming control for compatible lighting",
+    "regularPrice": 44.99,
+    "series": "Advanced",
+    "brand": "SmartSwitch",
+    "attributes": {
+      "moduleSize": 1,
+      "category": "Dimmer",
+      "smartHomeCompatible": true
+    }
+  },
+  {
+    "sku": "SW-S-001",
+    "name": "Smart Scene Controller",
+    "description": "Programmable scene controller with 4 buttons",
+    "regularPrice": 59.99,
+    "series": "Smart",
+    "brand": "SmartSwitch",
+    "attributes": {
+      "moduleSize": 2,
+      "category": "Controller",
+      "smartHomeCompatible": true
+    }
+  },
+  {
+    "sku": "SW-O-001",
+    "name": "Outlet Module",
+    "description": "In-wall outlet module with energy monitoring",
+    "regularPrice": 34.99,
+    "series": "Basic",
+    "brand": "SmartSwitch",
+    "attributes": {
+      "moduleSize": 1,
+      "category": "Outlet",
+      "smartHomeCompatible": true
+    }
+  },
+  {
+    "sku": "SW-O-002",
+    "name": "USB Outlet Module",
+    "description": "Outlet module with USB charging ports",
+    "regularPrice": 44.99,
+    "series": "Advanced",
+    "brand": "SmartSwitch",
+    "attributes": {
+      "moduleSize": 2,
+      "category": "Outlet",
+      "smartHomeCompatible": true
+    }
+  },
+  {
+    "sku": "LX-S-001",
+    "name": "Luxury Touch Switch",
+    "description": "Premium touch-sensitive light switch",
+    "regularPrice": 89.99,
+    "series": "Premium",
+    "brand": "LuxCraft",
+    "attributes": {
+      "moduleSize": 1,
+      "category": "Switch",
+      "smartHomeCompatible": true
+    }
+  },
+  {
+    "sku": "LX-D-001",
+    "name": "Luxury Touch Dimmer",
+    "description": "Premium touch-sensitive dimmer with LED indicator",
+    "regularPrice": 99.99,
+    "series": "Premium",
+    "brand": "LuxCraft",
+    "attributes": {
+      "moduleSize": 1,
+      "category": "Dimmer",
+      "smartHomeCompatible": true
+    }
+  },
+  {
+    "sku": "CP-L-001",
+    "name": "Ceiling Light Fixture",
+    "description": "Modern ceiling light fixture",
+    "regularPrice": 129.99,
+    "series": "Home",
+    "brand": "ComfortPlus",
+    "attributes": {
+      "category": "Lighting"
+    }
+  },
+  {
+    "sku": "CP-L-002",
+    "name": "Wall Sconce",
+    "description": "Decorative wall sconce light",
+    "regularPrice": 89.99,
+    "series": "Home",
+    "brand": "ComfortPlus",
+    "attributes": {
+      "category": "Lighting"
+    }
+  }
+]
