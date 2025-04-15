@@ -1,5 +1,5 @@
 
-import productData from '../products_full.json';
+import productData from '@/products_full.json';
 import { Product } from '@/types/box';
 
 const products: Product[] = productData;
@@ -42,3 +42,4 @@ export const getProductBySku = (sku: string): Product | undefined => {
 export const isBoxCompatibleProduct = (product: Product): boolean => {
   return product.attributes.moduleSize !== undefined;
 };
+
