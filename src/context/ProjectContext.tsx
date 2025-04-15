@@ -1,6 +1,6 @@
-
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import { SwitchProduct } from "../data/sampleSwitchData";
+import { BoxType, BoxModuleCapacity } from "@/types/box";
 
 export interface BoxProduct {
   product: SwitchProduct;
@@ -12,7 +12,8 @@ export interface Box {
   name: string;
   area: string;
   description: string;
-  moduleCapacity: number;
+  boxType: BoxType;
+  moduleCapacity: BoxModuleCapacity;
   products: BoxProduct[];
 }
 

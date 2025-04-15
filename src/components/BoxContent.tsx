@@ -15,9 +15,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Trash2, Minus, Plus } from "lucide-react";
+import { Edit2, Trash2, Minus, Plus } from "lucide-react";
 import { useProject } from "@/context/ProjectContext";
 import { Box } from "@/context/ProjectContext";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import BoxForm from "./BoxForm";
 
 interface BoxContentProps {
   box: Box;
@@ -55,13 +57,35 @@ const BoxContent: React.FC<BoxContentProps> = ({ box }) => {
 
   return (
     <Card className="w-full">
-      <CardHeader>
-        <CardTitle>
-          {box.name} - {box.area}
-          <span className="text-sm font-normal ml-2 text-muted-foreground">
-            ({usedModules}/{box.moduleCapacity} modules used)
-          </span>
-        </CardTitle>
+      <CardHeader className="flex flex-row items-center justify-between">
+        <div>
+          <CardTitle className="flex items-center gap-2">
+            {box.name} - {box.area}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-8 w-8">
+                  <Edit2 className="h-4 w-4" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <BoxForm 
+                  onComplete={() => {}} 
+                  initialData={{
+                    id: box.id,
+                    name: box.name,
+                    area: box.area,
+                    description: box.description,
+                    boxType: box.boxType,
+                    moduleCapacity: box.moduleCapacity,
+                  }}
+                />
+              </DialogContent>
+            </Dialog>
+          </CardTitle>
+          <div className="text-sm font-normal text-muted-foreground">
+            {box.boxType} - {box.moduleCapacity} modules
+          </div>
+        </div>
       </CardHeader>
       <CardContent>
         {box.description && (
@@ -80,9 +104,61 @@ const BoxContent: React.FC<BoxContentProps> = ({ box }) => {
           </div>
         </div>
 
-        {box.products.length === 0 ? (
-          <p className="text-muted-foreground text-center py-4">No products added yet</p>
-        ) : (
+        {/* Mobile product list */}
+        <div className="block md:hidden space-y-4">
+          {box.products.length === 0 ? (
+            <p className="text-muted-foreground text-center py-4">No products added yet</p>
+          ) : (
+            box.products.map((item) => (
+              <div key={item.product.sku} className="border rounded-lg p-4 space-y-2">
+                <div className="flex justify-between">
+                  <span className="font-medium">{item.product.productName}</span>
+                  <span>{formatPrice(item.product.price)}</span>
+                </div>
+                <div className="text-sm text-muted-foreground">SKU: {item.product.sku}</div>
+                <div className="text-sm text-muted-foreground">
+                  Modules: {item.product.moduleSize * item.quantity}
+                </div>
+                <div className="flex items-center justify-between mt-2">
+                  <div className="flex items-center space-x-2">
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="h-8 w-8"
+                      onClick={() => handleDecreaseQuantity(item.product.sku, item.quantity)}
+                    >
+                      <Minus className="h-4 w-4" />
+                    </Button>
+                    <span className="w-8 text-center">{item.quantity}</span>
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="h-8 w-8"
+                      onClick={() => handleIncreaseQuantity(item.product.sku, item.quantity)}
+                      disabled={item.product.moduleSize > remainingModules}
+                    >
+                      <Plus className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  <Button 
+                    variant="ghost" 
+                    size="icon"
+                    className="h-8 w-8 text-destructive hover:text-destructive"
+                    onClick={() => removeProductFromBox(box.id, item.product.sku)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="text-right font-medium">
+                  Total: {formatPrice(item.product.price * item.quantity)}
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Desktop table view */}
+        <div className="hidden md:block">
           <Table>
             <TableHeader>
               <TableRow>
@@ -141,7 +217,7 @@ const BoxContent: React.FC<BoxContentProps> = ({ box }) => {
               ))}
             </TableBody>
           </Table>
-        )}
+        </div>
       </CardContent>
     </Card>
   );

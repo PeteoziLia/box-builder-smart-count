@@ -7,17 +7,29 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useProject } from "@/context/ProjectContext";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { BoxType, BOX_MODULE_CAPACITIES, BoxModuleCapacity } from "@/types/box";
 
 interface BoxFormProps {
   onComplete: () => void;
+  initialData?: {
+    id: string;
+    name: string;
+    area: string;
+    description: string;
+    boxType: BoxType;
+    moduleCapacity: BoxModuleCapacity;
+  };
 }
 
-const BoxForm: React.FC<BoxFormProps> = ({ onComplete }) => {
-  const { addBox } = useProject();
-  const [boxName, setBoxName] = useState("");
-  const [area, setArea] = useState("");
-  const [description, setDescription] = useState("");
-  const [moduleCapacity, setModuleCapacity] = useState<number>(3);
+const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData }) => {
+  const { addBox, updateBox } = useProject();
+  const [boxName, setBoxName] = useState(initialData?.name || "");
+  const [area, setArea] = useState(initialData?.area || "");
+  const [description, setDescription] = useState(initialData?.description || "");
+  const [boxType, setBoxType] = useState<BoxType>(initialData?.boxType || "Rectangular Box");
+  const [moduleCapacity, setModuleCapacity] = useState<BoxModuleCapacity>(
+    initialData?.moduleCapacity || 3 as BoxModuleCapacity
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,28 +38,37 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete }) => {
       return;
     }
 
-    addBox({
+    const boxData = {
       name: boxName,
       area,
       description,
+      boxType,
       moduleCapacity,
-    });
+    };
+
+    if (initialData) {
+      updateBox(initialData.id, boxData);
+    } else {
+      addBox(boxData);
+    }
 
     // Reset the form
-    setBoxName("");
-    setArea("");
-    setDescription("");
-    setModuleCapacity(3);
+    if (!initialData) {
+      setBoxName("");
+      setArea("");
+      setDescription("");
+      setBoxType("Rectangular Box");
+      setModuleCapacity(3 as BoxModuleCapacity);
+    }
+    
     onComplete();
   };
-
-  const moduleOptions = [3, 4, 6, 8, 12, 18, 24];
 
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle>Add New Box</CardTitle>
-        <CardDescription>Create a new electrical box</CardDescription>
+        <CardTitle>{initialData ? 'Edit Box' : 'Add New Box'}</CardTitle>
+        <CardDescription>{initialData ? 'Modify box details' : 'Create a new electrical box'}</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -74,6 +95,45 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete }) => {
           </div>
 
           <div className="space-y-2">
+            <Label htmlFor="boxType">Box Type</Label>
+            <Select
+              value={boxType}
+              onValueChange={(value: BoxType) => {
+                setBoxType(value);
+                // Reset module capacity to a valid value for the new box type
+                setModuleCapacity(BOX_MODULE_CAPACITIES[value][0]);
+              }}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select box type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="55 Box">55 Box</SelectItem>
+                <SelectItem value="Rectangular Box">Rectangular Box</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="moduleCapacity">Number of Modules</Label>
+            <Select
+              value={moduleCapacity.toString()}
+              onValueChange={(value) => setModuleCapacity(Number(value) as BoxModuleCapacity)}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select module capacity" />
+              </SelectTrigger>
+              <SelectContent>
+                {BOX_MODULE_CAPACITIES[boxType].map((capacity) => (
+                  <SelectItem key={capacity} value={capacity.toString()}>
+                    {capacity} modules
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="space-y-2">
             <Label htmlFor="description">Description (Optional)</Label>
             <Textarea
               id="description"
@@ -83,26 +143,9 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete }) => {
             />
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="moduleCapacity">Number of Modules</Label>
-            <Select
-              value={moduleCapacity.toString()}
-              onValueChange={(value) => setModuleCapacity(Number(value))}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select module capacity" />
-              </SelectTrigger>
-              <SelectContent>
-                {moduleOptions.map((option) => (
-                  <SelectItem key={option} value={option.toString()}>
-                    {option} modules
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          <Button type="submit" className="w-full">Create Box</Button>
+          <Button type="submit" className="w-full">
+            {initialData ? 'Save Changes' : 'Create Box'}
+          </Button>
         </form>
       </CardContent>
     </Card>
