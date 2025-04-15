@@ -1,12 +1,12 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { 
   Card, 
-  CardContent, 
-  CardFooter, 
-  CardHeader, 
+  CardContent,
+  CardHeader,
   CardTitle 
 } from "@/components/ui/card";
 import { Search, Package } from "lucide-react";
@@ -23,7 +23,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { SwitchProduct, searchProducts } from "@/data/sampleSwitchData";
+import { Product } from "@/types/box";
+import { searchProducts, isBoxCompatibleProduct } from "@/services/productService";
 import { useProject } from "@/context/ProjectContext";
 
 interface ProductSearchProps {
@@ -34,22 +35,23 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
   const { addProductToBox, getRemainingModules } = useProject();
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<SwitchProduct[]>([]);
-  const [selectedProduct, setSelectedProduct] = useState<SwitchProduct | null>(null);
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (searchQuery.trim().length > 0) {
-      const results = searchProducts(searchQuery);
+      const results = searchProducts(searchQuery)
+        .filter(isBoxCompatibleProduct); // Only show products that can go in boxes
       setSearchResults(results);
     } else {
       setSearchResults([]);
     }
   }, [searchQuery]);
 
-  const handleSelectProduct = (product: SwitchProduct) => {
+  const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);
     setOpen(false);
     setSearchQuery("");
@@ -101,7 +103,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                   {selectedProduct ? (
                     <>
                       <Package className="mr-2 h-4 w-4" />
-                      <span>{selectedProduct.sku} - {selectedProduct.productName}</span>
+                      <span>{selectedProduct.sku} - {selectedProduct.name}</span>
                     </>
                   ) : (
                     <>
@@ -115,7 +117,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                 className="p-0 w-[400px]" 
                 side="bottom" 
                 align="start" 
-                alignOffset={0} 
+                alignOffset={0}
                 sideOffset={4}
               >
                 <Command shouldFilter={false}>
@@ -136,15 +138,17 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                         >
                           <div className="flex flex-col w-full">
                             <div className="flex justify-between w-full">
-                              <span className="font-medium">{product.productName}</span>
-                              <span className="text-muted-foreground">{formatPrice(product.price)}</span>
+                              <span className="font-medium">{product.name}</span>
+                              <span className="text-muted-foreground">
+                                {formatPrice(product.regularPrice)}
+                              </span>
                             </div>
                             <div className="flex justify-between w-full text-sm text-muted-foreground">
                               <span>{product.sku}</span>
-                              <span>{product.moduleSize} module{product.moduleSize > 1 ? 's' : ''}</span>
+                              <span>{product.attributes.moduleSize} module{product.attributes.moduleSize > 1 ? 's' : ''}</span>
                             </div>
                             <div className="text-xs text-muted-foreground mt-1">
-                              {product.brand} | {product.series} | {product.color}
+                              {product.brand} | {product.series}
                             </div>
                           </div>
                         </CommandItem>
@@ -200,3 +204,4 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
 };
 
 export default ProductSearch;
+

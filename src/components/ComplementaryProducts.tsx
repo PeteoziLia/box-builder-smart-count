@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { useProject } from "@/context/ProjectContext";
+import { searchProducts, isBoxCompatibleProduct } from "@/services/productService";
 import { ComplementaryProductData } from "@/types/box";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -48,7 +49,7 @@ const ComplementaryProducts = () => {
   };
 
   const searchResults = searchQuery
-    ? searchProducts(searchQuery)
+    ? searchProducts(searchQuery).filter(p => !isBoxCompatibleProduct(p))
     : [];
 
   return (

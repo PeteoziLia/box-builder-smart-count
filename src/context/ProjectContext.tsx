@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import { SwitchProduct } from "../data/sampleSwitchData";
-import { BoxType, BoxModuleCapacity, ComplementaryProductData } from "@/types/box";
+import { BoxType, BoxModuleCapacity, ComplementaryProductData, Product } from "@/types/box";
 
 export interface BoxProduct {
-  product: SwitchProduct;
+  product: Product;
   quantity: number;
 }
 
@@ -24,7 +24,7 @@ interface ProjectContextType {
   addBox: (box: Omit<Box, 'id' | 'products'>) => void;
   updateBox: (boxId: string, boxData: Partial<Omit<Box, 'id' | 'products'>>) => void;
   deleteBox: (boxId: string) => void;
-  addProductToBox: (boxId: string, product: SwitchProduct, quantity: number) => boolean;
+  addProductToBox: (boxId: string, product: Product, quantity: number) => boolean;
   removeProductFromBox: (boxId: string, productSku: string) => void;
   updateProductQuantity: (boxId: string, productSku: string, quantity: number) => boolean;
   getUsedModules: (boxId: string) => number;
@@ -84,7 +84,7 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
     return box.moduleCapacity - usedModules;
   };
 
-  const addProductToBox = (boxId: string, product: SwitchProduct, quantity: number): boolean => {
+  const addProductToBox = (boxId: string, product: Product, quantity: number): boolean => {
     const box = boxes.find((b) => b.id === boxId);
     if (!box) return false;
 

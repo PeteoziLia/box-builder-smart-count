@@ -1,4 +1,3 @@
-
 export type BoxType = '55 Box' | 'Rectangular Box';
 
 export const BOX_MODULE_CAPACITIES = {
@@ -16,6 +15,23 @@ export interface BoxFormData {
   moduleCapacity: BoxModuleCapacity;
 }
 
+export interface ProductAttributes {
+  moduleSize?: number;
+  category?: string;
+  smartHomeCompatible?: boolean;
+  [key: string]: any; // Allow for additional attributes
+}
+
+export interface Product {
+  sku: string;  
+  name: string;
+  description: string;
+  regularPrice: number;
+  series: string;
+  brand: string;
+  attributes: ProductAttributes;
+}
+
 export interface ComplementaryProductData {
   sku: string;
   name: string;
@@ -23,4 +39,3 @@ export interface ComplementaryProductData {
   area: string;
   description?: string;
 }
-
