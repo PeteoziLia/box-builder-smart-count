@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -75,7 +74,6 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
       return;
     }
 
-    // Reset everything after successfully adding the product
     setSelectedProduct(null);
     setQuantity(1);
     setError("");
@@ -113,7 +111,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                   )}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="p-0" side="bottom" align="start" alignOffset={0} className="w-[400px]">
+              <PopoverContent className="p-0" side="bottom" align="start" alignOffset={0} sideOffset={4} className="w-[400px]">
                 <Command shouldFilter={false}>
                   <CommandInput 
                     placeholder="Search by SKU or product name..." 

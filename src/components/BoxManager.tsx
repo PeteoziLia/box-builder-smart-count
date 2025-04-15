@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2, FileDown } from "lucide-react";
@@ -76,12 +75,14 @@ const BoxManager: React.FC = () => {
             <CardDescription>Start by adding a new box to your project</CardDescription>
           </CardHeader>
           <CardFooter>
-            <DialogTrigger asChild>
-              <Button onClick={() => setIsNewBoxDialogOpen(true)}>
-                <Plus className="mr-2 h-4 w-4" />
-                Add New Box
-              </Button>
-            </DialogTrigger>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button onClick={() => setIsNewBoxDialogOpen(true)}>
+                  <Plus className="mr-2 h-4 w-4" />
+                  Add New Box
+                </Button>
+              </DialogTrigger>
+            </Dialog>
           </CardFooter>
         </Card>
       ) : (
