@@ -1,4 +1,3 @@
-
 import React from "react";
 import { 
   Card, 
@@ -71,19 +70,21 @@ const BoxContent: React.FC<BoxContentProps> = ({ box }) => {
                 <BoxForm 
                   onComplete={() => {}} 
                   initialData={{
-                    id: box.id,
                     name: box.name,
                     area: box.area,
                     description: box.description,
                     boxType: box.boxType,
                     moduleCapacity: box.moduleCapacity,
+                    color: box.color
                   }}
+                  boxId={box.id}
                 />
               </DialogContent>
             </Dialog>
           </CardTitle>
           <div className="text-sm font-normal text-muted-foreground">
             {box.boxType} - {box.moduleCapacity} modules
+            {box.color && ` - ${box.color}`}
           </div>
         </div>
       </CardHeader>

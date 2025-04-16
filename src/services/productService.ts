@@ -1,6 +1,7 @@
 
 import productData from '@/products_full.json';
-import { Product, BoxType, BoxModuleCapacity, FrameAdapter, Box } from '@/types/box';
+import { Product, BoxType, BoxModuleCapacity, FrameAdapter } from '@/types/box';
+import { Box } from "@/context/ProjectContext"; // Import Box from ProjectContext instead
 
 const products: Product[] = productData;
 

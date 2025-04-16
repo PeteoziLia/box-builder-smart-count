@@ -60,10 +60,12 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData, boxId }) => 
   const boxType = form.watch("boxType") as BoxType;
 
   useEffect(() => {
-    setAvailableModules(BOX_MODULE_CAPACITIES[boxType]);
+    // Convert the readonly array to a regular array using Array.from()
+    setAvailableModules(Array.from(BOX_MODULE_CAPACITIES[boxType]));
+    
     // Reset module capacity if the current one isn't available
     const currentCapacity = form.getValues("moduleCapacity");
-    if (!BOX_MODULE_CAPACITIES[boxType].includes(currentCapacity)) {
+    if (!BOX_MODULE_CAPACITIES[boxType].includes(currentCapacity as any)) {
       form.setValue("moduleCapacity", BOX_MODULE_CAPACITIES[boxType][0]);
     }
   }, [boxType, form]);
