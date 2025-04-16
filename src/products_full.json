@@ -117,19 +117,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי מפסק תרחיש בוקר/לילה",
-    "description": "כיסוי מואר בוקר/לילה למפסק תרחיש אלחוטי - מודול 1",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "KG41",
     "name": "Living Now - כיסוי מפסק תרחיש בוקר/לילה - שחור",
     "description": "",
@@ -166,19 +153,6 @@
       "moduleSize": null,
       "category": "חול",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - כיסוי מפסק תרחיש כניסה/יציאה",
-    "description": "כיסוי מואר כניסה/יציאה למפסק תרחיש אלחוטי - מודול 1",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -221,19 +195,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי מפסק תריס",
-    "description": "כיסוי מואר למפסק תריס - מודול 1\r\\nמתאים גם ללחצן תריס חכם.",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "KW32",
     "name": "Living Now - כיסוי מפסק תריס - לבן",
     "description": "",
@@ -270,19 +231,6 @@
       "moduleSize": null,
       "category": "חול",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - כיסוי מפסק תאורה",
-    "description": "כיסוי מואר למפסק תאורה - מודול 1",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -325,19 +273,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי מפסק דימר",
-    "description": "כיסוי מואר למפסק דימר חכם - מודול 1",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "KW05",
     "name": "Living Now - כיסוי מפסק דימר - לבן",
     "description": "",
@@ -374,19 +309,6 @@
       "moduleSize": null,
       "category": "חול",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - כיסוי מפסק כוח חכם",
-    "description": "כיסוי מואר למפסק כוח חכם 16 אמפר - מודול 1",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -429,19 +351,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי מתאם רשת (רכזת)",
-    "description": "כיסוי מואר למתאם רשת (רכזת) - 2 מודול",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "KW30M2",
     "name": "Living Now - כיסוי מתאם רשת (רכזת) - לבן",
     "description": "",
@@ -477,19 +386,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "חול",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - מתאם לקופסת חשמל",
-    "description": "מתאם לקופסאת חשמל. מתאם בין קופסאת חשמל למסגרת Living Now.",
-    "regularPrice": 0.0,
-    "series": "Living Now",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מתאם לקופסת חשמל",
       "smartHomeCompatible": false
     }
   },
@@ -542,19 +438,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "6 מודול לקופסה מלבנית",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - מסגרת לקופסת חשמל",
-    "description": "כיסוי מסגרת דקורטיבי לסדרת Living Now - מתחבר למתאם מתאים לקופסאת חשמל.",
-    "regularPrice": 0.0,
-    "series": "מסגרת",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "אופטי, זהב, חול, חלל, ירח, לבן, משי, מתכת מוברשת, עץ אגוז, עץ אלון, פיקסל, פלדה, קרח, שחור, שחור מבריק, שמיים",
       "smartHomeCompatible": false
     }
   },
@@ -715,32 +598,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "מרכב מפסקים בהתאמה אישית Living Now",
-    "description": "צרו מרכב מותאם אישית בהתאם לקופסאות החשמל בביתכם. בעזרת מרכב זה ניתן לבנות את כל סוגי המרכבים האפשריים לכל סוגי הקופסאות והתכולות.",
-    "regularPrice": 0.0,
-    "series": "Living Now",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "מנעול חכם Nuki 4",
-    "description": "המנעול החכם Nuki Smart Lock הופך את מנעול הדלת הקיים שלך לדיגיטלי.\r\\nמאפשר לך לשלוט על דלת הכניסה לבית מרחוק ללא צורך בשינויים לפני ההתקנה.",
-    "regularPrice": 0.0,
-    "series": "לבן",
-    "brand": "Nuki",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מנעול בלבד, מנעול + מגשר, מנעול + קודן, מנעול + קודן + מגשר",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "nuki4",
     "name": "מנעול חכם Nuki 4 - מנעול בלבד",
     "description": "",
@@ -789,19 +646,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "מנעול + קודן + מגשר",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "מנעול חכם Nuki 4 Pro",
-    "description": "המנעול החכם Nuki Smart Lock הופך את מנעול הדלת הקיים שלך לדיגיטלי.\r\\nמאפשר לך לשלוט על דלת הכניסה לבית מרחוק ללא צורך בשינויים לפני ההתקנה.\r\\nעם WiFi מובנה לגישה מרחוק וחבילת סוללות נטענות לעוצמה מלאה.",
-    "regularPrice": 0.0,
-    "series": "מנעול בלבד, מנעול + קודן",
-    "brand": "Nuki",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
       "smartHomeCompatible": true
     }
   },
@@ -871,7 +715,7 @@
     }
   },
   {
-    "sku": "",
+    "sku": "7290015524117",
     "name": "Switcher Smart Plug שקע חכם",
     "description": "שקע חכם עם שליטה מכל מקום ובכל זמן שהופך כל בית לבית חכם.",
     "regularPrice": 121.0,
@@ -893,19 +737,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "Alexa, Google Home, Home Assistant",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Switcher מפסק חכם לדוד",
-    "description": "מתג חכם לדוד חשמל או שמש בשליטה מהסמארטפון",
-    "regularPrice": 0.0,
-    "series": "Wi-Fi",
-    "brand": "Switcher",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Mini, Touch, Long",
       "smartHomeCompatible": true
     }
   },
@@ -946,19 +777,6 @@
       "moduleSize": null,
       "category": "Long",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "תאורה חכמה בצורת משושים Nanoleaf Shapes",
-    "description": "תאורת RGB דקורטיבית חכמה מבית ננוליף - בצורת משושים.",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, SmartThings",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "בסיס + 5 יח׳, בסיס + 9 יח׳, בסיס + 15 יח׳, הרחבה 3 יח׳, הרחבה 25 יח׳",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -1024,19 +842,6 @@
       "moduleSize": null,
       "category": "הרחבה 25 יח׳",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "תאורה חכמה בצורת משולשים Nanoleaf Shapes",
-    "description": "תאורת RGB דקורטיבית חכמה מבית ננוליף - בצורת משולשים.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "בסיס + 9 יח׳, בסיס + 15 יח׳, הרחבה 3 יח׳, הרחבה 25 יח׳",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -1144,32 +949,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - מפסק צלב תאורה רגיל",
-    "description": "מפסק צלב תאורה רגיל (לא חכם) - 1 מודול. להתקנה במקומות בהן נדרש חילוף (שליטה מ3 מקומות לפחות) בשילוב עם מפסק חכם ומפסק מחליף.",
-    "regularPrice": 0.0,
-    "series": "ללא, כחול, לבן",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - שקע 3 פינים רגיל",
-    "description": "שקע 3 פינים רגיל (לא חכם) - 2 מודול. להשלמת הסדרה כשקע <strong>לא חכם</strong>\r\\nאו חכם בצימוד עם <a href=\"https://smartshop.co.il/product/%d7%9e%d7%a4%d7%a1%d7%a7-%d7%9b%d7%95%d7%97-%d7%97%d7%9b%d7%9d-ln/\">מפסק כוח חכם 16 אמפר Living Now</a>",
-    "regularPrice": 0.0,
-    "series": "שקע רגיל",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "KM4183",
     "name": "Living Now - שקע 3 פינים רגיל - חול",
     "description": "",
@@ -1209,19 +988,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי שקע 3 פינים",
-    "description": "כיסוי שקע 3 פינים\r\\n\r\\n<strong>תואם גם לתאורת חירום נשלפת דגם: K4380</strong>\r\\n\r\\n&nbsp;",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "KW04",
     "name": "Living Now - כיסוי שקע 3 פינים",
     "description": "",
@@ -1257,19 +1023,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "חול",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מתאם לקופסת חשמל",
-    "description": "מתאם לקופסאת חשמל. מתאם בין קופסאת חשמל למסגרת Living Light.",
-    "regularPrice": 0.0,
-    "series": "Living Light",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מתאם לקופסת חשמל",
       "smartHomeCompatible": false
     }
   },
@@ -1348,19 +1101,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "6 מודול לקופסה מלבנית",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מסגרת לקופסת חשמל",
-    "description": "כיסוי מסגרת לסדרת Living Light - מתחבר למתאם מתאים לקופסאת חשמל.",
-    "regularPrice": 0.0,
-    "series": "מסגרת",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "אפור משי, אפור שקוף, ברונזה, זהב מבריק, ירוק שקוף, כחול ים, כסוף, כתום שקוף, לבן, לבן שקוף, מוקה מטאלי, מתכת מוברשת, עץ אגוז, עץ דובדבן, פנינה, שחור, שחור שקוף",
       "smartHomeCompatible": false
     }
   },
@@ -1560,32 +1300,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מפסק תאורה חכם יחיד/חילוף",
-    "description": "מפסק תאורה חכם יחיד/חילוף כולל כיסוי - 1 מודול. מאפשר לשלוט על האורות באופן מקומי או מרוחק.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מתאם רשת (רכזת) + מפסק תרחיש כניסה/יציאה",
-    "description": "מתאם רשת (רכזת) כולל כיסוי - מאפשר חיבור כלל האביזרים של ביטיצ׳ינו לרשת הביתית דרך בקר חכם אחד - 2 מודול.\r\\nמצורף מפסק סוללה תרחיש כניסה/יציאה + כיסוי איתו מבצעים את החיבור הראשוני לכלל האביזרים.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "רכזת",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "N4510C",
     "name": "Living Light - מתאם רשת (רכזת) + מפסק תרחיש כניסה/יציאה - לבן",
     "description": "",
@@ -1664,19 +1378,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מפסק תריס חכם",
-    "description": "מפסק תריס חכם כולל כיסוי - 1 מודול. שולט על תריס באופן מקומי או מרוחק.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם, תריס / וילון חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "N4027C",
     "name": "Living Light - מפסק תריס חכם - לבן",
     "description": "",
@@ -1716,19 +1417,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מפסק דימר חכם",
-    "description": "מפסק דימר (עמעם) חכם כולל כיסוי - 1 מודול. מאפשר לשלוט על האורות באופן מקומי או מרחוק.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "N4411C",
     "name": "Living Light - מפסק דימר חכם - לבן",
     "description": "",
@@ -1765,19 +1453,6 @@
       "moduleSize": null,
       "category": "כסוף",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מפסק כוח חכם 16 אמפר",
-    "description": "מפסק כוח חכם 16 אמפר כולל כיסוי <strong>ללא לחצן </strong>- 1 מודול. מתאים לצרכנים כבדים כמו שקעים, תנורים ודוד חשמלי.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם, שקע חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -1885,19 +1560,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי מודול דמי",
-    "description": "כיסוי מודול דמי - 1 מודול.",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "KW00",
     "name": "Living Now - כיסוי מודול דמי - לבן",
     "description": "",
@@ -1933,19 +1595,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "חול",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מודול דמי ריק",
-    "description": "מודול דמי ריק ללא מפסק לצורך כיסוי איזורים ללא רכיבים - 1 מודול.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -1989,19 +1638,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מפסק תאורה קפיצי רגיל",
-    "description": "מפסק תאורה רגיל (לא חכם) - 1 מודול. להשלמת הסדרה במקומות שאין צורך במפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "N4051N",
     "name": "Living Light - מפסק תאורה קפיצי רגיל - לבן",
     "description": "",
@@ -2038,19 +1674,6 @@
       "moduleSize": null,
       "category": "כסוף",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מפסק מחליף תאורה קפיצי",
-    "description": "מפסק מחליף תאורה אקסיאלי/קפיצי רגיל (לא חכם) - 1 מודול. להתקנה במקומות בהן נדרש חילוף (שליטה מ2 מקומות לפחות) בשילוב עם מפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -2093,19 +1716,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מפסק צלב תאורה קפיצי",
-    "description": "מפסק צלב תאורה אקסיאלי/קפיצי רגיל (לא חכם) - 1 מודול. להתקנה במקומות בהן נדרש חילוף (שליטה מ3 מקומות לפחות) בשילוב עם מפסק חכם ומפסק מחליף.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "N4054N",
     "name": "Living Light - מפסק צלב תאורה קפיצי - לבן",
     "description": "",
@@ -2145,19 +1755,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - שקע 3 פינים רגיל",
-    "description": "שקע 3 פינים רגיל (לא חכם) - 2 מודול. להשלמת הסדרה כשקע <strong>לא חכם</strong>\r\\nאו חכם בצימוד עם <a href=\"https://smartshop.co.il/product/%d7%9e%d7%a4%d7%a1%d7%a7-%d7%9b%d7%95%d7%97-%d7%97%d7%9b%d7%9d-ll/\">מפסק כוח חכם 16 אמפר Living Light</a>",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "N4183",
     "name": "Living Light - שקע 3 פינים רגיל - לבן",
     "description": "",
@@ -2193,19 +1790,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "כסוף",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מתאם לקופסת חשמל",
-    "description": "מתאם לקופסאת חשמל. מתאם בין קופסאת חשמל למסגרת Classia.",
-    "regularPrice": 0.0,
-    "series": "2 מודול לקופסה 55, 3 מודול לקופסה מלבנית, 4 מודול לקופסה מלבנית, 6 מודול לקופסה מלבנית",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מתאם לקופסת חשמל",
       "smartHomeCompatible": false
     }
   },
@@ -2258,19 +1842,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "6 מודול לקופסה מלבנית",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מסגרת לקופסת חשמל",
-    "description": "כיסוי מסגרת לסדרת Classia - מתחבר למתאם מתאים לקופסאת חשמל.",
-    "regularPrice": 0.0,
-    "series": "מסגרת",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "אבן, אדמה, טיטניום, כחול מטאלי, לבן, לבן זהב, לבן משי, לבן ניקל, מוקה, קרח, קרם, קרם משי, שחור, שחור זהב, שחור מבריק, שחור ניקל",
       "smartHomeCompatible": false
     }
   },
@@ -2457,19 +2028,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מתאם רשת (רכזת) + מפסק מדבקה תרחיש כניסה/יציאה",
-    "description": "מתאם רשת (רכזת) כולל כיסוי - מאפשר חיבור כלל האביזרים של ביטיצ׳ינו לרשת הביתית דרך בקר חכם אחד - 2 מודול.\r\\nמצורף מפסק סוללה מדבקה (על הטיח) של תרחיש כניסה/יציאה + כיסוי איתו מבצעים את החיבור הראשוני לכלל האביזרים.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "רכזת",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "RW4500C",
     "name": "Classia - מתאם רשת (רכזת) + מפסק מדבקה תרחיש כניסה/יציאה - לבן",
     "description": "",
@@ -2493,19 +2051,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מפסק תאורה חכם יחיד/חילוף",
-    "description": "מפסק תאורה חכם יחיד/חילוף כולל כיסוי - 1 מודול. מאפשר לשלוט על האורות באופן מקומי או מרוחק.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -2535,19 +2080,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מפסק תריס חכם",
-    "description": "מפסק תריס חכם כולל כיסוי - 1 מודול. שולט על תריס באופן מקומי או מרוחק.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם, תריס / וילון חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "RW4027C",
     "name": "Classia - מפסק תריס חכם - לבן",
     "description": "",
@@ -2571,19 +2103,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מפסק דימר חכם",
-    "description": "מפסק דימר (עמעם) חכם כולל כיסוי - 1 מודול. מאפשר לשלוט על האורות באופן מקומי או מרחוק.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -2613,19 +2132,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מפסק כוח חכם 16 אמפר",
-    "description": "מפסק כוח חכם 16 אמפר כולל כיסוי <strong>ללא לחצן </strong>- 1 מודול. מתאים לצרכנים כבדים כמו שקעים, תנורים ודוד חשמלי.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם, שקע חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "RW4531C",
     "name": "Classia - מפסק כוח חכם 16 אמפר - לבן",
     "description": "",
@@ -2649,19 +2155,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מפסק סוללה חיצוני לתאורה",
-    "description": "מפסק אלחוטי מדבקה (על הטיח) לתאורה - מודול 1. מאפשר לבצע חילוף מכל מקום ללא חיווט. כולל כיסוי.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -2691,19 +2184,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מפסק סוללה חיצוני לתריס",
-    "description": "מפסק אלחוטי מדבקה (על הטיח) לתריס גלילה - מודול 1. מאפשר לבצע חילוף מכל מקום ללא חיווט. כולל כיסוי.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "RW4027CW",
     "name": "Classia - מפסק סוללה חיצוני לתריס - לבן",
     "description": "",
@@ -2727,19 +2207,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מפסק סוללה חיצוני תרחיש כניסה/יציאה",
-    "description": "מפסק מדבקה (על הטיח) תרחיש כניסה/יציאה אלחוטי - 1 מודול. מצויד ב-2 לחצנים להפעלת תרחישי כניסה ויציאה. כולל כיסוי.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -2769,19 +2236,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מפסק סוללה חיצוני תרחיש בוקר/לילה",
-    "description": "מפסק מדבקה (על הטיח) תרחיש בוקר/לילה אלחוטי - 1 מודול. מצויד ב-2 לחצנים להפעלת תרחישי בוקר ולילה. כולל כיסוי.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "RW4574CW",
     "name": "Classia - מפסק סוללה חיצוני תרחיש בוקר/לילה - לבן",
     "description": "",
@@ -2804,19 +2258,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מודול דמי ריק",
-    "description": "מודול דמי ריק ללא מפסק לצורך כיסוי איזורים ללא רכיבים - 1 מודול.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -2847,19 +2288,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - שקע 3 פינים רגיל",
-    "description": "שקע 3 פינים רגיל (לא חכם) - 2 מודול. להשלמת הסדרה כשקע <strong>לא חכם</strong>\r\\nאו חכם בצימוד עם <a href=\"https://smartshop.co.il/product/%d7%9e%d7%a4%d7%a1%d7%a7-%d7%9b%d7%95%d7%97-%d7%97%d7%9b%d7%9d-c/\">מפסק כוח חכם 16 אמפר Classia</a>",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "RW4183",
     "name": "Classia - שקע 3 פינים רגיל - לבן",
     "description": "",
@@ -2882,19 +2310,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מפסק קפיצי NO רגיל",
-    "description": "מפסק קפיצי NO רגיל <strong>(לא חכם)</strong>.\r\\nמפסק Normal Open לחדר מדרגות, פעמון וכדומה.\r\\n<strong>התמונה להמחשה בלבד</strong>, ייתכנו שינויים בסימון ובמראה המפסק",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -2938,19 +2353,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מפסק קפיצי NO רגיל",
-    "description": "מפסק קפיצי NO רגיל <strong>(לא חכם)</strong>.\r\\nמפסק Normal Open לחדר מדרגות, פעמון וכדומה.\r\\nניתן לבחור מפסק הכולל תאורת לד פנימית מובנית.\r\\n<strong>התמונה להמחשה בלבד</strong>, ייתכנו שינויים בסימון ובמראה המפסק",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "RW4005",
     "name": "Classia - מפסק קפיצי NO רגיל",
     "description": "",
@@ -2973,19 +2375,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מפסק תאורה רגיל",
-    "description": "מפסק תאורה רגיל <strong>(לא חכם)</strong>.\r\\nלהשלמת הסדרה במקומות שאין צורך במפסק חכם.\r\\nניתן לבחור מפסק הכולל תאורת לד פנימית מובנית.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -3016,19 +2405,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מפסק מחליף תאורה רגיל",
-    "description": "מפסק מחליף תאורה רגיל <strong>(לא חכם)</strong>.\r\\nניתן לבחור מפסק הכולל תאורת לד פנימית מובנית.\r\\nלהתקנה במקומות בהן נדרש חילוף (שליטה מ2 מקומות לפחות) בשילוב עם מפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "RW4003",
     "name": "Classia - מפסק מחליף תאורה רגיל",
     "description": "",
@@ -3055,19 +2431,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מפסק צלב תאורה רגיל",
-    "description": "מפסק צלב תאורה רגיל <strong>(לא חכם)</strong>.\r\\nניתן לבחור מפסק הכולל תאורת לד פנימית מובנית.\r\\nלהתקנה במקומות בהן נדרש חילוף (שליטה מ3 מקומות לפחות) בשילוב עם מפסק חכם ומפסק מחליף.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "RW4004",
     "name": "Classia - מפסק צלב תאורה רגיל",
     "description": "",
@@ -3091,32 +2454,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מכלול מפסקים משולב תאורה ותריס",
-    "description": "סט רכיבים לשליטה חכמה בתאורה ותריסים - כל מה שצריך בשביל להחליף מפסקים קיימים בחכמים!",
-    "regularPrice": 0.0,
-    "series": "1 תאורה + 1 תריס, 2 תאורה + 1 תריס, 1 תאורה + 2 תריס, 3 תאורה + 1 תריס, 2 תאורה + 2 תריס, 1 תאורה + 3 תריס",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מכלול מפסקי תריס",
-    "description": "סט רכיבים לשליטה חכמה בתריסים - כל מה שצריך בשביל להחליף מפסקים קיימים בחכמים!",
-    "regularPrice": 0.0,
-    "series": "1 תריס, 2 תריס, 3 תריס, 4 תריס",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -3221,19 +2558,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מכלול מפסקי תאורה",
-    "description": "סט רכיבים לשליטה חכמה בתאורה - כל מה שצריך בשביל להחליף מפסקים קיימים בחכמים!",
-    "regularPrice": 0.0,
-    "series": "1 תאורה, 2 תאורה, 3 תאורה, 4 תאורה",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -3497,19 +2821,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מכלול מפסקי תאורה",
-    "description": "סט רכיבים לשליטה חכמה בתאורה - כל מה שצריך בשביל להחליף מפסקים קיימים בחכמים!",
-    "regularPrice": 0.0,
-    "series": "1 תאורה, 2 תאורה, 3 תאורה, 4 תאורה",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כסוף, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "LN4703, LNA4803BI, N4003C, N4950, N4950",
     "name": "Living Light - מכלול מפסקי תאורה - לבן, 1 תאורה",
     "description": "",
@@ -3666,19 +2977,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מכלול מפסקי תריס",
-    "description": "סט רכיבים לשליטה חכמה בתריסים - כל מה שצריך בשביל להחליף מפסקים קיימים בחכמים!",
-    "regularPrice": 0.0,
-    "series": "1 תריס, 2 תריס, 3 תריס, 4 תריס",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כסוף, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "LN4703, LNA4803TE, NT4027C, NT4950, NT4950",
     "name": "Living Light - מכלול מפסקי תריס - כסוף, 1 תריס",
     "description": "",
@@ -3832,19 +3130,6 @@
       "moduleSize": null,
       "category": "כסוף",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מכלול מפסקים משולב תאורה ותריס",
-    "description": "סט רכיבים לשליטה חכמה בתאורה ותריסים - כל מה שצריך בשביל להחליף מפסקים קיימים בחכמים!",
-    "regularPrice": 0.0,
-    "series": "1 תאורה + 1 תריס, 2 תאורה + 1 תריס, 1 תאורה + 2 תריס, 3 תאורה + 1 תריס, 2 תאורה + 2 תריס, 1 תאורה + 3 תריס",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כסוף, לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -4082,19 +3367,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - מכלול מפסקי תאורה",
-    "description": "סט רכיבים לשליטה חכמה בתאורה - כל מה שצריך בשביל להחליף מפסקים קיימים בחכמים!",
-    "regularPrice": 0.0,
-    "series": "1 תאורה, 2 תאורה, 3 תאורה, 4 תאורה",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "K4703, KA4803KM, K4003C, KM01, K4950, K4950, KM00, KM00",
     "name": "Living Now - מכלול מפסקי תאורה - חול, 1 תאורה",
     "description": "",
@@ -4251,19 +3523,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - מכלול מפסקי תריס",
-    "description": "סט רכיבים לשליטה חכמה בתריסים - כל מה שצריך בשביל להחליף מפסקים קיימים בחכמים!",
-    "regularPrice": 0.0,
-    "series": "1 תריס, 2 תריס, 3 תריס, 4 תריס",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "K4703, KA4803KW, K4027C, KW32, K4950, K4950, KW00, KW00",
     "name": "Living Now - מכלול מפסקי תריס - לבן, 1 תריס",
     "description": "",
@@ -4417,19 +3676,6 @@
       "moduleSize": null,
       "category": "חול",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - מכלול מפסקים משולב תאורה ותריס",
-    "description": "סט רכיבים לשליטה חכמה בתאורה ותריסים - כל מה שצריך בשביל להחליף מפסקים קיימים בחכמים!",
-    "regularPrice": 0.0,
-    "series": "1 תאורה + 1 תריס, 2 תאורה + 1 תריס, 1 תאורה + 2 תריס, 3 תאורה + 1 תריס, 2 תאורה + 2 תריס, 1 תאורה + 3 תריס",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -4667,58 +3913,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מכלול בהתאמה אישית",
-    "description": "השתמשו באשף המכלולים על מנת ליצור לעצמכם מכלול מותאם בדיוק לצרכים שלכם",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כסוף, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מכלול בהתאמה אישית",
-    "description": "השתמשו באשף המכלולים על מנת ליצור לעצמכם מכלול מותאם בדיוק לצרכים שלכם",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - מכלול בהתאמה אישית",
-    "description": "השתמשו באשף המכלולים על מנת ליצור לעצמכם מכלול מותאם בדיוק לצרכים שלכם",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כסוף, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - כיסוי למתאם רשת + כיסוי מפסק תרחיש כניסה/יציאה",
-    "description": "כיסויים למתאם רשת:\r\\nכיסוי מואר למתאם רשת (רכזת) - 2 מודול +\r\\nכיסוי מואר כניסה/יציאה למפסק תרחיש אלחוטי - מודול 1",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "KW30M2, KW40",
     "name": "Living Now - כיסוי למתאם רשת + כיסוי מפסק תרחיש כניסה/יציאה - לבן",
     "description": "",
@@ -4754,19 +3948,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "חול",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - כיסוי מפסק עם סימון",
-    "description": "כיסוי מואר למפסק תאורה או מפסק NO קפיצי - מודול 1",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
       "smartHomeCompatible": false
     }
   },
@@ -4810,19 +3991,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי שקע כבל רשת",
-    "description": "כיסוי לשקע כבל רשת RJ45 - 1 מודול",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "KW07",
     "name": "Living Now - כיסוי שקע כבל רשת - לבן",
     "description": "",
@@ -4862,32 +4030,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "נורת לד למפסקים",
-    "description": "נורת לד 230v למפסקים רגילים",
-    "regularPrice": 0.0,
-    "series": "Living Light, Living Now",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כחול, לבן, אדום, צהוב",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - שקע רשת",
-    "description": "<div class=\"elementor-element elementor-element-10188296 elementor-widget elementor-widget-woocommerce-product-short-description\" data-id=\"10188296\" data-element_type=\"widget\" data-widget_type=\"woocommerce-product-short-description.default\">\r\\n<div class=\"elementor-widget-container\">\r\\n<div class=\"woocommerce-product-details__short-description\">\r\\n\r\\nשקע רשת, תקשורת לחיבור מחשב.\r\\n\r\\n</div>\r\\n</div>\r\\n</div>",
-    "regularPrice": 0.0,
-    "series": "שקע רגיל",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "KW4279C6A",
     "name": "Living Now - שקע רשת",
     "description": "",
@@ -4923,19 +4065,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "חול",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מפסק תאורה רגיל",
-    "description": "מפסק תאורה רגיל (לא חכם) - 1 מודול. להשלמת הסדרה במקומות שאין צורך במפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -5018,19 +4147,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - מפסק דו קוטבי רגיל",
-    "description": "מפסק דו קוטבי רגיל לדוד להשלמת הסדרה. Living Now",
-    "regularPrice": 0.0,
-    "series": "Living Now",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "KG4002",
     "name": "Living Now - מפסק דו קוטבי רגיל - שחור",
     "description": "",
@@ -5066,19 +4182,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "לבן",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - כיסוי למפסק דו קוטבי רגיל",
-    "description": "כיסוי למפסק דו קוטבי רגיל מודול - KG4002/KW4002/KM4002",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
       "smartHomeCompatible": false
     }
   },
@@ -5135,19 +4238,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי לשקע טלפון",
-    "description": "כיסוי לשקע טלפון מודול - K4238",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "KW20",
     "name": "Living Now - כיסוי לשקע טלפון - לבן",
     "description": "",
@@ -5183,19 +4273,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "חול",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - שקע טעינה USB",
-    "description": "שקע טעינה USB (לא חכם) להשלמת הסדרה. Living Now",
-    "regularPrice": 0.0,
-    "series": "Type A, Type C, Type C+A, Type C+C, Type A+A",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -5261,19 +4338,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "Type A",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - כיסוי לשקע טעינה USB",
-    "description": "כיסוי לשקע טעינה USB Type A/C כפול או בודד",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
       "smartHomeCompatible": false
     }
   },
@@ -5352,19 +4416,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "חול",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - שקע טעינה USB",
-    "description": "שקע טעינה USB (לא חכם) להשלמת הסדרה. Living Light",
-    "regularPrice": 0.0,
-    "series": "Type A, Type C, Type C+A, Type C+C, Type A+A",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -5564,19 +4615,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - שקע טעינה USB",
-    "description": "שקע טעינה USB (לא חכם) להשלמת הסדרה. Classia",
-    "regularPrice": 0.0,
-    "series": "Type A, Type C, Type C+A, Type C+C, Type A+A",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "RW4190A",
     "name": "Classia - שקע טעינה USB",
     "description": "",
@@ -5668,19 +4706,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי מפסק תריס רגיל",
-    "description": "",
-    "regularPrice": 0.0,
-    "series": "Living Now",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "KW06",
     "name": "Living Now - כיסוי מפסק תריס רגיל - לבן",
     "description": "",
@@ -5733,20 +4758,7 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי לחצן תריס רגיל",
-    "description": "",
-    "regularPrice": 0.0,
-    "series": "Living Now",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
+    "sku": "KW05",
     "name": "Living Now - כיסוי לחצן תריס רגיל - לבן",
     "description": "",
     "regularPrice": 23.0,
@@ -5759,7 +4771,7 @@
     }
   },
   {
-    "sku": "",
+    "sku": "KG05",
     "name": "Living Now - כיסוי לחצן תריס רגיל - שחור",
     "description": "",
     "regularPrice": 23.0,
@@ -5772,7 +4784,7 @@
     }
   },
   {
-    "sku": "",
+    "sku": "KM05",
     "name": "Living Now - כיסוי לחצן תריס רגיל - חול",
     "description": "",
     "regularPrice": 23.0,
@@ -5790,19 +4802,6 @@
     "description": "לחצן תריס חכם. שולט על תריס באופן מקומי או מרוחק - מודול 1",
     "regularPrice": 542.0,
     "series": "Living Now",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם, תריס / וילון חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - לחצן תריס חכם",
-    "description": "לחצן תריס חכם כולל כיסוי - 1 מודול. שולט על תריס באופן מקומי או מרוחק.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
     "brand": "Bticino",
     "attributes": {
       "moduleSize": null,
@@ -5850,19 +4849,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - לחצן תריס רגיל",
-    "description": "לחצן תריס רגיל <strong>(לא חכם)</strong>  - מודול 1 להשלמת הסדרה במקומות שאין צורך בלחצן חכם.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "N4037N",
     "name": "Living Light - לחצן תריס רגיל - לבן",
     "description": "",
@@ -5898,19 +4884,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "כסוף",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מפסק תריס רגיל",
-    "description": "מפסק תריס רגיל <strong>(לא חכם)</strong>  - מודול 1 להשלמת הסדרה במקומות שאין צורך במפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -5954,19 +4927,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מפסק תריס רגיל",
-    "description": "מפסק תריס רגיל <strong>(לא חכם)</strong>  - מודול 1 להשלמת הסדרה במקומות שאין צורך במפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "RW4027N",
     "name": "Classia - מפסק תריס רגיל - לבן",
     "description": "",
@@ -5989,19 +4949,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - לחצן תריס רגיל",
-    "description": "לחצן תריס רגיל <strong>(לא חכם)</strong>  - מודול 1 להשלמת הסדרה במקומות שאין צורך בלחצן חכם.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -6029,19 +4976,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מפסק מחליף תאורה רגיל",
-    "description": "מפסק מחליף תאורה רגיל <strong>(לא חכם)</strong>.\r\\nלהתקנה במקומות בהן נדרש חילוף (שליטה מ2 מקומות לפחות) בשילוב עם מפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -6172,19 +5106,6 @@
       "moduleSize": null,
       "category": "כסוף",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מפסק צלב תאורה רגיל",
-    "description": "מפסק צלב תאורה רגיל <strong>(לא חכם)</strong>.\r\\nלהתקנה במקומות בהן נדרש חילוף (שליטה מ3 מקומות לפחות) בשילוב עם מפסק חכם ומפסק מחליף.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -6747,19 +5668,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - לחצן תריס חכם",
-    "description": "לחצן תריס חכם כולל כיסוי - 1 מודול. שולט על תריס באופן מקומי או מרוחק.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם, תריס / וילון חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "RW4027CIL",
     "name": "Classia - לחצן תריס חכם - לבן",
     "description": "",
@@ -6903,19 +5811,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - שקע רשת",
-    "description": "<div class=\"elementor-element elementor-element-10188296 elementor-widget elementor-widget-woocommerce-product-short-description\" data-id=\"10188296\" data-element_type=\"widget\" data-widget_type=\"woocommerce-product-short-description.default\">\r\\n<div class=\"elementor-widget-container\">\r\\n<div class=\"woocommerce-product-details__short-description\">\r\\n\r\\nשקע רשת מסוכך RJ45 CAT6.\r\\n\r\\n</div>\r\\n</div>\r\\n</div>\r\\n<div class=\"elementor-element elementor-element-379097c4 elementor-widget elementor-widget-woocommerce-product-price\" data-id=\"379097c4\" data-element_type=\"widget\" data-widget_type=\"woocommerce-product-price.default\">\r\\n<div class=\"elementor-widget-container\"></div>\r\\n</div>",
-    "regularPrice": 0.0,
-    "series": "שקע רגיל",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כסוף, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "N4279C6S",
     "name": "Living Light - שקע רשת - לבן",
     "description": "",
@@ -6951,19 +5846,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "כסוף",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - שקע רשת",
-    "description": "<div class=\"elementor-element elementor-element-10188296 elementor-widget elementor-widget-woocommerce-product-short-description\" data-id=\"10188296\" data-element_type=\"widget\" data-widget_type=\"woocommerce-product-short-description.default\">\r\\n<div class=\"elementor-widget-container\">\r\\n<div class=\"woocommerce-product-details__short-description\">\r\\n\r\\nשקע רשת, תקשורת לחיבור מחשב.\r\\n\r\\n</div>\r\\n</div>\r\\n</div>",
-    "regularPrice": 0.0,
-    "series": "שקע רגיל",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
       "smartHomeCompatible": false
     }
   },
@@ -7046,19 +5928,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - שקע טלפון",
-    "description": "שקע טלפון רגיל <strong>(לא חכם)</strong>. Living Light",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "N4238",
     "name": "Living Light - שקע טלפון - לבן",
     "description": "",
@@ -7098,19 +5967,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - שקע טלפון",
-    "description": "שקע טלפון רגיל (לא חכם). Classia",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "RW4238",
     "name": "Classia - שקע טלפון - לבן",
     "description": "",
@@ -7133,19 +5989,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מפסק דו קוטבי רגיל",
-    "description": "מפסק דו קוטבי רגיל לדוד להשלמת הסדרה. Living Light",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -7189,19 +6032,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מפסק דו קוטבי רגיל",
-    "description": "מפסק דו קוטבי רגיל לדוד להשלמת הסדרה. Classia",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "RW4002L",
     "name": "Classia - מפסק דו קוטבי רגיל - לבן",
     "description": "",
@@ -7241,19 +6071,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - כיסוי לשקע טלוויזיה",
-    "description": "כיסוי לשקע טלוויזיה מודול - K4202F",
-    "regularPrice": 0.0,
-    "series": "כיסוי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "KW08",
     "name": "Living Now - כיסוי לשקע טלוויזיה - לבן",
     "description": "",
@@ -7289,19 +6106,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "חול",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - שקע טלוויזיה",
-    "description": "שקע טלוויזיה רגיל <strong>(לא חכם)</strong>. Classia",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -7540,19 +6344,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "תרמוסטט חכם Netatmo Smarther",
-    "description": "<strong>תרמוסטט חכם Netatmo Smarther: שליטה חכמה בטמפרטורה, בנוחות ובסטייל</strong>\r\\n<ul>\r\\n \t<li><strong>שליטה מרחוק באמצעות אפליקציה:</strong> התאימו את הטמפרטורה בבית גם כשאתם לא שם, חסכו בחשמל וצרו אווירה נוחה בכל עת.</li>\r\\n \t<li data-sourcepos=\"10:1-10:70\"><strong>עיצוב מינימליסטי וגימור אלגנטי:</strong> משתלב בצורה מושלמת בכל חלל.</li>\r\\n \t<li><strong>תאימות ל-Amazon Alexa, Google Home ו-Apple HomeKit:</strong> שלטו בתרמוסטט באמצעות פקודות קוליות בעברית.</li>\r\\n \t<li data-sourcepos=\"13:1-13:56\"><strong>תצוגת טמפרטורה ולחות:</strong> עקבו אחר תנאי האוויר בביתכם.</li>\r\\n \t<li data-sourcepos=\"14:1-14:67\"><strong>מצב Boost:</strong> חימום מהיר לחדרים ספציפיים למשך 30, 60 או 90 דקות.</li>\r\\n</ul>\r\\n<strong>\r\\nמוצר זה אינו קיים במלאי באופן קבוע, זמני האספקה הינם כ-30 ימי עסקים מרגע ההזמנה.</strong>",
-    "regularPrice": 0.0,
-    "series": "חול, לבן, שחור",
-    "brand": "",
-    "attributes": {
-      "moduleSize": null,
-      "category": "תרמוסטט",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "XW8002",
     "name": "תרמוסטט חכם Netatmo Smarther - לבן",
     "description": "",
@@ -7589,19 +6380,6 @@
       "moduleSize": null,
       "category": "חול",
       "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - מתאם לשקע רשת",
-    "description": "<p data-sourcepos=\"3:1-3:54\">מתאם שקע רשת קיסטון Living Now\r\\nהמתאם מאפשר התקנה קלה של אביזרי תקשורת תואמים בשיטת חיבור בינלאומית Keystone.</p>\r\\n<p data-sourcepos=\"3:1-3:54\"><strong>התמונה להמחשה בלבד</strong>, ייתכנו שינויים במראה המתאם.</p>",
-    "regularPrice": 0.0,
-    "series": "שקע רגיל",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "חול, לבן, שחור",
-      "smartHomeCompatible": false
     }
   },
   {
@@ -7644,19 +6422,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מתאם לשקע רשת",
-    "description": "<p data-sourcepos=\"3:1-3:54\">מתאם שקע רשת קיסטון Living Light\r\\nהמתאם מאפשר התקנה קלה של אביזרי תקשורת תואמים בשיטת חיבור בינלאומית Keystone.</p>\r\\n<p data-sourcepos=\"3:1-3:54\"><strong>התמונה להמחשה בלבד</strong>, ייתכנו שינויים במראה המתאם.</p>",
-    "regularPrice": 0.0,
-    "series": "שקע רגיל",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כסוף, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "BT3982AK/EMPTY-W",
     "name": "Living Light - מתאם לשקע רשת - לבן",
     "description": "",
@@ -7692,19 +6457,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "כסוף",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מתאם לשקע רשת",
-    "description": "<p data-sourcepos=\"3:1-3:54\">מתאם שקע רשת קיסטון Classia.\r\\nהמתאם מאפשר התקנה קלה של אביזרי תקשורת תואמים בשיטת חיבור בינלאומית Keystone.</p>\r\\n<p data-sourcepos=\"3:1-3:54\"><strong>התמונה להמחשה בלבד</strong>, ייתכנו שינויים במראה המתאם.</p>",
-    "regularPrice": 0.0,
-    "series": "שקע רגיל",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
       "smartHomeCompatible": false
     }
   },
@@ -7813,19 +6565,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Light - מסגרת מוגנת מים",
-    "description": "מסגרת מוגנת מים IP55.\r\\n\r\\nתואם לסדרות: Living Light, Luna.\r\\nאין צורך במתאם לקופסאת חשמל",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מסגרת, מתאם לקופסת חשמל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "24603N",
     "name": "Living Light - מסגרת מוגנת מים",
     "description": "",
@@ -7874,19 +6613,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - מסגרת מוגנת מים",
-    "description": "מסגרת מוגנת מים IP55.\r\\n\r\\nתואם לסדרות: Classia.\r\\nאין צורך במתאם לקופסאת חשמל",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מסגרת, מתאם לקופסת חשמל",
       "smartHomeCompatible": false
     }
   },
@@ -7969,32 +6695,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - דימר רגיל",
-    "description": "לחצן דימר (עמעם), <strong>לא חכם</strong>.\r\\nמתח עבודה: 100-240V-AC, תדר: 50/60Hz. גודל: 2 מודולים.",
-    "regularPrice": 0.0,
-    "series": "TRIAC, 0-10V",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Now - כיסוי לחצן דימר",
-    "description": "כיסוי לחצן דימר (עמעם) רגיל.\r\\nכיסוי 2 מודול מתאים לרכיבים: K4410 ו- K4411.\r\\nמכסה עמעם זה מורכב משני חלקים נפרדים בגודל מודול 1 כל אחד.",
-    "regularPrice": 0.0,
-    "series": "חול, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "KW19",
     "name": "Living Now - כיסוי לחצן דימר - לבן",
     "description": "",
@@ -8056,19 +6756,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "0-10V",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - דימר רגיל",
-    "description": "דימר (עמעם), <strong>לא חכם</strong>.\r\\nמתח עבודה: 100-240V-AC, תדר: 50/60Hz.",
-    "regularPrice": 0.0,
-    "series": "TRIAC אלקטרוני, TRIAC סיבובי, 0-10V",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -8186,19 +6873,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "TRIAC סיבובי",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classia - דימר רגיל",
-    "description": "דימר (עמעם), <strong>לא חכם</strong>.\r\\nמתח עבודה: 100-240V-AC, תדר: 50/60Hz.\r\\n<strong>אין צורך בחיבור לקו אפס!</strong> יתרון משמעותי בהתקנה במקומות ישנים ללא תשתית מתאימה.",
-    "regularPrice": 0.0,
-    "series": "אלקטרוני, סיבובי",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -11115,19 +9789,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS -  מודול דמי ריק",
-    "description": "",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור, לבן מט, בז׳",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "GW10195",
     "name": "CHORUS -  מודול דמי ריק",
     "description": "",
@@ -11254,19 +9915,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "בז׳",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - מפסק יחיד רגיל",
-    "description": "להשלמת הסדרה במקומות שאין צורך במפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור, לבן מט, בז׳",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -11427,19 +10075,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - מתאם לקופסאת חשמל",
-    "description": ".מתאם בין קופסאת חשמל למסגרת CHORUSMART.",
-    "regularPrice": 0.0,
-    "series": "2 מודול לקופסה 55, 3 מודול לקופסה מלבנית, 4 מודול לקופסה מלבנית, 6 מודול לקופסה מלבנית",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מתאם לקופסאת חשמל",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "GW16803",
     "name": "CHORUS - מתאם לקופסאת חשמל - 3 מודול לקופסה מלבנית",
     "description": "",
@@ -11489,19 +10124,6 @@
       "moduleSize": null,
       "category": "6 מודול לקופסה מלבנית",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - מסגרת לקופסאת חשמל",
-    "description": "כיסוי מסגרת לסדרת CHORUSMART - מתחבר למתאם מתאים לקופסאת חשמל.",
-    "regularPrice": 0.0,
-    "series": "בז׳, לבן, לבן מט, שחור, שחור טונר, שחור מט",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מסגרת",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -12103,19 +10725,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - מתאם רשת (רכזת)",
-    "description": "מאפשר חיבור כלל האביזרים של גויס לרשת הביתית דרך בקר חכם אחד.",
-    "regularPrice": 0.0,
-    "series": "בז׳, טיטניום, לבן, לבן מט, שחור",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "רכזת",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "GW108402",
     "name": "CHORUS - מתאם רשת (רכזת) - לבן",
     "description": "",
@@ -12178,19 +10787,6 @@
       "moduleSize": null,
       "category": "טיטניום",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - מפסק כוח חכם 16 אמפר",
-    "description": "מתאים לצרכנים כבדים כמו שקעים, תנורים ודוד חשמלי.",
-    "regularPrice": 0.0,
-    "series": "בז׳, טיטניום, לבן, לבן מט, שחור",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם, שקע חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -12259,19 +10855,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - עמעם אוניברסלי חכם",
-    "description": "מתח עבודה: 100-240V-AC, תדר: 50/60Hz.",
-    "regularPrice": 0.0,
-    "series": "Gewiss",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "GWA1221",
     "name": "CHORUS - עמעם אוניברסלי חכם - 1 מודול",
     "description": "",
@@ -12295,19 +10878,6 @@
       "moduleSize": 2,
       "category": "2 מודול",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - מפסק תאורה חכם יחיד/חילוף",
-    "description": "מאפשר לשלוט על האורות באופן מקומי או מרוחק.",
-    "regularPrice": 0.0,
-    "series": "Gewiss",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -12337,19 +10907,6 @@
     }
   },
   {
-    "sku": "",
-    "name": " CHORUS - מפסק תריס חכם",
-    "description": "מאפשר להוריד או להרים את התריס באופן מלא או חלקי, ללא צורך בלחיצה רציפה על המפסק עד להשלמת הפעולה.",
-    "regularPrice": 0.0,
-    "series": "Gewiss",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "GWA1231",
     "name": " CHORUS - מפסק תריס חכם - 1 מודול",
     "description": "",
@@ -12376,19 +10933,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - מפסק תרחישים 2 הפעלות",
-    "description": "מצויד ב-2 לחצנים להפעלת תרחישים.",
-    "regularPrice": 0.0,
-    "series": "Gewiss",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "GWA1241",
     "name": "CHORUS - מפסק תרחישים 2 הפעלות - 1 מודול",
     "description": "",
@@ -12411,19 +10955,6 @@
     "attributes": {
       "moduleSize": 2,
       "category": "2 מודול",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - כיסוי מפסק תאורה",
-    "description": "כיסוי למפסק תאורה",
-    "regularPrice": 0.0,
-    "series": "בז׳, טיטניום, לבן, לבן מט, שחור",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -12554,19 +11085,6 @@
     "attributes": {
       "moduleSize": 2,
       "category": "טיטניום",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - כיסוי מפסק תריס / עמעם",
-    "description": "כיסוי למפסק תריס / עמעם",
-    "regularPrice": 0.0,
-    "series": "בז׳, טיטניום, לבן, לבן מט, שחור",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -12740,19 +11258,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "מתקן תליה לאייפד - Displine Companion Wall 2.0",
-    "description": "המעמדים היוקרתיים מבית Displine נועדו לשפר את המראה והנוחות של החלל שלכם, תוך מתן פתרון בטוח ומעוצב לשימוש בתצוגת הטאבלט.",
-    "regularPrice": 0.0,
-    "series": "אפור משי, לבן, שחור",
-    "brand": "Displine",
-    "attributes": {
-      "moduleSize": null,
-      "category": "iPad, iPad Air, iPad Pro",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "DSP-1-11-1100-00-C-IPAD-10.9",
     "name": "מתקן תליה לאייפד - Displine Companion Wall 2.0 - iPad, לבן",
     "description": "",
@@ -12870,19 +11375,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "מתקן תליה לאייפד - Displine Companion Wall Home",
-    "description": "המעמדים היוקרתיים מבית Displine נועדו לשפר את המראה והנוחות של החלל שלכם, תוך מתן פתרון בטוח ומעוצב לשימוש בתצוגת הטאבלט.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Displine",
-    "attributes": {
-      "moduleSize": null,
-      "category": "iPad, iPad mini",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "DSP-1-12-1009-00-C-IPAD-10.9",
     "name": "מתקן תליה לאייפד - Displine Companion Wall Home - iPad, לבן",
     "description": "",
@@ -12931,19 +11423,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "iPad mini",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "מתקן תליה לאייפד - Displine Dame Wall 2.0",
-    "description": "המעמדים היוקרתיים מבית Displine נועדו לשפר את המראה והנוחות של החלל שלכם, תוך מתן פתרון בטוח ומעוצב לשימוש בתצוגת הטאבלט.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Displine",
-    "attributes": {
-      "moduleSize": null,
-      "category": "iPad, iPad mini, iPad Pro",
       "smartHomeCompatible": false
     }
   },
@@ -13026,19 +11505,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "מתקן תליה לאייפד - Displine Dame Wall Home",
-    "description": "המעמדים היוקרתיים מבית Displine נועדו לשפר את המראה והנוחות של החלל שלכם, תוך מתן פתרון בטוח ומעוצב לשימוש בתצוגת הטאבלט.",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Displine",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כסוף, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "DSP-2-12-1009-00-C",
     "name": "מתקן תליה לאייפד - Displine Dame Wall Home - לבן",
     "description": "",
@@ -13078,19 +11544,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "מתקן תליה לאייפד - Displine Moonlight Wall",
-    "description": "המעמדים היוקרתיים מבית Displine נועדו לשפר את המראה והנוחות של החלל שלכם, תוך מתן פתרון בטוח ומעוצב לשימוש בתצוגת הטאבלט.",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Displine",
-    "attributes": {
-      "moduleSize": null,
-      "category": "זהב, טיטניום, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "DSP-6-10-1009-12",
     "name": "מתקן תליה לאייפד - Displine Moonlight Wall - שחור",
     "description": "",
@@ -13126,19 +11579,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "זהב",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "מתקן תליה לאייפד - Displine Sunset Wall",
-    "description": "שדרגו את הבית החכם או המשרד שלכם עם מתקן תליה לטאבלט יוקרתי ופונקציונלי.\r\\n\r\\nהמעמדים היוקרתיים מבית Displine נועדו לשפר את המראה והנוחות של החלל שלכם, תוך מתן פתרון בטוח ומעוצב לשימוש בתצוגת הטאבלט.",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Displine",
-    "attributes": {
-      "moduleSize": null,
-      "category": "זהב, טיטניום, לבן, שחור",
       "smartHomeCompatible": false
     }
   },
@@ -13191,19 +11631,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "לבן",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "מתקן תליה לאייפד - Displine Whiz",
-    "description": "המעמדים היוקרתיים מבית Displine נועדו לשפר את המראה והנוחות של החלל שלכם, תוך מתן פתרון בטוח ומעוצב לשימוש בתצוגת הטאבלט.",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Displine",
-    "attributes": {
-      "moduleSize": null,
-      "category": "iPad Air, iPad Pro",
       "smartHomeCompatible": false
     }
   },
@@ -13286,19 +11713,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "מעמד שולחני לאייפד - Displine Sunset Stand",
-    "description": "המעמדים היוקרתיים מבית Displine נועדו לשפר את המראה והנוחות של החלל שלכם, תוך מתן פתרון בטוח ומעוצב לשימוש בתצוגת הטאבלט.",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Displine",
-    "attributes": {
-      "moduleSize": null,
-      "category": "זהב, טיטניום, לבן, שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "DSP-5-20-1009-12",
     "name": "מעמד שולחני לאייפד - Displine Sunset Stand - שחור",
     "description": "",
@@ -13334,19 +11748,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "זהב",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "מעמד שולחני לאייפד - Displine Sunset Console",
-    "description": "המעמדים היוקרתיים מבית Displine נועדו לשפר את המראה והנוחות של החלל שלכם, תוך מתן פתרון בטוח ומעוצב לשימוש בתצוגת הטאבלט.",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Displine",
-    "attributes": {
-      "moduleSize": null,
-      "category": "זהב, טיטניום, לבן, שחור",
       "smartHomeCompatible": false
     }
   },
@@ -13399,19 +11800,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue נורה חכמה",
-    "description": "נורות חכמות מציעות שליטה מלאה בתאורת הבית – מהפעלה וכיבוי, ועד בחירת גוונים, עוצמה ותזמונים.\r\\nבין אם באמצעות Bluetooth או באמצעות גשר Hue Bridge, הנורות מספקות תאורה גמישה עם אפשרויות לשינוי בין אור לבן, חם או קר, ועד מיליוני צבעים (תלוי בדגם).",
-    "regularPrice": 0.0,
-    "series": "סטנדרט, נר, לוסטר, גלובוס, אדיסון, אדיסון גדול, משולש, ספוט, וינטג׳",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "נורה רגילה, דמוי פחם, נורה דקורטיבית",
       "smartHomeCompatible": true
     }
   },
@@ -13862,25 +12250,12 @@
     "name": "Philips Hue Black Pendant Cord כבל תלייה שחור",
     "description": "הכבל מתאים באופן מושלם לשימוש עם נורות Philips Hue White ו-Color, ומאפשר להוסיף מגע אישי של תאורה חכמה לכל חדר.\r\\nבעזרת עיצוב נקי וקלאסי, כבל התלייה ישלים את העיצוב ויאפשר לכם ליהנות מתאורה גמישה ומותאמת אישית בקלות.",
     "regularPrice": 303.0,
-    "series": "",
+    "series": "תאורה דקורטיבית",
     "brand": "Philips Hue",
     "attributes": {
       "moduleSize": null,
       "category": "",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue Lightstrip Solo פס תאורה לד",
-    "description": "מבוסס על נורות LED מסוג RGBWW, פס התאורה הזה מפיק צבעים טהורים ואור לבן בוהק.\r\\nהוא מעוצב תוך דגש על בטיחות, ומאפשר לכם אינטראקציה נוחה עם פס התאורה.",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "1m, 2m, 5m, 10m",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -13962,19 +12337,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Lightstrip Play Gradient פס תאורה לד לטלוויזיה",
-    "description": "פס האור מקרין אור בתיאום עם התמונה המוצגת על המסך ליצירת חווית צפייה/גיימינג מדהימה בכל הסלון/חדר.\r\\nכולל תושבות ודבק להתקנה קלה.",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "55-60 inch, 75-77 inch",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE929002422701",
     "name": "Philips Hue Lightstrip Play Gradient פס תאורה לד לטלוויזיה - 55-60 inch",
     "description": "",
@@ -14001,19 +12363,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Lightstrip Outdoor פס תאורה לד",
-    "description": "פס לד מתאים להתקנה חיצונית, ניתן לקבוע את צבע האור מתוך ספקטרום מושלם של 16 מיליון צבעים וכן מכל גווני האור הלבן.\r\\nהסטריפ ניתן לשליטה מיידית באמצעות Bluetooth. מתאים להתקנה בגינה, מושלם מתחת למדרגות חיצוניות, בשילוב עם דק, בפרגולות, בחומות עץ ועוד\r\\nהפס לא ניתן לחיתוך*",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "2m, 5m",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE929002289002",
     "name": "Philips Hue Lightstrip Outdoor פס תאורה לד - 2m",
     "description": "",
@@ -14037,19 +12386,6 @@
       "moduleSize": null,
       "category": "5m",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue Festavia שרשרת תאורה חכמה",
-    "description": "מאפשר תצוגת צבעים שונים לאורך החבל ותרחישים אקטיבי כמו ״נצנוצים״ או ״פריזמה״\r\\nניתן כמובן לבחור בגוון אחיד למראה יותר קלאסי",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "20m, 40m",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -14131,19 +12467,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Go Color Ambiance מנורה ניידת נטענת",
-    "description": "גוף תאורה צבעוני אלחוטי נטען עם יכולת שליטה ב-Bluetooth נשלט באופן מלא ע\"י אפליקציה חינמית ל-iOS או אנדרואיד.\r\\nכולל עמדת טעינה ועגינה. ניתן להניח על שולחן האוכל בבית או בחוץ.\r\\nכולל לחצן מובנה שמאפשר הדלקה/כיבוי ושינוי צבע ללא שימוש באפליקציה!",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE929003128401",
     "name": "Philips Hue Go Color Ambiance מנורה ניידת נטענת - לבן",
     "description": "",
@@ -14209,19 +12532,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Play Light Tube פס תאורה",
-    "description": "קחו את הקולנוע הביתי לשלב הבא עם גוף התאורה הקומפקטי בצבע.\r\\nהניחו או התקינו אותו בגב הטלוויזיה כדי להטיל תערובת של אור צבעוני.\r\\nסובבו את הצינור כדי להאיר אותו.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "M, L",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE915005987901",
     "name": "Philips Hue Play Light Tube פס תאורה - M, לבן",
     "description": "",
@@ -14274,19 +12584,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Signe Table מנורת שולחן חכמה",
-    "description": "<p>תשתלב בצורה מושלמת בעיצוב הפנים של הבית הודות לעיצוב השחור, הדק והאלגנטי שלה, מנורה זו תצבע את הקירות בשיפוע אור ייחודי.</p>",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, עץ אלון, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE915005986901",
     "name": "Philips Hue Signe Table מנורת שולחן חכמה - לבן",
     "description": "",
@@ -14323,19 +12620,6 @@
       "moduleSize": null,
       "category": "עץ אלון",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue Signe Floor מנורת רצפה חכמה",
-    "description": "השלימו את העיצוב של הבית עם גוף תאורה, מעוצב בצורה דקה ואלגנטית.\r\\nגוף התאורה הייחודי יכול להאיר בצבעים שונים לכל אורכו - הגובה מהרצפה 145.8 ס״מ",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, עץ אלון, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -14534,19 +12818,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Contact Sensor חיישן לדלת/חלון חכם",
-    "description": "מיועד להתקנה על כל דלת או חלון בבית\r\\nמאפשר הפעלה אוטומטית של תאורה ברגע שהדלת נפתחת",
-    "regularPrice": 0.0,
-    "series": "Alexa, Google Home, Home Assistant",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "יחיד, זוג",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE929003563803",
     "name": "Philips Hue Contact Sensor חיישן לדלת/חלון חכם - יחיד",
     "description": "",
@@ -14570,19 +12841,6 @@
       "moduleSize": null,
       "category": "זוג",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue Tap Dial Switch מתג שליטה חכם",
-    "description": "שלטו בעד שלושה חדרים או אזור עם כל כפתור נפרד של מתג ה-Taps, סובב את החוגה כדי לעמעם ולהאיר את האורות.\r\\nהרכיבו אותו על הקיר, הנח אותו על משטח מגנטי, או השתמש בו כשלט רחוק.",
-    "regularPrice": 0.0,
-    "series": "Alexa, Google Home, Home Assistant",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -14616,24 +12874,11 @@
     "name": "Philips Hue Rithum Smart Switch מתג חכם עם מסך מגע",
     "description": "מפסק מבוסס מסך מגע לבית חכם המשלב שליטה בתאורה, באודיו ובקרת האקלים.\r\\nכל המשפחה יכולה לשלוט בקלות בהגדרות התאורה, בתרחישים, בדימור ובבחירת הצבעים וזאת ללא צורך בשימוש באפליקציה על הסמארטפון..",
     "regularPrice": 1790.0,
-    "series": "",
+    "series": "תאורה דקורטיבית",
     "brand": "Philips Hue",
     "attributes": {
       "moduleSize": null,
       "category": "Alexa, Apple Home, Google Home, Home Assistant",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue Play HDMI Sync Box בקר סינכרון תאורה חכם",
-    "description": "תיבת הסנכרון משדרגת את הדרך בה אתה משחקים, צופים ומאזינים על ידי סנכרון התאורה עם התוכן המוצג על המסך שלכם.\r\\nעם קצב רענון מהיר, היא מתאימה את צבעי התאורה לתוכן הווידאו האיכותי ביותר",
-    "regularPrice": 0.0,
-    "series": "Alexa, Google Home",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "4K, 8K",
       "smartHomeCompatible": true
     }
   },
@@ -14673,19 +12918,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "Alexa, Google Home, Home Assistant",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue Fugato סדרת גופי תאורה חכמים",
-    "description": "<div class=\"product-block\">\r\\n<div class=\"rte\">\r\\n\r\\nמנורת תקרה LED צבעונית דקורטיבית מדגם Fugato תוצרת פיליפס, יצרנית התאורה הגדולה בעולם\r\\n\r\\nהמנורה נשלטת באופן מלא ע\"י אפליקציה חינמית ל-iOS או אנדרואיד מהסמארטפון/טאבלט גם בחיבור Bluetooth.\r\\n\r\\n</div>\r\\n</div>",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Fugato-1, Fugato-2, Fugato-3, Fugato-4",
       "smartHomeCompatible": true
     }
   },
@@ -14768,19 +13000,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Perifo Cylinder Spotlight ספוט תאורה חכם",
-    "description": "גוף תאורה תלוי המיועד להתקנה בפס צבירה תקרתי מתוצרת Philips Hue",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE929003115701",
     "name": "Philips Hue Perifo Cylinder Spotlight ספוט תאורה חכם - שחור",
     "description": "",
@@ -14804,19 +13023,6 @@
       "moduleSize": null,
       "category": "לבן",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue Perifo Cylinder Pendant גוף תאורה חכם",
-    "description": "גוף תאורה תלוי המיועד להתקנה בפס צבירה תקרתי מתוצרת Philips Hue",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -14846,19 +13052,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Perifo Light Tube גוף תאורה חכם",
-    "description": "צינור תאורה לינארי המיועד להתקנה בפס צבירה תקרתי מתוצרת Philips Hue\r\\nעם צינור תאורה קומפקטי בעל גרדיאנט, אתם יכולים להוסיף שילוב של צבעים שונים לחלל שלכם.\r\\nסובבו את צינור התאורה כדי לכוון את שטיפת האור העשיר והחזק בצורה מושלמת. מיועד רק לתאורת מסילה של Perifo",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE929003116301",
     "name": "Philips Hue Perifo Light Tube גוף תאורה חכם - שחור",
     "description": "",
@@ -14882,19 +13075,6 @@
       "moduleSize": null,
       "category": "לבן",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue Perifo Linear Bar פס תאורה חכם",
-    "description": "גוף תאורה לינארי המיועד להתקנה בפס צבירה תקרתי מתוצרת Philips Hue\r\\nלתת למרחבים גדולים יותר צבע! לחצו את פס האור הליניארי לתוך מסילת פריפו כדי למלא את החדר באור. מתאים רק למסילה מסוג פריפו.",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -14924,19 +13104,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Perifo Power Supply ספק כוח לפס צבירה תקרתי",
-    "description": "<p> ספק כוח להתקנה תקרית. מיועד להתקנה בצדו האחד של פס צבירה תקרתי מתוצרת Philips Hue</p>",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE929003522901",
     "name": "Philips Hue Perifo Power Supply ספק כוח לפס צבירה תקרתי - שחור",
     "description": "",
@@ -14959,19 +13126,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "לבן",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Philips Hue Perifo Rail מסילה לפס צבירה",
-    "description": "פס צבירה תקרתי בצבע שחור מתוצרת Philips Hue\r\\nאינו כולל נורות. אינו כולל ספק כוח (נרכש בנפרד)",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "0.5m, 1m, 1.5m",
       "smartHomeCompatible": false
     }
   },
@@ -15015,19 +13169,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Philips Hue Perifo Flexible Connector מחבר גמיש לפס צבירה",
-    "description": "<p dir=\"rtl\">צרו כמעט כל צורה לתאורת פס צבירה מסדרת Perifo עם המחבר הגמיש.\r\\nחברו למסילות וכופפו את המחבר לכל כיוון, או השתמשו בו להעברת פס הצבירה מהתקרה אל הקיר.\r\\n\r\\n</p>",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant",
-    "brand": "Philips Hue",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "PHHUE929003735101",
     "name": "Philips Hue Perifo Flexible Connector מחבר גמיש לפס צבירה - שחור",
     "description": "",
@@ -15058,24 +13199,11 @@
     "name": "Philips Hue Perifo Wall Power Supply ספק כוח לפס צבירה",
     "description": "ספק כוח' מיועד להתקנת פס צבירה על הקיר. צבע שחור",
     "regularPrice": 555.0,
-    "series": "",
+    "series": "תאורה דקורטיבית",
     "brand": "Philips Hue",
     "attributes": {
       "moduleSize": null,
       "category": "",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - מפסק חילוף",
-    "description": "להשלמת הסדרה במקומות שיש צורך במפסק חילוף.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור, לבן מט, בז׳",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -15132,19 +13260,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - מפסק צלב",
-    "description": "להשלמת הסדרה במקומות שיש צורך במפסק צלב.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור, לבן מט, בז׳",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "GW10091",
     "name": "CHORUS - מפסק צלב - לבן",
     "description": "",
@@ -15193,19 +13308,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "בז׳",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - מפסק דוד רגיל",
-    "description": "להשלמת הסדרה במקומות שאין צורך במפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור, לבן מט, בז׳",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -15262,19 +13364,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - לחצן תריס רגיל",
-    "description": "להשלמת הסדרה במקומות שאין צורך במפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור, לבן מט, בז׳",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "GW10140",
     "name": "CHORUS - לחצן תריס רגיל - לבן",
     "description": "",
@@ -15323,19 +13412,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "בז׳",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - לחצן רגיל מואר",
-    "description": "להשלמת הסדרה במקומות שאין צורך במפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור, לבן מט, בז׳",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -15392,19 +13468,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS -  שקע 3 פינים רגיל",
-    "description": "להשלמת הסדרה במקומות שאין צורך בשקע חכם.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור, לבן מט, בז׳",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "GW10281",
     "name": "CHORUS -  שקע 3 פינים רגיל - לבן",
     "description": "",
@@ -15453,19 +13516,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "בז׳",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - קופסה מוגנת מים",
-    "description": "להשלמת הסדרה במקומות שיש צורך בקופסה מוגנת מים.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -15522,19 +13572,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - לחצן פעמון רגיל",
-    "description": "להשלמת הסדרה במקומות שאין צורך במפסק חכם.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור, לבן מט, בז׳",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "GW10153",
     "name": "CHORUS - לחצן פעמון רגיל - לבן",
     "description": "",
@@ -15583,19 +13620,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "בז׳",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - נורת לד למסקים",
-    "description": "<div class=\"elementor-element elementor-element-10188296 elementor-widget elementor-widget-woocommerce-product-short-description\" data-id=\"10188296\" data-element_type=\"widget\" data-widget_type=\"woocommerce-product-short-description.default\">\r\\n<div class=\"elementor-widget-container\">\r\\n<div class=\"woocommerce-product-details__short-description\">\r\\n\r\\nנורת לד 230v למפסקים רגילים\r\\n\r\\n</div>\r\\n</div>\r\\n</div>",
-    "regularPrice": 0.0,
-    "series": "אדום, ירוק, כחול, לבן",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "כיסוי",
       "smartHomeCompatible": false
     }
   },
@@ -15951,19 +13975,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - שקע טלפון",
-    "description": "להשלמת הסדרה במקומות שאין צורך בשקע חכם.",
-    "regularPrice": 0.0,
-    "series": "בז׳, לבן, לבן מט, שחור",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "GW10408",
     "name": "CHORUS - שקע טלפון - לבן",
     "description": "",
@@ -16016,19 +14027,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - שקע טלוויזיה",
-    "description": "להשלמת הסדרה במקומות שאין צורך בשקע חכם.",
-    "regularPrice": 0.0,
-    "series": "בז׳, לבן, לבן מט, שחור",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "GW10448",
     "name": "CHORUS - שקע טלוויזיה - לבן",
     "description": "",
@@ -16051,19 +14049,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "שחור",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - שקע רשת",
-    "description": "<div class=\"elementor-element elementor-element-10188296 elementor-widget elementor-widget-woocommerce-product-short-description\" data-id=\"10188296\" data-element_type=\"widget\" data-widget_type=\"woocommerce-product-short-description.default\">\r\\n<div class=\"elementor-widget-container\">\r\\n<div class=\"woocommerce-product-details__short-description\">\r\\n\r\\nשקע רשת, תקשורת לחיבור מחשב.\r\\n\r\\n</div>\r\\n</div>\r\\n</div>",
-    "regularPrice": 0.0,
-    "series": "בז׳, לבן, לבן מט, שחור",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -16146,19 +14131,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "CHORUS - מתאם לשקע רשת",
-    "description": "<p data-sourcepos=\"3:1-3:54\">המתאם מאפשר התקנה קלה של אביזרי תקשורת תואמים בשיטת חיבור בינלאומית Keystone.</p>",
-    "regularPrice": 0.0,
-    "series": "בז׳, לבן, לבן מט, שחור",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
-      "smartHomeCompatible": false
-    }
-  },
-  {
     "sku": "GW10431",
     "name": "CHORUS - מתאם לשקע רשת - לבן",
     "description": "",
@@ -16207,19 +14179,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "לבן מט",
-      "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "CHORUS - שקע טעינה USB",
-    "description": "להשלמת הסדרה במקומות שאין צורך בשקע חכם.",
-    "regularPrice": 0.0,
-    "series": "Type A, Type A+A, Type C+A",
-    "brand": "Gewiss",
-    "attributes": {
-      "moduleSize": null,
-      "category": "שקע רגיל",
       "smartHomeCompatible": false
     }
   },
@@ -16338,19 +14297,6 @@
       "moduleSize": 2,
       "category": "לבן",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classic Glass - פאנל מפסקי תאורה / תרחיש",
-    "description": "מתג חכם המאפשר שליטה ובקרה על התאורה באמצעות הסמארטפון או באמצעות הפעלה ידנית בלחיצת טאץ’.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -16562,19 +14508,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nisko Smart - פאנל מפסקי תריס",
-    "description": "מתג תריס חכם המאפשר שליטה ובקרה על התריס באמצעות הסמארטפון או באמצעות הפעלה ידנית בלחיצת טאץ’.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Nisko Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "HW-C-Z-3M-white",
     "name": "Nisko Smart - פאנל מפסקי תריס",
     "description": "",
@@ -16757,19 +14690,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classic Glass - פאנל מפסקי צלונים חשמליים DC",
-    "description": "מתג צלון חשמלי DC חכם המאפשר שליטה ובקרה על הצלונים באמצעות הסמארטפון או באמצעות הפעלה ידנית בלחיצת טאץ’.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "HM-C-Z-3M-white",
     "name": "Classic Glass - פאנל מפסקי צלונים חשמליים DC",
     "description": "",
@@ -16923,19 +14843,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classic Glass - פאנל משולב תריס + תאורה",
-    "description": "מתג חכם המאפשר שליטה ובקרה על התאורה באמצעות הסמארטפון או באמצעות הפעלה ידנית בלחיצת טאץ’.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -17173,19 +15080,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classic Glass - פאנל דוד חכם",
-    "description": "מתג חכם מעוצב לשליטה ובקרה על הדוד מכל מקום, באמצעות אפליקציה נוחה לתפעול ובריבוי שפות. כולל אפשרות להפעלה ידנית בטאץ’.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "Nisko Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "HW-T2P-Z-white",
     "name": "Classic Glass - פאנל דוד חכם - לבן",
     "description": "",
@@ -17212,19 +15106,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classic Glass - פאנל מפסק כוח / תנור",
-    "description": "מפסק כוח חכם המאפשר שליטה ובקרה באמצעות הסמארטפון.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "HW-2P-Z-white",
     "name": "Classic Glass - פאנל מפסק כוח / תנור - לבן",
     "description": "",
@@ -17248,19 +15129,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Classic Glass - פאנל מפסקי מגע יבש",
-    "description": "מתג מגע יבש חכם המאפשר שליטה ובקרה על התאורה באמצעות הסמארטפון או באמצעות הפעלה ידנית בלחיצת טאץ’.",
-    "regularPrice": 0.0,
-    "series": "לבן, שחור",
-    "brand": "",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -17498,19 +15366,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nisko Smart - רכזת בית חכם",
-    "description": "רכזת 3.0 <span class=\"caps\">ZIGBEE\r\\nמותאמת לחיבור אביזרי ניסקו סמארט.\r\\n</span>",
-    "regularPrice": 0.0,
-    "series": "Alexa, Google Home, Home Assistant, Tuya Smart / Smart Life",
-    "brand": "Nisko Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "רכזת",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "HW-G2-Z",
     "name": "Nisko Smart - רכזת בית חכם - רכזת קווית",
     "description": "",
@@ -17576,19 +15431,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nisko Smart - מתג מדבקה 12 תרחישים",
-    "description": "<span class=\"caps\">מתג מדבקה חכם המספק 12 תרחישים.</span>",
-    "regularPrice": 0.0,
-    "series": "Alexa, Google Home, Home Assistant, Tuya Smart / Smart Life",
-    "brand": "Nisko Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "HW-WMT1-Z-white",
     "name": "Nisko Smart - מתג מדבקה 12 תרחישים - לבן",
     "description": "",
@@ -17641,19 +15483,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nisko Smart - בקר חכם ללוח חשמל",
-    "description": "בקר לוח חכם המאפשר חיבור צרכן ישירות בלוח החשמל או לממסר.",
-    "regularPrice": 0.0,
-    "series": "Alexa, Google Home, Home Assistant, Tuya Smart / Smart Life",
-    "brand": "Nisko Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מפסק חכם",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "HW-PD16A-Z",
     "name": "Nisko Smart - בקר חכם ללוח חשמל - 16A",
     "description": "",
@@ -17676,19 +15505,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "25A",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Nisko Smart - פאנל מסגרת זכוכית",
-    "description": "מסגרת זכוכית קריסטלית מרחפת <span class=\"caps\">SLIM</span> בעיצוב יוקרתי.",
-    "regularPrice": 0.0,
-    "series": "מסגרת",
-    "brand": "Nisko Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
       "smartHomeCompatible": true
     }
   },
@@ -17797,19 +15613,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nisko Smart - פאנל שקעים רגילים",
-    "description": "פאנל שקעים רגילים עם מסגרת זכוכית קריסטלית מרחפת <span class=\"caps\">SLIM</span> בעיצוב יוקרתי.",
-    "regularPrice": 0.0,
-    "series": "שקע רגיל",
-    "brand": "Nisko Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "לבן, שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "HW-C1S-W-white",
     "name": "Nisko Smart - פאנל שקעים רגילים",
     "description": "",
@@ -17901,19 +15704,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Living Now - מכלול דוד/תנור",
-    "description": "סט רכיבים לשליטה חכמה בדוד / תנור מקלחת - כל מה שצריך לשדרוג השליטה לחכמה ונוחה!",
-    "regularPrice": 0.0,
-    "series": "חול, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מכלול מפסקים",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "K4703, KA4803KW, K4531C, KW31, KW4002, KW02, K4003CWI, KW01, K4743V230R",
     "name": "Living Now - מכלול דוד/תנור - לבן",
     "description": "",
@@ -17950,19 +15740,6 @@
       "moduleSize": null,
       "category": "חול",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Living Light - מכלול דוד/תנור",
-    "description": "סט רכיבים לשליטה חכמה בדוד / תנור מקלחת - כל מה שצריך לשדרוג השליטה לחכמה ונוחה!",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מכלול מפסקים",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -18005,19 +15782,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Classia - מכלול דוד/תנור",
-    "description": "סט רכיבים לשליטה חכמה בדוד / תנור מקלחת - כל מה שצריך לשדרוג השליטה לחכמה ונוחה!",
-    "regularPrice": 0.0,
-    "series": "כסוף, לבן, שחור",
-    "brand": "Bticino",
-    "attributes": {
-      "moduleSize": null,
-      "category": "מכלול מפסקים",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "R4703, R4803RW, RW4002L, RW4531C, RW4005, 3577C",
     "name": "Classia - מכלול דוד/תנור - לבן",
     "description": "",
@@ -18041,19 +15805,6 @@
       "moduleSize": null,
       "category": "שחור",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Wall-Smart - מתקן תליה נסתר לאייפד",
-    "description": "מתקן תליה נסתר זה מיועד למי שמחפש שילוב בין עיצוב אסתטי, פונקציונליות ונוחות שימוש.\r\\nהמתקן מאפשר אינטגרציה מושלמת של האייפד בקיר, עם מראה נקי ומודרני שמתאים לכל סגנון עיצוב.",
-    "regularPrice": 0.0,
-    "series": "ללא חורים, עם חורים",
-    "brand": "Wall-Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "iPad mini 6, iPad mini 5, iPad 7 / 8 10.2\" & Air 3, iPad Pro 11\" Gen 2 & 3, iPad Pro 12.9\" Gen4, iPad Pro 12.9\" Gen5, iPad Air 4",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -18235,19 +15986,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "iPad Air 4",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Wall-Smart - מתקן תליה על קיר",
-    "description": "מתקן התליה הזה תוכנן במיוחד להתקנה על קירות קיימים, ומציע פתרון אלגנטי ופונקציונלי לשימוש באייפד.\r\\nהמתקן קל להתקנה ומתאים במיוחד לשדרוג חללים קיימים, בין אם בבית או במשרד, תוך שמירה על נוחות גישה ושילוב מושלם בעיצוב הקיים.",
-    "regularPrice": 0.0,
-    "series": "הכנה לצביעה, לבן, שחור",
-    "brand": "Wall-Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "iPad mini 6, iPad mini 5, iPad 7 / 8 10.2\" & Air 3, iPad Pro 11\" Gen 2 & 3, iPad Pro 12.9\" Gen4, iPad Pro 12.9\" Gen5, iPad Air 4",
       "smartHomeCompatible": true
     }
   },
@@ -18525,19 +16263,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Wall-Smart - מתקן תליית אייפד על משטחים קשיחים",
-    "description": "מתקן זה מיועד להתקנה במשטחים קשיחים, ומציע פתרון אסתטי ומדויק לשילוב האייפד בחללים מעוצבים.\r\\nבזכות העיצוב המיוחד, המתקן משתלב בצורה מושלמת בתוך משטחים כמו עץ, שיש, או חומרים קשיחים אחרים, ומעניק מראה יוקרתי ומוקפד תוך שמירה על נוחות השימוש במכשיר.",
-    "regularPrice": 0.0,
-    "series": "",
-    "brand": "Wall-Smart",
-    "attributes": {
-      "moduleSize": null,
-      "category": "iPad mini 6, iPad mini 5, iPad 7 / 8 10.2\" & Air 3, iPad Pro 11\" Gen 2 & 3, iPad Pro 12.9\" Gen4, iPad Pro 12.9\" Gen5, iPad Air 4",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "002-1-423",
     "name": "Wall-Smart - מתקן תליית אייפד על משטחים קשיחים - iPad mini 6",
     "description": "",
@@ -18633,7 +16358,7 @@
     "name": "SwitchBot Keypad Touch קודן טביעת אצבע",
     "description": "<p>קודן למנעול חכם עם טביעת אצבע מובנית</p>",
     "regularPrice": 319.0,
-    "series": "",
+    "series": "מנעולים חכמים",
     "brand": "SwitchBot",
     "attributes": {
       "moduleSize": null,
@@ -18698,7 +16423,7 @@
     "name": "SwitchBot ערכת אביזרים לרובוט שואב S10",
     "description": "<p>ערכת אביזרים מקוריים לרובוט שואב SwitchBot S10</p>\r\\n<p>שדרגו את חווית הניקיון עם הרובוט השואב החכם שלכם!</p>",
     "regularPrice": 289.0,
-    "series": "",
+    "series": "אחזקת הבית",
     "brand": "SwitchBot",
     "attributes": {
       "moduleSize": null,
@@ -18724,7 +16449,7 @@
     "name": "SwitchBot S10 מיכל מים חיצוני לרובוט שואב",
     "description": "הפתרון המושלם לניקיון יעיל למי שלא יכול או מעוניין לחבר את תחנת המים למערכת המים והניקוז אצלו בבית תחנת מים!",
     "regularPrice": 259.0,
-    "series": "",
+    "series": "אחזקת הבית",
     "brand": "SwitchBot",
     "attributes": {
       "moduleSize": null,
@@ -18737,7 +16462,7 @@
     "name": "SwitchBot S10 נוזל ניקוי לשואב שוטף",
     "description": "מגיע בחבילה של ארבעה בקבוקים, כל בקבוק 150 מ\"ל שמספיק לכשלושה חודשי ניקיון.\r\\nארבעת הבקבוקים אמורים להחזיק לכ-שנה של ניקיון",
     "regularPrice": 59.0,
-    "series": "",
+    "series": "אחזקת הבית",
     "brand": "SwitchBot",
     "attributes": {
       "moduleSize": null,
@@ -18763,7 +16488,7 @@
     "name": "SwitchBot פאנל סולארי למצלמת חוץ",
     "description": "שדרגו את מצלמת האבטחה החיצונית שלכם עם טעינה סולארית רציפה!",
     "regularPrice": 89.0,
-    "series": "",
+    "series": "מצלמות ואבטחה",
     "brand": "SwitchBot",
     "attributes": {
       "moduleSize": null,
@@ -18828,7 +16553,7 @@
     "name": "SwitchBot Wallet Finder Card",
     "description": "כרטיס בעובי 2.5 מ''מ בלבד, דק יותר ממטבע ומותאם במיוחד לארנק ללא נפח מיותר.\r\\nהכרטיס נועד לאתר חפצים, לאתר את הטלפון הנייד, ולהיכנס בעזרתו לבית (במידה והמנעול בבית בעל Keypad/Keypad Touch)",
     "regularPrice": 99.0,
-    "series": "",
+    "series": "אחזקת הבית",
     "brand": "SwitchBot",
     "attributes": {
       "moduleSize": null,
@@ -18911,19 +16636,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "שחור",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Aqara U200 מנעול חכם כולל קודן טביעת אצבע",
-    "description": "מנעול חכם המציע פתרון <strong>אבטחה מתקדם ונוח</strong> לבית ולמשרד.\r\\nהמערכת משלבת <strong>זיהוי טביעת אצבע, קודן דיגיטלי ו-NFC</strong>, לצד תמיכה ב-<strong>Matter</strong> לחיבור עם מערכות כמו <strong>Apple Home, Google Home ו-Amazon Alexa</strong>.",
-    "regularPrice": 0.0,
-    "series": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-    "brand": "Aqara",
-    "attributes": {
-      "moduleSize": null,
-      "category": "אפור, כסוף",
       "smartHomeCompatible": true
     }
   },
@@ -19075,7 +16787,7 @@
     "name": "Aqara T1 בקר שסתום חכם למים וגז",
     "description": "<p>בקר שסתום חכם המאפשר <strong>שליטה מרחוק ואוטומטית</strong> על שסתומי מים וגז בבית.\r\\nהמכשיר <strong>מתחבר לשסתומים קיימים</strong> ללא צורך בשינויים משמעותיים במערכת הצנרת, ומספק פתרון חכם לניהול ובקרת זרימת מים וגז.</p>",
     "regularPrice": 229.0,
-    "series": "",
+    "series": "אביזרים לחצר, אחזקת הבית",
     "brand": "Aqara",
     "attributes": {
       "moduleSize": null,
@@ -19123,19 +16835,6 @@
     }
   },
   {
-    "sku": "6975833356195-1",
-    "name": "Aqara H1 מפסק תאורה חכם",
-    "description": "שדרגו את מערכת התאורה בבית, מתג חכם המעניק שליטה מלאה, אוטומציות מתקדמות ותמיכה בפרוטוקול <strong>Zigbee 3.0</strong>.\r\\nהמתג מאפשר שליטה נוחה דרך <strong>אפליקציה, פקודות קוליות או תזמונים חכמים</strong>, תוך שמירה על עיצוב מודרני ואלגנטי.",
-    "regularPrice": 0.0,
-    "series": "1 מודול לקופסה 55, 2 מודול לקופסה 55",
-    "brand": "Aqara",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant, SmartThings",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "6970504214798",
     "name": "Aqara H1 מפסק תאורה חכם - 1 מודול לקופסה 55",
     "description": "",
@@ -19179,7 +16878,7 @@
     "name": "Aqara FP1E חיישן תנועה ונוכחות חכם",
     "description": "חיישן נוכחות חכם המזהה תנועה בדיוק גבוה תוך שימוש בטכנולוגיית <strong>בינה מלאכותית (AI)</strong>.\r\\nהחיישן מספק שליטה אוטומטית במכשירים, משפר את חוויית הבית החכם ומפחית התרעות שווא באמצעות הבחנה בין בני אדם לחפצים.",
     "regularPrice": 199.0,
-    "series": "",
+    "series": "חיישנים ואוטומציות, מצלמות ואבטחה",
     "brand": "Aqara",
     "attributes": {
       "moduleSize": null,
@@ -19205,7 +16904,7 @@
     "name": "Aqara T1 Extension ערכת הרחבה לפס LED",
     "description": "הרחיבו את התאורה בבית עם <strong>ערכת ההרחבה</strong>, המאפשרת להוסיף <strong>אורך נוסף של 1 מטר</strong> לפס ה-LED החכם הקיים.\r\\nהרחבה זו מספקת גמישות מלאה בעיצוב התאורה ויוצרת אווירה מותאמת אישית בכל חלל.",
     "regularPrice": 69.0,
-    "series": "",
+    "series": "תאורה דקורטיבית",
     "brand": "Aqara",
     "attributes": {
       "moduleSize": null,
@@ -19237,19 +16936,6 @@
       "moduleSize": null,
       "category": "כסוף",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Switcher מפסק תאורה חכם",
-    "description": "מפסק חכם לתאורה בשליטה מהסמארטפון",
-    "regularPrice": 0.0,
-    "series": "מפסק חכם",
-    "brand": "Switcher",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Google Home, Home Assistant",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -19357,19 +17043,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Switcher מפסק תריס חכם",
-    "description": "מפסק חכם לתריס בשליטה מהסמארטפון",
-    "regularPrice": 0.0,
-    "series": "מפסק חכם, תריס / וילון חכם",
-    "brand": "Switcher",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Google Home, Home Assistant",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "7290015524315",
     "name": "Switcher מפסק תריס חכם",
     "description": "",
@@ -19406,19 +17079,6 @@
       "moduleSize": null,
       "category": "1 מודול לקופסה מלבנית",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Switcher מפסק משולב תאורה ותריס חכם",
-    "description": "מפסק חכם משולב לתריס ותאורה בשליטה מהסמארטפון",
-    "regularPrice": 0.0,
-    "series": "מפסק חכם, תריס / וילון חכם",
-    "brand": "Switcher",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Google Home, Home Assistant",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -19500,19 +17160,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nanoleaf EXPO ערכת תצוגה חכמה",
-    "description": "<p>הפכו את האוסף שלכם ליצירת אמנות עם אנימציות צבע זורמות ותגובה מובנית למוזיקה לחוויה ויזואלית מתקדמת.\r\\nבין אם מדובר בנעליים, פסלונים או כל אוצר אחר – תיבות התצוגה החכמות הופכות את האוספים שלכם ליצירות אמנות בפני עצמן.\r\\nניתן לחבר עד 300 תיבות תצוגה, הן ניתנות לערימה וקלות להרכבה.</p>",
-    "regularPrice": 0.0,
-    "series": "חבילת בסיס, חבילת הרחבה",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "SQFX01K02-4WT",
     "name": "Nanoleaf EXPO ערכת תצוגה חכמה - חבילת בסיס",
     "description": "",
@@ -19536,19 +17183,6 @@
       "moduleSize": null,
       "category": "חבילת הרחבה",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Nanoleaf Blocks פאנלים חכמים",
-    "description": "צרו תצוגה מוארת ייחודית עם סגנונות פאנלים שונים ותוספות ייחודיות.\r\\nהתאימו אישית צבעים ואפקטים, והשתמשו במדפים ולוחות מחוררים להצגת הפריטים האהובים עליכם - כמו אביזרי גיימינג, פריטי אספנות, צמחים ועוד!",
-    "regularPrice": 0.0,
-    "series": "חבילת בסיס קומבו XL, חבילת בסיס קומבו, חבילת הרחבה Big Square, חבילת הרחבה Small Squares, חבילת הרחבה Pegboard, חבילת הרחבה Shelf, חבילת הרחבה Textured Big Squares",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -19643,19 +17277,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nanoleaf Skylight תאורת תקרה חכמה",
-    "description": "פאנלי תאורת תקרה חכמים מודולריים, הלוקחים את תאורת הבית שלכם לגבהים חדשים.\r\\nחקו את אפקט השמיים הטבעיים עם תאורה רב-נקודתית של Nanoleaf Skylight,\r\\n*ניתן להרחיב את הפריסה עם פאנלים נוספים לחוויית תאורת שמיים מלאה.",
-    "regularPrice": 0.0,
-    "series": "ערכת התחלה (3 יח), הרחבה",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant, Matter",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "NF083K02-3SL",
     "name": "Nanoleaf Skylight תאורת תקרה חכמה - ערכת התחלה (3 יח)",
     "description": "",
@@ -19682,19 +17303,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nanoleaf Elements Hexagons פאנל עץ חכם",
-    "description": "<p class=\"whitespace-pre-wrap break-words\" data-fontsize=\"18\">החבילה מגיעה עם פאנלים ועם כל מה שצריך ליצירת עיצובי תאורה ייחודיים משלכם.\r\\nתיהנו מהמראה המתוחכם של פורניר עץ כשהם כבויים, או הדליקו אותם להארת החלל שלכם בזוהר דינמי.</p>",
-    "regularPrice": 0.0,
-    "series": "חבילת בסיס, חבילת הרחבה",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "NL52-K-7002HB-7PK",
     "name": "Nanoleaf Elements Hexagons פאנל עץ חכם - חבילת בסיס",
     "description": "",
@@ -19718,19 +17326,6 @@
       "moduleSize": null,
       "category": "חבילת הרחבה",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Nanoleaf Shapes פאנלים חכמים",
-    "description": "ערכת ההתחלה מגיעה עם פאנלים דקיקים בעיצוב משושה, משולש ומיני משולש, וכוללת את כל מה שצריך ליצירת תאורת אווירה מרהיבה.\r\\nשלבו בין הצורות השונות כדי ליצור עיצובים ייחודיים ומתקדמים.",
-    "regularPrice": 0.0,
-    "series": "משולשים קטנים, משולשים, משושים",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -19903,19 +17498,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nanoleaf Essentials גרילנדה חכמה",
-    "description": "האירו את המרחבים החיצוניים שלכם עם נורות החוץ החכמות הצבעוניות אשר תומכות ב-Matter\r\\nצרו אווירה עם נורות LED ייחודיות בצבע אחיד או במספר צבעים בו-זמנית ליצירת אווירה שונה, דינמית ומיוחדת.",
-    "regularPrice": 0.0,
-    "series": "ערכת בסיס 15 מטר, הרחבה 15 מטר, באנדל ערכת בסיס + הרחבה 30 מטר",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "NF084K02-20SLO",
     "name": "Nanoleaf Essentials גרילנדה חכמה - ערכת בסיס 15 מטר",
     "description": "",
@@ -19952,19 +17534,6 @@
       "moduleSize": null,
       "category": "באנדל ערכת בסיס + הרחבה 30 מטר",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Nanoleaf Lines פסי תאורה חכמים",
-    "description": "פסי תאורת LED חכמים עם תאורת רקע מגיעים עם כל מה שצריך ליצירת עיצובים גיאומטריים מורכבים על הקיר שלכם.\r\\nבחרו מתוך 16+ מיליון צבעים ואנימציות תאורה דינמיות הזורמות לאורך כל העיצוב שלכם.",
-    "regularPrice": 0.0,
-    "series": "חבילת בסיס, חבילת הרחבה",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -20020,19 +17589,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nanoleaf 4D מערכת תאורה חכמה לטלוויזיה",
-    "description": "ערכה הכוללת מצלמה לשיקוף מסך המסנכרנת את הצבעים שעל המסך לפס תאורת LED חכמה מאחוריו.\r\\nחוו את אפקט המימד הרביעי כשהתאורה האחורית מאירה את החדר בצבעים מהתוכניות, הסרטים ומשחקי הווידאו האהובים עליכם.",
-    "regularPrice": 0.0,
-    "series": "עד 65 אינץ', עד 85 אינץ'",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "NF082K02-40LS",
     "name": "Nanoleaf 4D מערכת תאורה חכמה לטלוויזיה - עד 65 אינץ'",
     "description": "",
@@ -20059,19 +17615,6 @@
     }
   },
   {
-    "sku": "",
-    "name": "Nanoleaf Essentials ספוטים חכמים",
-    "description": "<p class=\"whitespace-pre-wrap break-words\" data-fontsize=\"18\">תיהנו מאור לבן בהיר או צבעים אינסופיים עם ספוטים LED שקועים וחכמים, המשנים צבעים ותומכים ב-Thread ו-Matter. קלים להתקנה ופשוטים לשליטה.</p>",
-    "regularPrice": 0.0,
-    "series": "ספוט אחד, ארבעה ספוטים",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant",
-      "smartHomeCompatible": true
-    }
-  },
-  {
     "sku": "NF080D02-1W3",
     "name": "Nanoleaf Essentials ספוטים חכמים - ספוט אחד",
     "description": "",
@@ -20095,19 +17638,6 @@
       "moduleSize": null,
       "category": "ארבעה ספוטים",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Nanoleaf Essentials פס לד חכם",
-    "description": "<p data-fontsize=\"18\">צרו תאורה אחורית מדהימה בכל חדר עם רצועת ה- LED Lightstrip המתאימה ל-Nanoleaf Matter. מגיע עם בקר מובנה.</p>",
-    "regularPrice": 0.0,
-    "series": "פס לד, הרחבה לפס לד",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-      "smartHomeCompatible": true
     }
   },
   {
@@ -20159,19 +17689,6 @@
     "attributes": {
       "moduleSize": null,
       "category": "Alexa, Apple Home, Google Home, Home Assistant, Matter, SmartThings",
-      "smartHomeCompatible": true
-    }
-  },
-  {
-    "sku": "",
-    "name": "Nanoleaf חלקי חילוף",
-    "description": "חלקי חילוף ואביזרים נלווים למוצרי ננוליף השונים כמו ערכת הרכבה עם ברגים, מחברים גמישים, חלקי חילוף\\ סקינים ללינס עוד",
-    "regularPrice": 0.0,
-    "series": "Shapes, Canvas, Lines, Elements, Essential, Blocks",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant",
       "smartHomeCompatible": true
     }
   },
@@ -20433,19 +17950,6 @@
       "moduleSize": null,
       "category": "Elements",
       "smartHomeCompatible": false
-    }
-  },
-  {
-    "sku": "",
-    "name": "Nanoleaf Essentials נורות חכמות",
-    "description": "תיהנו מאור לבן בהיר וצבעים אינסופיים עם נורת LED חכמה, המשנה צבעים ותומכת ב-Thread ו-Matter. קלה להתקנה ופשוטה לשליטה.",
-    "regularPrice": 0.0,
-    "series": "נורה אחד, שלוש נורות",
-    "brand": "Nanoleaf",
-    "attributes": {
-      "moduleSize": null,
-      "category": "Alexa, Apple Home, Google Home, Home Assistant",
-      "smartHomeCompatible": true
     }
   },
   {

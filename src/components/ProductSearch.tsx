@@ -85,7 +85,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
   };
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'ILS' }).format(price);
   };
 
   return (
