@@ -26,6 +26,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { FileDown, FileText } from "lucide-react";
 import { BoxProduct } from "@/context/ProjectContext";
+import { getProductBySku } from "@/services/productService";
 
 interface SkuSummary {
   sku: string;
@@ -33,14 +34,17 @@ interface SkuSummary {
   quantity: number;
   unitPrice: number;
   totalPrice: number;
+  isFrameOrAdapter?: boolean;
 }
 
 const Summary: React.FC = () => {
-  const { clientName, boxes, complementaryProducts } = useProject();
+  const { clientName, boxes, complementaryProducts, getFramesAndAdapters } = useProject();
+  const framesAndAdapters = getFramesAndAdapters();
 
   const generateSkuSummary = (): SkuSummary[] => {
     const summary: Record<string, SkuSummary> = {};
     
+    // Add box products
     boxes.forEach(box => {
       box.products.forEach(item => {
         const { sku, name, regularPrice } = item.product;
@@ -68,13 +72,31 @@ const Summary: React.FC = () => {
         summary[sku].totalPrice = summary[sku].quantity * summary[sku].unitPrice;
       } else {
         // Find product details from inventory if available
-        const product = boxes.flatMap(b => b.products).find(p => p.product.sku === sku)?.product;
+        const product = getProductBySku(sku);
         summary[sku] = {
           sku,
           productName: item.name,
           quantity: item.quantity,
-          unitPrice: product?.regularPrice || 0, // Use 0 if price unknown
+          unitPrice: product?.regularPrice || 0,
           totalPrice: (product?.regularPrice || 0) * item.quantity
+        };
+      }
+    });
+    
+    // Add frames and adapters
+    framesAndAdapters.forEach(item => {
+      const sku = item.sku;
+      if (summary[sku]) {
+        summary[sku].quantity += 1;
+        summary[sku].totalPrice = summary[sku].quantity * item.regularPrice;
+      } else {
+        summary[sku] = {
+          sku,
+          productName: item.name,
+          quantity: 1,
+          unitPrice: item.regularPrice,
+          totalPrice: item.regularPrice,
+          isFrameOrAdapter: true
         };
       }
     });
@@ -96,15 +118,25 @@ const Summary: React.FC = () => {
     
     // Generate Box Contents CSV
     skuCsv += 'Box Contents\n';
-    skuCsv += 'Box Name,Area,Description,Products\n';
+    skuCsv += 'Box Name,Area,Description,Color,Products\n';
     
     boxes.forEach(box => {
       const productsString = box.products
         .map(item => `${item.product.sku} (${item.quantity}x, ${item.product.attributes.moduleSize} module${item.product.attributes.moduleSize > 1 ? 's' : ''})`)
         .join('; ');
       
-      skuCsv += `"${box.name}","${box.area}","${box.description}","${productsString}"\n`;
+      skuCsv += `"${box.name}","${box.area}","${box.description || ''}","${box.color || 'None'}","${productsString}"\n`;
     });
+
+    // Add Frames and Adapters
+    if (framesAndAdapters.length > 0) {
+      skuCsv += '\nFrames and Adapters\n';
+      skuCsv += 'Type,SKU,Name,For Box,Module Capacity,Color\n';
+      
+      framesAndAdapters.forEach(item => {
+        skuCsv += `"${item.type}","${item.sku}","${item.name}","${item.forBoxType}",${item.moduleCapacity},"${item.color || 'None'}"\n`;
+      });
+    }
 
     // Add Complementary Products
     if (complementaryProducts.length > 0) {
@@ -159,21 +191,24 @@ const Summary: React.FC = () => {
                   <TableHead>Quantity</TableHead>
                   <TableHead>Unit Price</TableHead>
                   <TableHead>Total Price</TableHead>
+                  <TableHead>Type</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {skuSummary.map(item => (
-                  <TableRow key={item.sku}>
+                  <TableRow key={item.sku} className={item.isFrameOrAdapter ? "bg-muted/50" : ""}>
                     <TableCell className="font-medium">{item.sku}</TableCell>
                     <TableCell>{item.productName}</TableCell>
                     <TableCell>{item.quantity}</TableCell>
                     <TableCell>{formatPrice(item.unitPrice)}</TableCell>
                     <TableCell>{formatPrice(item.totalPrice)}</TableCell>
+                    <TableCell>{item.isFrameOrAdapter ? "Auto-added" : "User-selected"}</TableCell>
                   </TableRow>
                 ))}
                 <TableRow>
                   <TableCell colSpan={4} className="text-right font-medium">Total</TableCell>
                   <TableCell className="font-bold">{formatPrice(totalCost)}</TableCell>
+                  <TableCell></TableCell>
                 </TableRow>
               </TableBody>
             </Table>
@@ -194,7 +229,7 @@ const Summary: React.FC = () => {
                 <AccordionItem key={box.id} value={box.id}>
                   <AccordionTrigger>
                     <div className="flex items-center justify-between w-full pr-4">
-                      <span>{box.name} - {box.area}</span>
+                      <span>{box.name} - {box.area} {box.color ? `(${box.color})` : ''}</span>
                       <span className="text-sm text-muted-foreground">
                         {box.products.length} product{box.products.length !== 1 ? 's' : ''}
                       </span>
@@ -215,6 +250,7 @@ const Summary: React.FC = () => {
                             <TableHead>Quantity</TableHead>
                             <TableHead>Module Size</TableHead>
                             <TableHead>Total Modules</TableHead>
+                            {box.color && <TableHead>Color</TableHead>}
                           </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -225,10 +261,11 @@ const Summary: React.FC = () => {
                               <TableCell>{item.quantity}</TableCell>
                               <TableCell>{item.product.attributes.moduleSize}</TableCell>
                               <TableCell>{item.quantity * item.product.attributes.moduleSize}</TableCell>
+                              {box.color && <TableCell>{item.product.attributes.color || 'N/A'}</TableCell>}
                             </TableRow>
                           ))}
                           <TableRow>
-                            <TableCell colSpan={4} className="text-right font-medium">
+                            <TableCell colSpan={box.color ? 4 : 3} className="text-right font-medium">
                               Total Modules
                             </TableCell>
                             <TableCell className="font-bold">
@@ -236,9 +273,45 @@ const Summary: React.FC = () => {
                                 sum + (item.quantity * item.product.attributes.moduleSize), 0
                               )} / {box.moduleCapacity}
                             </TableCell>
+                            {box.color && <TableCell></TableCell>}
                           </TableRow>
                         </TableBody>
                       </Table>
+                    )}
+                    
+                    {/* Show frames and adapters for this box */}
+                    {framesAndAdapters.filter(item => 
+                      item.forBoxType === box.boxType && 
+                      item.moduleCapacity === box.moduleCapacity &&
+                      (!item.color || item.color === box.color)
+                    ).length > 0 && (
+                      <div className="mt-4">
+                        <h4 className="text-sm font-medium mb-2">Auto-added Components:</h4>
+                        <Table>
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead>Type</TableHead>
+                              <TableHead>SKU</TableHead>
+                              <TableHead>Name</TableHead>
+                              <TableHead>Color</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {framesAndAdapters.filter(item => 
+                              item.forBoxType === box.boxType && 
+                              item.moduleCapacity === box.moduleCapacity &&
+                              (!item.color || item.color === box.color)
+                            ).map(item => (
+                              <TableRow key={item.sku}>
+                                <TableCell className="capitalize">{item.type}</TableCell>
+                                <TableCell>{item.sku}</TableCell>
+                                <TableCell>{item.name}</TableCell>
+                                <TableCell>{item.color || 'N/A'}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </div>
                     )}
                   </AccordionContent>
                 </AccordionItem>
@@ -257,6 +330,44 @@ const Summary: React.FC = () => {
           </Button>
         </CardFooter>
       </Card>
+
+      {/* Frames and Adapters Summary Section */}
+      {framesAndAdapters.length > 0 && (
+        <Card className="w-full">
+          <CardHeader>
+            <CardTitle>Frames and Adapters</CardTitle>
+            <CardDescription>
+              Automatically added based on box configuration
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Type</TableHead>
+                  <TableHead>SKU</TableHead>
+                  <TableHead>Name</TableHead>
+                  <TableHead>For Box Type</TableHead>
+                  <TableHead>Module Capacity</TableHead>
+                  <TableHead>Color</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {framesAndAdapters.map((item) => (
+                  <TableRow key={item.sku}>
+                    <TableCell className="capitalize">{item.type}</TableCell>
+                    <TableCell>{item.sku}</TableCell>
+                    <TableCell>{item.name}</TableCell>
+                    <TableCell>{item.forBoxType}</TableCell>
+                    <TableCell>{item.moduleCapacity}</TableCell>
+                    <TableCell>{item.color || 'N/A'}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Complementary Products Section */}
       {complementaryProducts.length > 0 && (
