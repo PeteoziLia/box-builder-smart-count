@@ -53,7 +53,7 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData, boxId }) => 
       description: initialData?.description || "",
       boxType: initialData?.boxType || "Rectangular Box",
       moduleCapacity: initialData?.moduleCapacity || 4,
-      color: initialData?.color || "",
+      color: initialData?.color || undefined,
     },
   });
 
@@ -194,7 +194,7 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData, boxId }) => 
                 <FormLabel>Color (Optional)</FormLabel>
                 <Select 
                   onValueChange={field.onChange}
-                  value={field.value || ""}
+                  value={field.value || "none"}
                 >
                   <FormControl>
                     <SelectTrigger>
@@ -202,7 +202,7 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData, boxId }) => 
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="">Any Color</SelectItem>
+                    <SelectItem value="none">Any Color</SelectItem>
                     {availableColors.map((color) => (
                       <SelectItem key={color} value={color}>
                         {color}
