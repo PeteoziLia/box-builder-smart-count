@@ -1,154 +1,226 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useProject } from "@/context/ProjectContext";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { BoxType, BOX_MODULE_CAPACITIES, BoxModuleCapacity } from "@/types/box";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useProject } from "@/context/ProjectContext";
+import { BoxType, BOX_MODULE_CAPACITIES, BoxFormData } from "@/types/box";
+import { getAvailableColors } from "@/services/productService";
+
+const formSchema = z.object({
+  name: z.string().min(1, "Box name is required"),
+  area: z.string().min(1, "Area is required"),
+  description: z.string().optional(),
+  boxType: z.enum(["55 Box", "Rectangular Box"]),
+  moduleCapacity: z.number().min(1),
+  color: z.string().optional(),
+});
 
 interface BoxFormProps {
   onComplete: () => void;
-  initialData?: {
-    id: string;
-    name: string;
-    area: string;
-    description: string;
-    boxType: BoxType;
-    moduleCapacity: BoxModuleCapacity;
-  };
+  initialData?: Partial<BoxFormData>;
+  boxId?: string;
 }
 
-const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData }) => {
+const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData, boxId }) => {
   const { addBox, updateBox } = useProject();
-  const [boxName, setBoxName] = useState(initialData?.name || "");
-  const [area, setArea] = useState(initialData?.area || "");
-  const [description, setDescription] = useState(initialData?.description || "");
-  const [boxType, setBoxType] = useState<BoxType>(initialData?.boxType || "Rectangular Box");
-  const [moduleCapacity, setModuleCapacity] = useState<BoxModuleCapacity>(
-    initialData?.moduleCapacity || 3 as BoxModuleCapacity
-  );
+  const [availableModules, setAvailableModules] = useState<number[]>([]);
+  const [availableColors, setAvailableColors] = useState<string[]>([]);
+  
+  const form = useForm<BoxFormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: initialData?.name || "",
+      area: initialData?.area || "",
+      description: initialData?.description || "",
+      boxType: initialData?.boxType || "Rectangular Box",
+      moduleCapacity: initialData?.moduleCapacity || 4,
+      color: initialData?.color || undefined,
+    },
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const boxType = form.watch("boxType") as BoxType;
+
+  useEffect(() => {
+    // Convert the readonly array to a regular array using Array.from()
+    setAvailableModules(Array.from(BOX_MODULE_CAPACITIES[boxType]));
     
-    if (!boxName || !area || !moduleCapacity) {
-      return;
+    // Reset module capacity if the current one isn't available
+    const currentCapacity = form.getValues("moduleCapacity");
+    if (!BOX_MODULE_CAPACITIES[boxType].includes(currentCapacity as any)) {
+      form.setValue("moduleCapacity", BOX_MODULE_CAPACITIES[boxType][0]);
     }
+  }, [boxType, form]);
 
-    const boxData = {
-      name: boxName,
-      area,
-      description,
-      boxType,
-      moduleCapacity,
-    };
+  useEffect(() => {
+    // Fetch available colors
+    setAvailableColors(getAvailableColors());
+  }, []);
 
-    if (initialData) {
-      updateBox(initialData.id, boxData);
+  const onSubmit = (data: BoxFormData) => {
+    if (boxId) {
+      updateBox(boxId, data);
     } else {
-      addBox(boxData);
+      addBox(data);
     }
-
-    // Reset the form
-    if (!initialData) {
-      setBoxName("");
-      setArea("");
-      setDescription("");
-      setBoxType("Rectangular Box");
-      setModuleCapacity(3 as BoxModuleCapacity);
-    }
-    
     onComplete();
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>{initialData ? 'Edit Box' : 'Add New Box'}</CardTitle>
-        <CardDescription>{initialData ? 'Modify box details' : 'Create a new electrical box'}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="boxName">Box Name</Label>
-            <Input
-              id="boxName"
-              placeholder="E.g., Box 1, Main Box"
-              value={boxName}
-              onChange={(e) => setBoxName(e.target.value)}
-              required
-            />
-          </div>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Box Name</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter a name for this box" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="area"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Area</FormLabel>
+              <FormControl>
+                <Input placeholder="e.g., Living Room, Kitchen" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="description"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Description (Optional)</FormLabel>
+              <FormControl>
+                <Textarea 
+                  placeholder="Add any additional details about this box" 
+                  {...field} 
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <FormField
+            control={form.control}
+            name="boxType"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Box Type</FormLabel>
+                <Select 
+                  onValueChange={field.onChange} 
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a box type" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="55 Box">55 Box</SelectItem>
+                    <SelectItem value="Rectangular Box">Rectangular Box</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="moduleCapacity"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Module Capacity</FormLabel>
+                <Select 
+                  onValueChange={(value) => field.onChange(parseInt(value))}
+                  value={field.value.toString()}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select capacity" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {availableModules.map((modules) => (
+                      <SelectItem key={modules} value={modules.toString()}>
+                        {modules} {modules === 1 ? "module" : "modules"}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-          <div className="space-y-2">
-            <Label htmlFor="area">Area</Label>
-            <Input
-              id="area"
-              placeholder="E.g., Living Room, Kitchen"
-              value={area}
-              onChange={(e) => setArea(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="boxType">Box Type</Label>
-            <Select
-              value={boxType}
-              onValueChange={(value: BoxType) => {
-                setBoxType(value);
-                // Reset module capacity to a valid value for the new box type
-                setModuleCapacity(BOX_MODULE_CAPACITIES[value][0]);
-              }}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select box type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="55 Box">55 Box</SelectItem>
-                <SelectItem value="Rectangular Box">Rectangular Box</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="moduleCapacity">Number of Modules</Label>
-            <Select
-              value={moduleCapacity.toString()}
-              onValueChange={(value) => setModuleCapacity(Number(value) as BoxModuleCapacity)}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select module capacity" />
-              </SelectTrigger>
-              <SelectContent>
-                {BOX_MODULE_CAPACITIES[boxType].map((capacity) => (
-                  <SelectItem key={capacity} value={capacity.toString()}>
-                    {capacity} modules
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="description">Description (Optional)</Label>
-            <Textarea
-              id="description"
-              placeholder="Add any additional details about this box"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
-
-          <Button type="submit" className="w-full">
-            {initialData ? 'Save Changes' : 'Create Box'}
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+          <FormField
+            control={form.control}
+            name="color"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Color (Optional)</FormLabel>
+                <Select 
+                  onValueChange={field.onChange}
+                  value={field.value || "none"}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a color" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="none">Any Color</SelectItem>
+                    {availableColors.map((color) => (
+                      <SelectItem key={color} value={color}>
+                        {color}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        
+        <Button type="submit" className="w-full">
+          {boxId ? "Update Box" : "Create Box"}
+        </Button>
+      </form>
+    </Form>
   );
 };
 

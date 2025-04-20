@@ -7,9 +7,10 @@ import {
   Card, 
   CardContent,
   CardHeader,
-  CardTitle 
+  CardTitle,
+  CardDescription
 } from "@/components/ui/card";
-import { Search, Package } from "lucide-react";
+import { Search, Package, AlertCircle } from "lucide-react";
 import { 
   Command, 
   CommandEmpty, 
@@ -23,6 +24,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/alert";
 import { Product } from "@/types/box";
 import { searchProducts, isBoxCompatibleProduct } from "@/services/productService";
 import { useProject } from "@/context/ProjectContext";
@@ -32,24 +38,43 @@ interface ProductSearchProps {
 }
 
 const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
-  const { addProductToBox, getRemainingModules } = useProject();
+  const { addProductToBox, getRemainingModules, getBoxById } = useProject();
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState("");
+  const [noColorMatchWarning, setNoColorMatchWarning] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const box = getBoxById(boxId);
 
   useEffect(() => {
     if (searchQuery.trim().length > 0) {
-      const results = searchProducts(searchQuery)
+      const results = searchProducts(searchQuery, box?.color)
         .filter(isBoxCompatibleProduct); // Only show products that can go in boxes
+      
       setSearchResults(results);
+      
+      // Check if we need to show a color mismatch warning
+      if (box?.color && results.length === 0) {
+        // Try searching without the color filter to see if there are any matches
+        const allResults = searchProducts(searchQuery)
+          .filter(isBoxCompatibleProduct);
+        
+        if (allResults.length > 0) {
+          setNoColorMatchWarning(true);
+        } else {
+          setNoColorMatchWarning(false);
+        }
+      } else {
+        setNoColorMatchWarning(false);
+      }
     } else {
       setSearchResults([]);
+      setNoColorMatchWarning(false);
     }
-  }, [searchQuery]);
+  }, [searchQuery, box?.color]);
 
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);
@@ -92,6 +117,11 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
     <Card className="w-full">
       <CardHeader>
         <CardTitle>Add Products</CardTitle>
+        {box?.color && (
+          <CardDescription>
+            Showing products compatible with {box.color} color
+          </CardDescription>
+        )}
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
@@ -128,6 +158,17 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                     ref={searchInputRef}
                   />
                   <CommandList>
+                    {noColorMatchWarning && (
+                      <div className="p-2">
+                        <Alert variant="warning">
+                          <AlertCircle className="h-4 w-4" />
+                          <AlertTitle>No color match</AlertTitle>
+                          <AlertDescription>
+                            No products found matching "{box?.color}" color. Try changing the box color.
+                          </AlertDescription>
+                        </Alert>
+                      </div>
+                    )}
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="Search Results">
                       {searchResults.map((product) => (
@@ -148,7 +189,8 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                               <span>{product.attributes.moduleSize} module{product.attributes.moduleSize > 1 ? 's' : ''}</span>
                             </div>
                             <div className="text-xs text-muted-foreground mt-1">
-                              {product.brand} | {product.series}
+                              {product.brand} | {product.series} 
+                              {product.attributes.color && ` | ${product.attributes.color}`}
                             </div>
                           </div>
                         </CommandItem>
@@ -189,6 +231,11 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
               <div className="mb-1">
                 <span className="font-medium">Price:</span> {formatPrice(selectedProduct.regularPrice)}
               </div>
+              {selectedProduct.attributes.color && (
+                <div className="mb-1">
+                  <span className="font-medium">Color:</span> {selectedProduct.attributes.color}
+                </div>
+              )}
               <div className="mb-1">
                 <span className="font-medium">Modules Needed:</span> {selectedProduct.attributes.moduleSize * quantity}
               </div>

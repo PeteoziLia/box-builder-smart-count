@@ -1,6 +1,6 @@
-
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { BoxType, BoxModuleCapacity, ComplementaryProductData, Product } from "@/types/box";
+import { BoxType, BoxModuleCapacity, ComplementaryProductData, Product, FrameAdapter } from "@/types/box";
+import { getFrameForBox, getAdapterForBox } from "@/services/productService";
 
 export interface BoxProduct {
   product: Product;
@@ -15,6 +15,7 @@ export interface Box {
   boxType: BoxType;
   moduleCapacity: BoxModuleCapacity;
   products: BoxProduct[];
+  color?: string; // Added color field
 }
 
 interface ProjectContextType {
@@ -36,6 +37,8 @@ interface ProjectContextType {
   addComplementaryProduct: (product: ComplementaryProductData) => void;
   updateComplementaryProduct: (index: number, product: ComplementaryProductData) => void;
   removeComplementaryProduct: (index: number) => void;
+  getAvailableColors: () => string[];
+  getFramesAndAdapters: () => FrameAdapter[];
 }
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
@@ -206,6 +209,40 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
     setComplementaryProducts(complementaryProducts.filter((_, i) => i !== index));
   };
 
+  const getAvailableColors = (): string[] => {
+    // Return a list of all available colors from products
+    return []; // This will be implemented in productService.ts
+  };
+
+  const getFramesAndAdapters = (): FrameAdapter[] => {
+    // Get all frames and adapters needed for the current boxes
+    const framesAndAdapters: FrameAdapter[] = [];
+    
+    boxes.forEach(box => {
+      // Check if the box needs a frame
+      const needsFrame = box.products.length > 0 && 
+        !box.products.some(item => 
+          item.product.attributes.includesFrame || 
+          item.product.attributes.isCompletePanel
+        );
+      
+      if (needsFrame) {
+        const frame = getFrameForBox(box);
+        if (frame) {
+          framesAndAdapters.push(frame);
+        }
+      }
+      
+      // Add adapter for the box
+      const adapter = getAdapterForBox(box);
+      if (adapter) {
+        framesAndAdapters.push(adapter);
+      }
+    });
+    
+    return framesAndAdapters;
+  };
+
   return (
     <ProjectContext.Provider
       value={{
@@ -227,6 +264,8 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
         addComplementaryProduct,
         updateComplementaryProduct,
         removeComplementaryProduct,
+        getAvailableColors,
+        getFramesAndAdapters,
       }}
     >
       {children}

@@ -14,12 +14,16 @@ export interface BoxFormData {
   description: string;
   boxType: BoxType;
   moduleCapacity: BoxModuleCapacity;
+  color?: string; // Added color field
 }
 
 export interface ProductAttributes {
   moduleSize?: number;
   category?: string;
   smartHomeCompatible?: boolean;
+  color?: string; // Added color attribute
+  includesFrame?: boolean; // Indicates if product includes a frame
+  isCompletePanel?: boolean; // Indicates if product is a complete panel
   [key: string]: any; // Allow for additional attributes
 }
 
@@ -39,4 +43,14 @@ export interface ComplementaryProductData {
   quantity: number;
   area: string;
   description?: string;
+}
+
+export interface FrameAdapter {
+  type: 'frame' | 'adapter';
+  sku: string;
+  name: string;
+  regularPrice: number;
+  forBoxType: BoxType;
+  moduleCapacity: BoxModuleCapacity;
+  color?: string;
 }
