@@ -1,3 +1,4 @@
+
 import { Product, BoxType, BoxModuleCapacity, FrameAdapter } from '@/types/box';
 import Papa from 'papaparse';
 import { Box } from "@/context/ProjectContext";
@@ -22,38 +23,83 @@ const loadProductsFromCSV = async (): Promise<Product[]> => {
     }
     
     const csvText = await response.text();
-    console.log("CSV text loaded, first 100 chars:", csvText.substring(0, 100));
+    console.log("CSV text loaded, length:", csvText.length);
     
     const result = Papa.parse(csvText, {
       header: true,
       skipEmptyLines: true,
+      transformHeader: (header) => header.trim(),
     });
     
-    console.log("CSV parse result:", result);
+    console.log("CSV parse result:", result.meta);
     
     if (result.errors && result.errors.length > 0) {
       console.error("CSV parsing errors:", result.errors);
     }
     
-    // Transform CSV data into our Product type format
-    const products: Product[] = result.data.map((row: any) => ({
-      sku: row.sku || "",
-      name: row.name || "",
-      description: row.description || "",
-      regularPrice: parseFloat(row.regularPrice) || 0,
-      series: row.series || "",
-      brand: row.brand || "",
-      attributes: {
-        moduleSize: row.moduleSize ? parseInt(row.moduleSize) : undefined,
-        category: row.category || undefined,
-        smartHomeCompatible: row.smartHomeCompatible === "true" || row.smartHomeCompatible === "1",
-        color: row.color || undefined,
-        includesFrame: row.includesFrame === "true" || row.includesFrame === "1",
-        isCompletePanel: row.isCompletePanel === "true" || row.isCompletePanel === "1",
-      }
-    }));
+    // Transform CSV data into our Product type format with improved normalization
+    const products: Product[] = [];
     
-    console.log("Parsed products:", products.length, "items");
+    result.data.forEach((row: any) => {
+      try {
+        // Extract and normalize data
+        const product: Product = {
+          sku: row.sku?.trim() || "",
+          name: row.name?.trim() || "",
+          description: row.description?.trim() || "",
+          regularPrice: parseFloat(row.regularPrice) || 0,
+          series: row.series?.trim() || "",
+          brand: row.brand?.trim() || "",
+          attributes: {
+            moduleSize: row.moduleSize ? parseInt(row.moduleSize) : undefined,
+            category: row.category?.trim() || undefined,
+            smartHomeCompatible: row.smartHomeCompatible === "true" || row.smartHomeCompatible === "1",
+            color: row.color?.trim() || undefined,
+            includesFrame: row.includesFrame === "true" || row.includesFrame === "1",
+            isCompletePanel: row.isCompletePanel === "true" || row.isCompletePanel === "1",
+          }
+        };
+        
+        // Process dynamic attribute columns
+        Object.keys(row).forEach(key => {
+          if (key.startsWith("Attribute ") && key.includes("name")) {
+            const attrNumMatch = key.match(/Attribute (\d+) name/);
+            if (attrNumMatch) {
+              const attrNum = attrNumMatch[1];
+              const attrValueKey = `Attribute ${attrNum} value`;
+              const attrName = row[key]?.trim();
+              const attrValue = row[attrValueKey]?.trim();
+              
+              if (attrName && attrValue) {
+                // Normalize specific attributes we care about
+                if (attrName.toLowerCase().includes("color") || attrName.toLowerCase().includes("צבע")) {
+                  product.attributes.color = attrValue;
+                } else if (attrName.toLowerCase().includes("series") || attrName.toLowerCase().includes("סדרה")) {
+                  product.series = attrValue;
+                } else if (attrName.toLowerCase().includes("module") || attrName.toLowerCase().includes("יחידות מודול") || attrName.toLowerCase().includes("מקום")) {
+                  const moduleSize = parseInt(attrValue);
+                  if (!isNaN(moduleSize)) {
+                    product.attributes.moduleSize = moduleSize;
+                  }
+                } else {
+                  // Store any other attributes
+                  product.attributes[attrName] = attrValue;
+                }
+              }
+            }
+          }
+        });
+        
+        // Only add products with essential information
+        if (product.sku && product.name) {
+          products.push(product);
+        }
+      } catch (error) {
+        console.error("Error processing product row:", error, row);
+      }
+    });
+    
+    console.log("Normalized products:", products.length, "items");
     if (products.length > 0) {
       console.log("First product sample:", products[0]);
     }
@@ -74,8 +120,10 @@ export const getAllProducts = async (): Promise<Product[]> => {
 export const getUniqueProductBrands = async (): Promise<string[]> => {
   const products = await loadProductsFromCSV();
   const brands = new Set<string>();
-  products.forEach(product => brands.add(product.brand));
-  return Array.from(brands);
+  products.forEach(product => {
+    if (product.brand) brands.add(product.brand);
+  });
+  return Array.from(brands).sort();
 };
 
 export const getUniqueSeriesByBrand = async (brand: string): Promise<string[]> => {
@@ -83,8 +131,10 @@ export const getUniqueSeriesByBrand = async (brand: string): Promise<string[]> =
   const series = new Set<string>();
   products
     .filter(product => product.brand === brand)
-    .forEach(product => series.add(product.series));
-  return Array.from(series);
+    .forEach(product => {
+      if (product.series) series.add(product.series);
+    });
+  return Array.from(series).sort();
 };
 
 export const getAvailableColors = async (): Promise<string[]> => {
@@ -95,12 +145,17 @@ export const getAvailableColors = async (): Promise<string[]> => {
       colors.add(product.attributes.color);
     }
   });
-  return Array.from(colors);
+  return Array.from(colors).sort();
 };
 
 export const searchProducts = async (searchTerm: string, color?: string): Promise<Product[]> => {
   console.log("Searching for products with term:", searchTerm, "color:", color);
   const products = await loadProductsFromCSV();
+  
+  if (!products || products.length === 0) {
+    console.error("No products available for search");
+    return [];
+  }
   
   if (searchTerm.trim() === "") {
     // Return first 20 products if search term is empty
