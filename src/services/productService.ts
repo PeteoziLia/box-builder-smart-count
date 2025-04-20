@@ -1,4 +1,3 @@
-
 import { Product, BoxType, BoxModuleCapacity, FrameAdapter } from '@/types/box';
 import Papa from 'papaparse';
 import { Box } from "@/context/ProjectContext";
@@ -8,16 +7,33 @@ let productsCache: Product[] | null = null;
 
 // Function to load and parse the CSV file
 const loadProductsFromCSV = async (): Promise<Product[]> => {
-  if (productsCache) return productsCache;
+  if (productsCache) {
+    console.log("Using cached products:", productsCache.length, "items");
+    return productsCache;
+  }
   
   try {
+    console.log("Fetching CSV file...");
     const response = await fetch('/products_full.csv');
+    
+    if (!response.ok) {
+      console.error("Failed to fetch CSV file:", response.status, response.statusText);
+      return [];
+    }
+    
     const csvText = await response.text();
+    console.log("CSV text loaded, first 100 chars:", csvText.substring(0, 100));
     
     const result = Papa.parse(csvText, {
       header: true,
       skipEmptyLines: true,
     });
+    
+    console.log("CSV parse result:", result);
+    
+    if (result.errors && result.errors.length > 0) {
+      console.error("CSV parsing errors:", result.errors);
+    }
     
     // Transform CSV data into our Product type format
     const products: Product[] = result.data.map((row: any) => ({
@@ -36,6 +52,11 @@ const loadProductsFromCSV = async (): Promise<Product[]> => {
         isCompletePanel: row.isCompletePanel === "true" || row.isCompletePanel === "1",
       }
     }));
+    
+    console.log("Parsed products:", products.length, "items");
+    if (products.length > 0) {
+      console.log("First product sample:", products[0]);
+    }
     
     productsCache = products;
     return products;
@@ -78,14 +99,29 @@ export const getAvailableColors = async (): Promise<string[]> => {
 };
 
 export const searchProducts = async (searchTerm: string, color?: string): Promise<Product[]> => {
+  console.log("Searching for products with term:", searchTerm, "color:", color);
   const products = await loadProductsFromCSV();
+  
+  if (searchTerm.trim() === "") {
+    // Return first 20 products if search term is empty
+    const filtered = !color || color === "none" 
+      ? products.slice(0, 20) 
+      : products.filter(p => p.attributes.color === color).slice(0, 20);
+    
+    console.log("Empty search, returning first products:", filtered.length);
+    return filtered;
+  }
+  
   const lowerSearchTerm = searchTerm.toLowerCase();
-  return products.filter(product => 
+  const results = products.filter(product => 
     (product.sku.toLowerCase().includes(lowerSearchTerm) ||
      product.name.toLowerCase().includes(lowerSearchTerm) ||
      product.description.toLowerCase().includes(lowerSearchTerm)) &&
     (!color || color === "none" || product.attributes.color === color)
   );
+  
+  console.log("Search results:", results.length);
+  return results;
 };
 
 export const filterProductsByBrandAndSeries = async (brand: string, series: string, color?: string): Promise<Product[]> => {

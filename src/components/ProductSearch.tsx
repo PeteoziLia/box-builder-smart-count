@@ -17,7 +17,8 @@ import {
   CommandGroup, 
   CommandInput, 
   CommandItem, 
-  CommandList 
+  CommandList,
+  CommandLoading
 } from "@/components/ui/command";
 import {
   Popover,
@@ -50,18 +51,44 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const box = getBoxById(boxId);
 
+  // Load initial products when popup is opened
+  useEffect(() => {
+    if (open && searchQuery.trim().length === 0) {
+      const fetchInitialProducts = async () => {
+        setIsLoading(true);
+        try {
+          // Get initial products (searchProducts will return first 20 with empty search)
+          const results = await searchProducts("", box?.color);
+          console.log("Initial product results:", results.length);
+          const filteredResults = results.filter(isBoxCompatibleProduct);
+          setSearchResults(filteredResults);
+          setNoColorMatchWarning(false);
+        } catch (error) {
+          console.error("Error loading initial products:", error);
+          setSearchResults([]);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      
+      fetchInitialProducts();
+    }
+  }, [open, box?.color]);
+
+  // Handle search query changes
   useEffect(() => {
     const fetchProducts = async () => {
-      if (searchQuery.trim().length > 0) {
+      if (open) {
         setIsLoading(true);
         try {
           // Search with color filter
+          console.log("Searching with query:", searchQuery);
           const results = await searchProducts(searchQuery, box?.color);
           const filteredResults = results.filter(isBoxCompatibleProduct);
           setSearchResults(filteredResults);
           
           // Check if we need to show a color mismatch warning
-          if (box?.color && box.color !== "none" && filteredResults.length === 0) {
+          if (box?.color && box.color !== "none" && filteredResults.length === 0 && searchQuery.trim().length > 0) {
             // Try searching without the color filter to see if there are any matches
             const allResults = await searchProducts(searchQuery);
             const filteredAllResults = allResults.filter(isBoxCompatibleProduct);
@@ -80,16 +107,18 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
         } finally {
           setIsLoading(false);
         }
-      } else {
-        setSearchResults([]);
-        setNoColorMatchWarning(false);
       }
     };
     
-    fetchProducts();
-  }, [searchQuery, box?.color]);
+    const timer = setTimeout(() => {
+      fetchProducts();
+    }, 300); // Debounce search
+    
+    return () => clearTimeout(timer);
+  }, [searchQuery, box?.color, open]);
 
   const handleSelectProduct = (product: Product) => {
+    console.log("Selected product:", product);
     setSelectedProduct(product);
     setOpen(false);
     setSearchQuery("");
@@ -108,6 +137,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
       return;
     }
 
+    console.log("Adding product to box:", selectedProduct, "quantity:", quantity);
     const success = addProductToBox(boxId, selectedProduct, quantity);
     if (!success) {
       setError(`Not enough module space. Only ${getRemainingModules(boxId)} modules available.`);
@@ -146,7 +176,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                   {selectedProduct ? (
                     <>
                       <Package className="mr-2 h-4 w-4" />
-                      <span>{selectedProduct.sku} - {selectedProduct.name}</span>
+                      <span className="truncate">{selectedProduct.sku} - {selectedProduct.name}</span>
                     </>
                   ) : (
                     <>
@@ -183,11 +213,11 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                       </div>
                     )}
                     {isLoading ? (
-                      <div className="py-6 text-center text-sm">Loading products...</div>
+                      <CommandLoading>Loading products...</CommandLoading>
                     ) : (
                       <>
-                        <CommandEmpty>No results found.</CommandEmpty>
-                        <CommandGroup heading="Search Results">
+                        <CommandEmpty>No products found. Try a different search term.</CommandEmpty>
+                        <CommandGroup heading={`${searchResults.length} Search Results`}>
                           {searchResults.map((product) => (
                             <CommandItem
                               key={product.sku}
@@ -196,7 +226,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                             >
                               <div className="flex flex-col w-full">
                                 <div className="flex justify-between w-full">
-                                  <span className="font-medium">{product.name}</span>
+                                  <span className="font-medium truncate">{product.name}</span>
                                   <span className="text-muted-foreground">
                                     {formatPrice(product.regularPrice)}
                                   </span>
