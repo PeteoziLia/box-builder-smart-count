@@ -44,6 +44,7 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData, boxId }) => 
   const { addBox, updateBox } = useProject();
   const [availableModules, setAvailableModules] = useState<number[]>([]);
   const [availableColors, setAvailableColors] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   
   const form = useForm<BoxFormData>({
     resolver: zodResolver(formSchema),
@@ -72,7 +73,19 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData, boxId }) => 
 
   useEffect(() => {
     // Fetch available colors
-    setAvailableColors(getAvailableColors());
+    const fetchColors = async () => {
+      setIsLoading(true);
+      try {
+        const colors = await getAvailableColors();
+        setAvailableColors(colors);
+      } catch (error) {
+        console.error("Error fetching colors:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchColors();
   }, []);
 
   const onSubmit = (data: BoxFormData) => {
@@ -203,11 +216,15 @@ const BoxForm: React.FC<BoxFormProps> = ({ onComplete, initialData, boxId }) => 
                   </FormControl>
                   <SelectContent>
                     <SelectItem value="none">Any Color</SelectItem>
-                    {availableColors.map((color) => (
-                      <SelectItem key={color} value={color}>
-                        {color}
-                      </SelectItem>
-                    ))}
+                    {isLoading ? (
+                      <SelectItem value="loading" disabled>Loading colors...</SelectItem>
+                    ) : (
+                      availableColors.map((color) => (
+                        <SelectItem key={color} value={color}>
+                          {color}
+                        </SelectItem>
+                      ))
+                    )}
                   </SelectContent>
                 </Select>
                 <FormMessage />

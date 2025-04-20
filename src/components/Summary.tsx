@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useProject } from "@/context/ProjectContext";
 import { 
   Card, 
@@ -25,8 +25,8 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { FileDown, FileText } from "lucide-react";
-import { BoxProduct } from "@/context/ProjectContext";
-import { getProductBySku } from "@/services/productService";
+import { getProductBySku, getFrameForBox, getAdapterForBox } from "@/services/productService";
+import { FrameAdapter } from "@/types/box";
 
 interface SkuSummary {
   sku: string;
@@ -38,75 +38,129 @@ interface SkuSummary {
 }
 
 const Summary: React.FC = () => {
-  const { clientName, boxes, complementaryProducts, getFramesAndAdapters } = useProject();
-  const framesAndAdapters = getFramesAndAdapters();
+  const { clientName, boxes, complementaryProducts } = useProject();
+  const [skuSummary, setSkuSummary] = useState<SkuSummary[]>([]);
+  const [totalCost, setTotalCost] = useState(0);
+  const [framesAndAdapters, setFramesAndAdapters] = useState<FrameAdapter[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const generateSkuSummary = (): SkuSummary[] => {
-    const summary: Record<string, SkuSummary> = {};
+  useEffect(() => {
+    const fetchFramesAndAdapters = async () => {
+      const frames: FrameAdapter[] = [];
+      
+      for (const box of boxes) {
+        try {
+          const frame = await getFrameForBox(box);
+          const adapter = await getAdapterForBox(box);
+          
+          if (frame) frames.push(frame);
+          if (adapter) frames.push(adapter);
+        } catch (error) {
+          console.error(`Error getting frames/adapters for box ${box.id}:`, error);
+        }
+      }
+      
+      setFramesAndAdapters(frames);
+    };
     
-    // Add box products
-    boxes.forEach(box => {
-      box.products.forEach(item => {
-        const { sku, name, regularPrice } = item.product;
-        
+    fetchFramesAndAdapters();
+  }, [boxes]);
+
+  useEffect(() => {
+    const generateSkuSummary = async () => {
+      setIsLoading(true);
+      const summary: Record<string, SkuSummary> = {};
+      
+      // Add box products
+      for (const box of boxes) {
+        for (const item of box.products) {
+          const { sku, name, regularPrice } = item.product;
+          
+          if (summary[sku]) {
+            summary[sku].quantity += item.quantity;
+            summary[sku].totalPrice = summary[sku].quantity * regularPrice;
+          } else {
+            summary[sku] = {
+              sku,
+              productName: name,
+              quantity: item.quantity,
+              unitPrice: regularPrice,
+              totalPrice: item.quantity * regularPrice
+            };
+          }
+        }
+      }
+      
+      // Add complementary products
+      for (const item of complementaryProducts) {
+        const sku = item.sku;
         if (summary[sku]) {
           summary[sku].quantity += item.quantity;
-          summary[sku].totalPrice = summary[sku].quantity * regularPrice;
+          summary[sku].totalPrice = summary[sku].quantity * summary[sku].unitPrice;
+        } else {
+          try {
+            // Find product details from inventory
+            const product = await getProductBySku(sku);
+            if (product) {
+              summary[sku] = {
+                sku,
+                productName: item.name,
+                quantity: item.quantity,
+                unitPrice: product.regularPrice,
+                totalPrice: product.regularPrice * item.quantity
+              };
+            } else {
+              // Use placeholder data if product not found
+              summary[sku] = {
+                sku,
+                productName: item.name,
+                quantity: item.quantity,
+                unitPrice: 0,
+                totalPrice: 0
+              };
+            }
+          } catch (error) {
+            console.error(`Error getting product details for ${sku}:`, error);
+            // Use placeholder data if there's an error
+            summary[sku] = {
+              sku,
+              productName: item.name,
+              quantity: item.quantity,
+              unitPrice: 0,
+              totalPrice: 0
+            };
+          }
+        }
+      }
+      
+      // Add frames and adapters
+      for (const item of framesAndAdapters) {
+        const sku = item.sku;
+        if (summary[sku]) {
+          summary[sku].quantity += 1;
+          summary[sku].totalPrice = summary[sku].quantity * item.regularPrice;
         } else {
           summary[sku] = {
             sku,
-            productName: name,
-            quantity: item.quantity,
-            unitPrice: regularPrice,
-            totalPrice: item.quantity * regularPrice
+            productName: item.name,
+            quantity: 1,
+            unitPrice: item.regularPrice,
+            totalPrice: item.regularPrice,
+            isFrameOrAdapter: true
           };
         }
-      });
-    });
-
-    // Add complementary products
-    complementaryProducts.forEach(item => {
-      const sku = item.sku;
-      if (summary[sku]) {
-        summary[sku].quantity += item.quantity;
-        summary[sku].totalPrice = summary[sku].quantity * summary[sku].unitPrice;
-      } else {
-        // Find product details from inventory if available
-        const product = getProductBySku(sku);
-        summary[sku] = {
-          sku,
-          productName: item.name,
-          quantity: item.quantity,
-          unitPrice: product?.regularPrice || 0,
-          totalPrice: (product?.regularPrice || 0) * item.quantity
-        };
       }
-    });
+      
+      const summaryArray = Object.values(summary).sort((a, b) => a.sku.localeCompare(b.sku));
+      setSkuSummary(summaryArray);
+      
+      const total = summaryArray.reduce((sum, item) => sum + item.totalPrice, 0);
+      setTotalCost(total);
+      setIsLoading(false);
+    };
     
-    // Add frames and adapters
-    framesAndAdapters.forEach(item => {
-      const sku = item.sku;
-      if (summary[sku]) {
-        summary[sku].quantity += 1;
-        summary[sku].totalPrice = summary[sku].quantity * item.regularPrice;
-      } else {
-        summary[sku] = {
-          sku,
-          productName: item.name,
-          quantity: 1,
-          unitPrice: item.regularPrice,
-          totalPrice: item.regularPrice,
-          isFrameOrAdapter: true
-        };
-      }
-    });
-    
-    return Object.values(summary).sort((a, b) => a.sku.localeCompare(b.sku));
-  };
-
-  const skuSummary = generateSkuSummary();
-  
-  const totalCost = skuSummary.reduce((sum, item) => sum + item.totalPrice, 0);
+    generateSkuSummary();
+  }, [boxes, complementaryProducts, framesAndAdapters]);
   
   const exportToCsv = () => {
     // Generate Summary by SKU CSV
@@ -180,7 +234,9 @@ const Summary: React.FC = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {skuSummary.length === 0 ? (
+          {isLoading ? (
+            <div className="py-10 text-center">Loading summary data...</div>
+          ) : skuSummary.length === 0 ? (
             <p className="text-muted-foreground text-center py-4">No products added yet</p>
           ) : (
             <Table>
@@ -229,7 +285,7 @@ const Summary: React.FC = () => {
                 <AccordionItem key={box.id} value={box.id}>
                   <AccordionTrigger>
                     <div className="flex items-center justify-between w-full pr-4">
-                      <span>{box.name} - {box.area} {box.color ? `(${box.color})` : ''}</span>
+                      <span>{box.name} - {box.area} {box.color && box.color !== "none" ? `(${box.color})` : ''}</span>
                       <span className="text-sm text-muted-foreground">
                         {box.products.length} product{box.products.length !== 1 ? 's' : ''}
                       </span>
@@ -250,7 +306,7 @@ const Summary: React.FC = () => {
                             <TableHead>Quantity</TableHead>
                             <TableHead>Module Size</TableHead>
                             <TableHead>Total Modules</TableHead>
-                            {box.color && <TableHead>Color</TableHead>}
+                            {box.color && box.color !== "none" && <TableHead>Color</TableHead>}
                           </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -261,11 +317,11 @@ const Summary: React.FC = () => {
                               <TableCell>{item.quantity}</TableCell>
                               <TableCell>{item.product.attributes.moduleSize}</TableCell>
                               <TableCell>{item.quantity * item.product.attributes.moduleSize}</TableCell>
-                              {box.color && <TableCell>{item.product.attributes.color || 'N/A'}</TableCell>}
+                              {box.color && box.color !== "none" && <TableCell>{item.product.attributes.color || 'N/A'}</TableCell>}
                             </TableRow>
                           ))}
                           <TableRow>
-                            <TableCell colSpan={box.color ? 4 : 3} className="text-right font-medium">
+                            <TableCell colSpan={box.color && box.color !== "none" ? 4 : 3} className="text-right font-medium">
                               Total Modules
                             </TableCell>
                             <TableCell className="font-bold">
@@ -273,7 +329,7 @@ const Summary: React.FC = () => {
                                 sum + (item.quantity * item.product.attributes.moduleSize), 0
                               )} / {box.moduleCapacity}
                             </TableCell>
-                            {box.color && <TableCell></TableCell>}
+                            {box.color && box.color !== "none" && <TableCell></TableCell>}
                           </TableRow>
                         </TableBody>
                       </Table>

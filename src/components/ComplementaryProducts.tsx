@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useProject } from "@/context/ProjectContext";
 import { searchProducts, isBoxCompatibleProduct, getProductBySku } from "@/services/productService";
 import { ComplementaryProductData, Product } from "@/types/box";
@@ -35,6 +35,8 @@ const ComplementaryProducts = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<{
     sku: string;
     name: string;
@@ -44,6 +46,47 @@ const ComplementaryProducts = () => {
   const [quantity, setQuantity] = useState(1);
   const [area, setArea] = useState("");
   const [description, setDescription] = useState("");
+  const [productDetails, setProductDetails] = useState<{[key: string]: Product | null}>({});
+
+  useEffect(() => {
+    // Fetch product details for each complementary product
+    const fetchProductDetails = async () => {
+      const details: {[key: string]: Product | null} = {};
+      for (const product of complementaryProducts) {
+        try {
+          const productDetail = await getProductBySku(product.sku);
+          details[product.sku] = productDetail || null;
+        } catch (error) {
+          console.error(`Error fetching details for product ${product.sku}:`, error);
+          details[product.sku] = null;
+        }
+      }
+      setProductDetails(details);
+    };
+    
+    fetchProductDetails();
+  }, [complementaryProducts]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      if (searchQuery.trim().length > 0) {
+        setIsLoading(true);
+        try {
+          const results = await searchProducts(searchQuery);
+          setSearchResults(results.filter(p => !isBoxCompatibleProduct(p)));
+        } catch (error) {
+          console.error("Error searching complementary products:", error);
+          setSearchResults([]);
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        setSearchResults([]);
+      }
+    };
+    
+    fetchProducts();
+  }, [searchQuery]);
 
   const handleAddProduct = () => {
     if (!selectedProduct || !area) return;
@@ -63,10 +106,6 @@ const ComplementaryProducts = () => {
     setDescription("");
     setSearchQuery("");
   };
-
-  const searchResults = searchQuery
-    ? searchProducts(searchQuery).filter(p => !isBoxCompatibleProduct(p))
-    : [];
 
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct({
@@ -125,31 +164,37 @@ const ComplementaryProducts = () => {
                         onValueChange={setSearchQuery}
                       />
                       <CommandList>
-                        <CommandEmpty>No results found.</CommandEmpty>
-                        <CommandGroup heading="Search Results">
-                          {searchResults.map((product) => (
-                            <CommandItem
-                              key={product.sku}
-                              value={product.sku}
-                              onSelect={() => handleSelectProduct(product)}
-                            >
-                              <div className="flex flex-col w-full">
-                                <div className="flex justify-between w-full">
-                                  <span className="font-medium">{product.name}</span>
-                                  <span className="text-muted-foreground">
-                                    {formatPrice(product.regularPrice)}
-                                  </span>
-                                </div>
-                                <div className="flex justify-between w-full text-sm text-muted-foreground">
-                                  <span>{product.sku}</span>
-                                </div>
-                                <div className="text-xs text-muted-foreground mt-1">
-                                  {product.brand} | {product.series}
-                                </div>
-                              </div>
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
+                        {isLoading ? (
+                          <div className="py-6 text-center text-sm">Loading products...</div>
+                        ) : (
+                          <>
+                            <CommandEmpty>No results found.</CommandEmpty>
+                            <CommandGroup heading="Search Results">
+                              {searchResults.map((product) => (
+                                <CommandItem
+                                  key={product.sku}
+                                  value={product.sku}
+                                  onSelect={() => handleSelectProduct(product)}
+                                >
+                                  <div className="flex flex-col w-full">
+                                    <div className="flex justify-between w-full">
+                                      <span className="font-medium">{product.name}</span>
+                                      <span className="text-muted-foreground">
+                                        {formatPrice(product.regularPrice)}
+                                      </span>
+                                    </div>
+                                    <div className="flex justify-between w-full text-sm text-muted-foreground">
+                                      <span>{product.sku}</span>
+                                    </div>
+                                    <div className="text-xs text-muted-foreground mt-1">
+                                      {product.brand} | {product.series}
+                                    </div>
+                                  </div>
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+                          </>
+                        )}
                       </CommandList>
                     </Command>
                   </PopoverContent>
@@ -209,7 +254,7 @@ const ComplementaryProducts = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {complementaryProducts.map((product, index) => {
-            const productDetail = getProductBySku(product.sku);
+            const productDetail = productDetails[product.sku];
             return (
               <Card key={`${product.sku}-${index}`}>
                 <CardHeader className="pb-2">

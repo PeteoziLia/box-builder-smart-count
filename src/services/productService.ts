@@ -1,17 +1,64 @@
 
-import productData from '@/products_full.json';
 import { Product, BoxType, BoxModuleCapacity, FrameAdapter } from '@/types/box';
-import { Box } from "@/context/ProjectContext"; // Import Box from ProjectContext instead
+import Papa from 'papaparse';
+import { Box } from "@/context/ProjectContext";
 
-const products: Product[] = productData;
+// Cache for the parsed products
+let productsCache: Product[] | null = null;
 
-export const getUniqueProductBrands = (): string[] => {
+// Function to load and parse the CSV file
+const loadProductsFromCSV = async (): Promise<Product[]> => {
+  if (productsCache) return productsCache;
+  
+  try {
+    const response = await fetch('/products_full.csv');
+    const csvText = await response.text();
+    
+    const result = Papa.parse(csvText, {
+      header: true,
+      skipEmptyLines: true,
+    });
+    
+    // Transform CSV data into our Product type format
+    const products: Product[] = result.data.map((row: any) => ({
+      sku: row.sku || "",
+      name: row.name || "",
+      description: row.description || "",
+      regularPrice: parseFloat(row.regularPrice) || 0,
+      series: row.series || "",
+      brand: row.brand || "",
+      attributes: {
+        moduleSize: row.moduleSize ? parseInt(row.moduleSize) : undefined,
+        category: row.category || undefined,
+        smartHomeCompatible: row.smartHomeCompatible === "true" || row.smartHomeCompatible === "1",
+        color: row.color || undefined,
+        includesFrame: row.includesFrame === "true" || row.includesFrame === "1",
+        isCompletePanel: row.isCompletePanel === "true" || row.isCompletePanel === "1",
+      }
+    }));
+    
+    productsCache = products;
+    return products;
+  } catch (error) {
+    console.error("Error loading products from CSV:", error);
+    return [];
+  }
+};
+
+// Helper function to get all products
+export const getAllProducts = async (): Promise<Product[]> => {
+  return await loadProductsFromCSV();
+};
+
+export const getUniqueProductBrands = async (): Promise<string[]> => {
+  const products = await loadProductsFromCSV();
   const brands = new Set<string>();
   products.forEach(product => brands.add(product.brand));
   return Array.from(brands);
 };
 
-export const getUniqueSeriesByBrand = (brand: string): string[] => {
+export const getUniqueSeriesByBrand = async (brand: string): Promise<string[]> => {
+  const products = await loadProductsFromCSV();
   const series = new Set<string>();
   products
     .filter(product => product.brand === brand)
@@ -19,7 +66,8 @@ export const getUniqueSeriesByBrand = (brand: string): string[] => {
   return Array.from(series);
 };
 
-export const getAvailableColors = (): string[] => {
+export const getAvailableColors = async (): Promise<string[]> => {
+  const products = await loadProductsFromCSV();
   const colors = new Set<string>();
   products.forEach(product => {
     if (product.attributes.color) {
@@ -29,25 +77,28 @@ export const getAvailableColors = (): string[] => {
   return Array.from(colors);
 };
 
-export const searchProducts = (searchTerm: string, color?: string): Product[] => {
+export const searchProducts = async (searchTerm: string, color?: string): Promise<Product[]> => {
+  const products = await loadProductsFromCSV();
   const lowerSearchTerm = searchTerm.toLowerCase();
   return products.filter(product => 
     (product.sku.toLowerCase().includes(lowerSearchTerm) ||
      product.name.toLowerCase().includes(lowerSearchTerm) ||
      product.description.toLowerCase().includes(lowerSearchTerm)) &&
-    (!color || product.attributes.color === color)
+    (!color || color === "none" || product.attributes.color === color)
   );
 };
 
-export const filterProductsByBrandAndSeries = (brand: string, series: string, color?: string): Product[] => {
+export const filterProductsByBrandAndSeries = async (brand: string, series: string, color?: string): Promise<Product[]> => {
+  const products = await loadProductsFromCSV();
   return products.filter(product => 
     product.brand === brand && 
     (series === "" || product.series === series) &&
-    (!color || product.attributes.color === color)
+    (!color || color === "none" || product.attributes.color === color)
   );
 };
 
-export const getProductBySku = (sku: string): Product | undefined => {
+export const getProductBySku = async (sku: string): Promise<Product | undefined> => {
+  const products = await loadProductsFromCSV();
   return products.find(product => product.sku === sku);
 };
 
@@ -57,14 +108,15 @@ export const isBoxCompatibleProduct = (product: Product): boolean => {
 };
 
 // Function to find products that match a specific color
-export const getProductsByColor = (color: string): Product[] => {
+export const getProductsByColor = async (color: string): Promise<Product[]> => {
+  const products = await loadProductsFromCSV();
   return products.filter(product => 
     product.attributes.color === color && isBoxCompatibleProduct(product)
   );
 };
 
 // Function to find a frame for a box
-export const getFrameForBox = (box: Box): FrameAdapter | null => {
+export const getFrameForBox = async (box: Box): Promise<FrameAdapter | null> => {
   // Check if the box needs a frame
   const needsFrame = box.products.length > 0 && 
     !box.products.some(item => 
@@ -95,7 +147,7 @@ export const getFrameForBox = (box: Box): FrameAdapter | null => {
 };
 
 // Function to find an adapter for a box
-export const getAdapterForBox = (box: Box): FrameAdapter | null => {
+export const getAdapterForBox = async (box: Box): Promise<FrameAdapter | null> => {
   // Find the appropriate adapter based on box type and module capacity
   const adapterSku = `ADAPTER-${box.boxType}-${box.moduleCapacity}`;
   

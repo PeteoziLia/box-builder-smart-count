@@ -46,34 +46,47 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
   const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState("");
   const [noColorMatchWarning, setNoColorMatchWarning] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const box = getBoxById(boxId);
 
   useEffect(() => {
-    if (searchQuery.trim().length > 0) {
-      const results = searchProducts(searchQuery, box?.color)
-        .filter(isBoxCompatibleProduct); // Only show products that can go in boxes
-      
-      setSearchResults(results);
-      
-      // Check if we need to show a color mismatch warning
-      if (box?.color && results.length === 0) {
-        // Try searching without the color filter to see if there are any matches
-        const allResults = searchProducts(searchQuery)
-          .filter(isBoxCompatibleProduct);
-        
-        if (allResults.length > 0) {
-          setNoColorMatchWarning(true);
-        } else {
-          setNoColorMatchWarning(false);
+    const fetchProducts = async () => {
+      if (searchQuery.trim().length > 0) {
+        setIsLoading(true);
+        try {
+          // Search with color filter
+          const results = await searchProducts(searchQuery, box?.color);
+          const filteredResults = results.filter(isBoxCompatibleProduct);
+          setSearchResults(filteredResults);
+          
+          // Check if we need to show a color mismatch warning
+          if (box?.color && box.color !== "none" && filteredResults.length === 0) {
+            // Try searching without the color filter to see if there are any matches
+            const allResults = await searchProducts(searchQuery);
+            const filteredAllResults = allResults.filter(isBoxCompatibleProduct);
+            
+            if (filteredAllResults.length > 0) {
+              setNoColorMatchWarning(true);
+            } else {
+              setNoColorMatchWarning(false);
+            }
+          } else {
+            setNoColorMatchWarning(false);
+          }
+        } catch (error) {
+          console.error("Error searching products:", error);
+          setSearchResults([]);
+        } finally {
+          setIsLoading(false);
         }
       } else {
+        setSearchResults([]);
         setNoColorMatchWarning(false);
       }
-    } else {
-      setSearchResults([]);
-      setNoColorMatchWarning(false);
-    }
+    };
+    
+    fetchProducts();
   }, [searchQuery, box?.color]);
 
   const handleSelectProduct = (product: Product) => {
@@ -117,7 +130,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
     <Card className="w-full">
       <CardHeader>
         <CardTitle>Add Products</CardTitle>
-        {box?.color && (
+        {box?.color && box.color !== "none" && (
           <CardDescription>
             Showing products compatible with {box.color} color
           </CardDescription>
@@ -169,33 +182,39 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                         </Alert>
                       </div>
                     )}
-                    <CommandEmpty>No results found.</CommandEmpty>
-                    <CommandGroup heading="Search Results">
-                      {searchResults.map((product) => (
-                        <CommandItem
-                          key={product.sku}
-                          value={product.sku}
-                          onSelect={() => handleSelectProduct(product)}
-                        >
-                          <div className="flex flex-col w-full">
-                            <div className="flex justify-between w-full">
-                              <span className="font-medium">{product.name}</span>
-                              <span className="text-muted-foreground">
-                                {formatPrice(product.regularPrice)}
-                              </span>
-                            </div>
-                            <div className="flex justify-between w-full text-sm text-muted-foreground">
-                              <span>{product.sku}</span>
-                              <span>{product.attributes.moduleSize} module{product.attributes.moduleSize > 1 ? 's' : ''}</span>
-                            </div>
-                            <div className="text-xs text-muted-foreground mt-1">
-                              {product.brand} | {product.series} 
-                              {product.attributes.color && ` | ${product.attributes.color}`}
-                            </div>
-                          </div>
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
+                    {isLoading ? (
+                      <div className="py-6 text-center text-sm">Loading products...</div>
+                    ) : (
+                      <>
+                        <CommandEmpty>No results found.</CommandEmpty>
+                        <CommandGroup heading="Search Results">
+                          {searchResults.map((product) => (
+                            <CommandItem
+                              key={product.sku}
+                              value={product.sku}
+                              onSelect={() => handleSelectProduct(product)}
+                            >
+                              <div className="flex flex-col w-full">
+                                <div className="flex justify-between w-full">
+                                  <span className="font-medium">{product.name}</span>
+                                  <span className="text-muted-foreground">
+                                    {formatPrice(product.regularPrice)}
+                                  </span>
+                                </div>
+                                <div className="flex justify-between w-full text-sm text-muted-foreground">
+                                  <span>{product.sku}</span>
+                                  <span>{product.attributes.moduleSize} module{product.attributes.moduleSize > 1 ? 's' : ''}</span>
+                                </div>
+                                <div className="text-xs text-muted-foreground mt-1">
+                                  {product.brand} | {product.series} 
+                                  {product.attributes.color && ` | ${product.attributes.color}`}
+                                </div>
+                              </div>
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </>
+                    )}
                   </CommandList>
                 </Command>
               </PopoverContent>
