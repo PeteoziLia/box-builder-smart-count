@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { BoxType, BoxModuleCapacity, ComplementaryProductData, Product, FrameAdapter } from "@/types/box";
 import { getFrameForBox, getAdapterForBox } from "@/services/productService";
 
@@ -38,7 +38,7 @@ interface ProjectContextType {
   updateComplementaryProduct: (index: number, product: ComplementaryProductData) => void;
   removeComplementaryProduct: (index: number) => void;
   getAvailableColors: () => string[];
-  getFramesAndAdapters: () => FrameAdapter[];
+  getFramesAndAdapters: () => Promise<FrameAdapter[]>;
 }
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
@@ -214,11 +214,12 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
     return []; // This will be implemented in productService.ts
   };
 
-  const getFramesAndAdapters = (): FrameAdapter[] => {
+  const getFramesAndAdapters = async (): Promise<FrameAdapter[]> => {
     // Get all frames and adapters needed for the current boxes
     const framesAndAdapters: FrameAdapter[] = [];
     
-    boxes.forEach(box => {
+    // Process each box sequentially with proper async/await
+    for (const box of boxes) {
       // Check if the box needs a frame
       const needsFrame = box.products.length > 0 && 
         !box.products.some(item => 
@@ -227,18 +228,19 @@ export const ProjectProvider: React.FC<{ children: ReactNode }> = ({ children })
         );
       
       if (needsFrame) {
-        const frame = getFrameForBox(box);
+        // Await the promise to get the actual frame
+        const frame = await getFrameForBox(box);
         if (frame) {
           framesAndAdapters.push(frame);
         }
       }
       
-      // Add adapter for the box
-      const adapter = getAdapterForBox(box);
+      // Add adapter for the box - await the promise
+      const adapter = await getAdapterForBox(box);
       if (adapter) {
         framesAndAdapters.push(adapter);
       }
-    });
+    }
     
     return framesAndAdapters;
   };

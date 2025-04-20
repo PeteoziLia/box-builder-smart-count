@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useProject } from "@/context/ProjectContext";
 import { 
@@ -25,7 +24,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { FileDown, FileText } from "lucide-react";
-import { getProductBySku, getFrameForBox, getAdapterForBox } from "@/services/productService";
+import { getProductBySku } from "@/services/productService";
 import { FrameAdapter } from "@/types/box";
 
 interface SkuSummary {
@@ -38,7 +37,7 @@ interface SkuSummary {
 }
 
 const Summary: React.FC = () => {
-  const { clientName, boxes, complementaryProducts } = useProject();
+  const { clientName, boxes, complementaryProducts, getFramesAndAdapters } = useProject();
   const [skuSummary, setSkuSummary] = useState<SkuSummary[]>([]);
   const [totalCost, setTotalCost] = useState(0);
   const [framesAndAdapters, setFramesAndAdapters] = useState<FrameAdapter[]>([]);
@@ -46,32 +45,23 @@ const Summary: React.FC = () => {
 
   useEffect(() => {
     const fetchFramesAndAdapters = async () => {
-      const frames: FrameAdapter[] = [];
-      
-      for (const box of boxes) {
-        try {
-          const frame = await getFrameForBox(box);
-          const adapter = await getAdapterForBox(box);
-          
-          if (frame) frames.push(frame);
-          if (adapter) frames.push(adapter);
-        } catch (error) {
-          console.error(`Error getting frames/adapters for box ${box.id}:`, error);
-        }
+      try {
+        const frames = await getFramesAndAdapters();
+        setFramesAndAdapters(frames);
+      } catch (error) {
+        console.error("Error fetching frames and adapters:", error);
+        setFramesAndAdapters([]);
       }
-      
-      setFramesAndAdapters(frames);
     };
     
     fetchFramesAndAdapters();
-  }, [boxes]);
+  }, [boxes, getFramesAndAdapters]);
 
   useEffect(() => {
     const generateSkuSummary = async () => {
       setIsLoading(true);
       const summary: Record<string, SkuSummary> = {};
       
-      // Add box products
       for (const box of boxes) {
         for (const item of box.products) {
           const { sku, name, regularPrice } = item.product;
@@ -91,7 +81,6 @@ const Summary: React.FC = () => {
         }
       }
       
-      // Add complementary products
       for (const item of complementaryProducts) {
         const sku = item.sku;
         if (summary[sku]) {
@@ -99,7 +88,6 @@ const Summary: React.FC = () => {
           summary[sku].totalPrice = summary[sku].quantity * summary[sku].unitPrice;
         } else {
           try {
-            // Find product details from inventory
             const product = await getProductBySku(sku);
             if (product) {
               summary[sku] = {
@@ -110,7 +98,6 @@ const Summary: React.FC = () => {
                 totalPrice: product.regularPrice * item.quantity
               };
             } else {
-              // Use placeholder data if product not found
               summary[sku] = {
                 sku,
                 productName: item.name,
@@ -121,7 +108,6 @@ const Summary: React.FC = () => {
             }
           } catch (error) {
             console.error(`Error getting product details for ${sku}:`, error);
-            // Use placeholder data if there's an error
             summary[sku] = {
               sku,
               productName: item.name,
@@ -133,7 +119,6 @@ const Summary: React.FC = () => {
         }
       }
       
-      // Add frames and adapters
       for (const item of framesAndAdapters) {
         const sku = item.sku;
         if (summary[sku]) {
@@ -163,14 +148,12 @@ const Summary: React.FC = () => {
   }, [boxes, complementaryProducts, framesAndAdapters]);
   
   const exportToCsv = () => {
-    // Generate Summary by SKU CSV
     let skuCsv = 'SKU,Product Name,Quantity,Unit Price,Total Price\n';
     skuSummary.forEach(item => {
       skuCsv += `${item.sku},"${item.productName}",${item.quantity},${item.unitPrice.toFixed(2)},${item.totalPrice.toFixed(2)}\n`;
     });
     skuCsv += `,,,,${totalCost.toFixed(2)}\n\n`;
     
-    // Generate Box Contents CSV
     skuCsv += 'Box Contents\n';
     skuCsv += 'Box Name,Area,Description,Color,Products\n';
     
@@ -182,7 +165,6 @@ const Summary: React.FC = () => {
       skuCsv += `"${box.name}","${box.area}","${box.description || ''}","${box.color || 'None'}","${productsString}"\n`;
     });
 
-    // Add Frames and Adapters
     if (framesAndAdapters.length > 0) {
       skuCsv += '\nFrames and Adapters\n';
       skuCsv += 'Type,SKU,Name,For Box,Module Capacity,Color\n';
@@ -192,7 +174,6 @@ const Summary: React.FC = () => {
       });
     }
 
-    // Add Complementary Products
     if (complementaryProducts.length > 0) {
       skuCsv += '\nComplementary Products\n';
       skuCsv += 'SKU,Product Name,Quantity,Area,Description\n';
@@ -202,10 +183,8 @@ const Summary: React.FC = () => {
       });
     }
     
-    // Add Client Name
     skuCsv = `Client: ${clientName}\n\n` + skuCsv;
     
-    // Create and download the CSV file
     const blob = new Blob([skuCsv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -335,7 +314,6 @@ const Summary: React.FC = () => {
                       </Table>
                     )}
                     
-                    {/* Show frames and adapters for this box */}
                     {framesAndAdapters.filter(item => 
                       item.forBoxType === box.boxType && 
                       item.moduleCapacity === box.moduleCapacity &&
@@ -387,7 +365,6 @@ const Summary: React.FC = () => {
         </CardFooter>
       </Card>
 
-      {/* Frames and Adapters Summary Section */}
       {framesAndAdapters.length > 0 && (
         <Card className="w-full">
           <CardHeader>
@@ -425,7 +402,6 @@ const Summary: React.FC = () => {
         </Card>
       )}
 
-      {/* Complementary Products Section */}
       {complementaryProducts.length > 0 && (
         <Card className="w-full">
           <CardHeader>
