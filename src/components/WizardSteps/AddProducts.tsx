@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import { useProject } from "@/context/ProjectContext";
 import { useWizard } from "@/context/WizardContext";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Package, Search, Plus, Minus, Trash2, AlertCircle } from "lucide-react";
+import { Package, Search, Plus, Minus, Trash2, AlertCircle, Loader2 } from "lucide-react";
 import { 
   Command, 
   CommandEmpty, 
@@ -25,10 +24,12 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Product } from "@/types/box";
 import { searchProducts, isBoxCompatibleProduct } from "@/services/productService";
 import { Progress } from "@/components/ui/progress";
+import { useToast } from "@/hooks/use-toast";
 
 const AddProducts: React.FC = () => {
   const { boxes, getBoxById, addProductToBox, updateProductQuantity, removeProductFromBox, getRemainingModules, getUsedModules } = useProject();
   const { activeBoxId, nextStep } = useWizard();
+  const { toast } = useToast();
   
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -38,22 +39,57 @@ const AddProducts: React.FC = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [noColorMatchWarning, setNoColorMatchWarning] = useState(false);
+  const [initialLoadDone, setInitialLoadDone] = useState(false);
   
   const box = activeBoxId ? getBoxById(activeBoxId) : null;
   
+  // Initial load of products when component mounts
+  useEffect(() => {
+    const loadInitialProducts = async () => {
+      if (!initialLoadDone && box) {
+        setIsLoading(true);
+        try {
+          // Pre-load initial products
+          const results = await searchProducts("", box.color);
+          const filteredResults = results.filter(isBoxCompatibleProduct);
+          console.log("Preloaded initial products in AddProducts:", filteredResults.length);
+          setSearchResults(filteredResults);
+          setInitialLoadDone(true);
+        } catch (error) {
+          console.error("Error preloading products:", error);
+          toast({
+            title: "Error loading products",
+            description: "Please try refreshing the page",
+            variant: "destructive"
+          });
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    };
+    
+    loadInitialProducts();
+  }, [box, initialLoadDone, toast]);
+  
   // Load initial products when popup is opened
   useEffect(() => {
-    if (open && searchQuery.trim().length === 0) {
+    if (open && box) {
       const fetchInitialProducts = async () => {
         setIsLoading(true);
         try {
-          const results = await searchProducts("", box?.color);
+          const results = await searchProducts("", box.color);
           const filteredResults = results.filter(isBoxCompatibleProduct);
+          console.log("Initial product results on popup open:", filteredResults.length);
           setSearchResults(filteredResults);
           setNoColorMatchWarning(false);
         } catch (error) {
           console.error("Error loading initial products:", error);
           setSearchResults([]);
+          toast({
+            title: "Error loading products",
+            description: "Please try searching with different terms",
+            variant: "destructive"
+          });
         } finally {
           setIsLoading(false);
         }
@@ -61,20 +97,21 @@ const AddProducts: React.FC = () => {
       
       fetchInitialProducts();
     }
-  }, [open, box?.color]);
+  }, [open, box, toast]);
   
   // Handle search query changes with debounce
   useEffect(() => {
     const fetchProducts = async () => {
-      if (open) {
+      if (open && box) {
         setIsLoading(true);
         try {
-          const results = await searchProducts(searchQuery, box?.color);
+          const results = await searchProducts(searchQuery, box.color);
           const filteredResults = results.filter(isBoxCompatibleProduct);
+          console.log("Search results:", filteredResults.length);
           setSearchResults(filteredResults);
           
           // Check if we need to show a color mismatch warning
-          if (box?.color && box.color !== "none" && filteredResults.length === 0 && searchQuery.trim().length > 0) {
+          if (box.color && box.color !== "none" && filteredResults.length === 0 && searchQuery.trim().length > 0) {
             // Try searching without the color filter to see if there are any matches
             const allResults = await searchProducts(searchQuery);
             const filteredAllResults = allResults.filter(isBoxCompatibleProduct);
@@ -101,7 +138,7 @@ const AddProducts: React.FC = () => {
     }, 300); // Debounce search
     
     return () => clearTimeout(timer);
-  }, [searchQuery, box?.color, open]);
+  }, [searchQuery, box, open]);
   
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);
@@ -238,36 +275,52 @@ const AddProducts: React.FC = () => {
                           </div>
                         )}
                         {isLoading ? (
-                          <CommandLoading>Loading products...</CommandLoading>
+                          <CommandLoading>
+                            <div className="flex items-center justify-center py-6">
+                              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                              <span className="ml-2">Loading products...</span>
+                            </div>
+                          </CommandLoading>
                         ) : (
                           <>
-                            <CommandEmpty>No products found. Try a different search term.</CommandEmpty>
-                            <CommandGroup heading={`${searchResults.length} Search Results`}>
-                              {searchResults.map((product) => (
-                                <CommandItem
-                                  key={product.sku}
-                                  value={product.sku}
-                                  onSelect={() => handleSelectProduct(product)}
-                                >
-                                  <div className="flex flex-col w-full">
-                                    <div className="flex justify-between w-full">
-                                      <span className="font-medium truncate">{product.name}</span>
-                                      <span className="text-muted-foreground">
-                                        {formatPrice(product.regularPrice)}
-                                      </span>
+                            {searchResults.length === 0 ? (
+                              <CommandEmpty>
+                                <div className="py-6 text-center">
+                                  <AlertCircle className="mx-auto h-12 w-12 text-muted-foreground" />
+                                  <h3 className="mt-2 text-lg font-semibold">No products found</h3>
+                                  <p className="text-sm text-muted-foreground mt-1">
+                                    Try a different search term or remove filters
+                                  </p>
+                                </div>
+                              </CommandEmpty>
+                            ) : (
+                              <CommandGroup heading={`${searchResults.length} Search Results`}>
+                                {searchResults.map((product) => (
+                                  <CommandItem
+                                    key={product.sku}
+                                    value={product.sku}
+                                    onSelect={() => handleSelectProduct(product)}
+                                  >
+                                    <div className="flex flex-col w-full">
+                                      <div className="flex justify-between w-full">
+                                        <span className="font-medium truncate">{product.name}</span>
+                                        <span className="text-muted-foreground">
+                                          {formatPrice(product.regularPrice)}
+                                        </span>
+                                      </div>
+                                      <div className="flex justify-between w-full text-sm text-muted-foreground">
+                                        <span>{product.sku}</span>
+                                        <span>{product.attributes.moduleSize} module{product.attributes.moduleSize !== 1 ? 's' : ''}</span>
+                                      </div>
+                                      <div className="text-xs text-muted-foreground mt-1">
+                                        {product.brand} | {product.series} 
+                                        {product.attributes.color && ` | ${product.attributes.color}`}
+                                      </div>
                                     </div>
-                                    <div className="flex justify-between w-full text-sm text-muted-foreground">
-                                      <span>{product.sku}</span>
-                                      <span>{product.attributes.moduleSize} module{product.attributes.moduleSize !== 1 ? 's' : ''}</span>
-                                    </div>
-                                    <div className="text-xs text-muted-foreground mt-1">
-                                      {product.brand} | {product.series} 
-                                      {product.attributes.color && ` | ${product.attributes.color}`}
-                                    </div>
-                                  </div>
-                                </CommandItem>
-                              ))}
-                            </CommandGroup>
+                                  </CommandItem>
+                                ))}
+                              </CommandGroup>
+                            )}
                           </>
                         )}
                       </CommandList>

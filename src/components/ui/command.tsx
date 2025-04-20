@@ -2,7 +2,7 @@
 import * as React from "react"
 import { type DialogProps } from "@radix-ui/react-dialog"
 import { Command as CommandPrimitive } from "cmdk"
-import { Search } from "lucide-react"
+import { Loader2, Search } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
@@ -74,7 +74,7 @@ const CommandEmpty = React.forwardRef<
 >((props, ref) => (
   <CommandPrimitive.Empty
     ref={ref}
-    className="py-6 text-center text-sm"
+    className="py-6 text-center"
     {...props}
   />
 ))
@@ -87,9 +87,16 @@ const CommandLoading = React.forwardRef<
 >((props, ref) => (
   <CommandPrimitive.Loading
     ref={ref}
-    className="py-6 text-center text-sm"
+    className="py-6 text-center"
     {...props}
-  />
+  >
+    {props.children || (
+      <div className="flex items-center justify-center">
+        <Loader2 className="h-4 w-4 animate-spin mr-2" />
+        <span className="text-sm text-muted-foreground">Loading...</span>
+      </div>
+    )}
+  </CommandPrimitive.Loading>
 ))
 
 CommandLoading.displayName = CommandPrimitive.Loading.displayName

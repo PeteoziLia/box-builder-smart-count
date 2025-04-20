@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,7 @@ import {
   CardTitle,
   CardDescription
 } from "@/components/ui/card";
-import { Search, Package, AlertCircle } from "lucide-react";
+import { Search, Package, AlertCircle, Loader2 } from "lucide-react";
 import { 
   Command, 
   CommandEmpty, 
@@ -33,6 +32,7 @@ import {
 import { Product } from "@/types/box";
 import { searchProducts, isBoxCompatibleProduct } from "@/services/productService";
 import { useProject } from "@/context/ProjectContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface ProductSearchProps {
   boxId: string;
@@ -40,6 +40,7 @@ interface ProductSearchProps {
 
 const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
   const { addProductToBox, getRemainingModules, getBoxById } = useProject();
+  const { toast } = useToast();
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<Product[]>([]);
@@ -48,12 +49,41 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
   const [error, setError] = useState("");
   const [noColorMatchWarning, setNoColorMatchWarning] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [initialLoadDone, setInitialLoadDone] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const box = getBoxById(boxId);
 
+  // Initial load of products when component mounts
+  useEffect(() => {
+    const loadInitialProducts = async () => {
+      if (!initialLoadDone) {
+        setIsLoading(true);
+        try {
+          // Pre-load initial products even before the popover opens
+          const results = await searchProducts("", box?.color);
+          const filteredResults = results.filter(isBoxCompatibleProduct);
+          console.log("Preloaded initial products:", filteredResults.length);
+          setSearchResults(filteredResults);
+          setInitialLoadDone(true);
+        } catch (error) {
+          console.error("Error preloading products:", error);
+          toast({
+            title: "Error loading products",
+            description: "Please try refreshing the page",
+            variant: "destructive"
+          });
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    };
+    
+    loadInitialProducts();
+  }, [box?.color, initialLoadDone, toast]);
+
   // Load initial products when popup is opened
   useEffect(() => {
-    if (open && searchQuery.trim().length === 0) {
+    if (open) {
       const fetchInitialProducts = async () => {
         setIsLoading(true);
         try {
@@ -66,6 +96,11 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
         } catch (error) {
           console.error("Error loading initial products:", error);
           setSearchResults([]);
+          toast({
+            title: "Error loading products",
+            description: "Please try refreshing the page",
+            variant: "destructive"
+          });
         } finally {
           setIsLoading(false);
         }
@@ -73,7 +108,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
       
       fetchInitialProducts();
     }
-  }, [open, box?.color]);
+  }, [open, box?.color, toast]);
 
   // Handle search query changes
   useEffect(() => {
@@ -104,6 +139,11 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
         } catch (error) {
           console.error("Error searching products:", error);
           setSearchResults([]);
+          toast({
+            title: "Error searching products",
+            description: "Please try a different search term",
+            variant: "destructive"
+          });
         } finally {
           setIsLoading(false);
         }
@@ -115,7 +155,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
     }, 300); // Debounce search
     
     return () => clearTimeout(timer);
-  }, [searchQuery, box?.color, open]);
+  }, [searchQuery, box?.color, open, toast]);
 
   const handleSelectProduct = (product: Product) => {
     console.log("Selected product:", product);
@@ -213,36 +253,52 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ boxId }) => {
                       </div>
                     )}
                     {isLoading ? (
-                      <CommandLoading>Loading products...</CommandLoading>
+                      <CommandLoading>
+                        <div className="flex items-center justify-center py-6">
+                          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                          <span className="ml-2">Loading products...</span>
+                        </div>
+                      </CommandLoading>
                     ) : (
                       <>
-                        <CommandEmpty>No products found. Try a different search term.</CommandEmpty>
-                        <CommandGroup heading={`${searchResults.length} Search Results`}>
-                          {searchResults.map((product) => (
-                            <CommandItem
-                              key={product.sku}
-                              value={product.sku}
-                              onSelect={() => handleSelectProduct(product)}
-                            >
-                              <div className="flex flex-col w-full">
-                                <div className="flex justify-between w-full">
-                                  <span className="font-medium truncate">{product.name}</span>
-                                  <span className="text-muted-foreground">
-                                    {formatPrice(product.regularPrice)}
-                                  </span>
+                        {searchResults.length === 0 ? (
+                          <CommandEmpty>
+                            <div className="py-6 text-center">
+                              <AlertCircle className="mx-auto h-12 w-12 text-muted-foreground" />
+                              <h3 className="mt-2 text-lg font-semibold">No products found</h3>
+                              <p className="text-sm text-muted-foreground mt-1">
+                                Try a different search term or remove filters
+                              </p>
+                            </div>
+                          </CommandEmpty>
+                        ) : (
+                          <CommandGroup heading={`${searchResults.length} Search Results`}>
+                            {searchResults.map((product) => (
+                              <CommandItem
+                                key={product.sku}
+                                value={product.sku}
+                                onSelect={() => handleSelectProduct(product)}
+                              >
+                                <div className="flex flex-col w-full">
+                                  <div className="flex justify-between w-full">
+                                    <span className="font-medium truncate">{product.name}</span>
+                                    <span className="text-muted-foreground">
+                                      {formatPrice(product.regularPrice)}
+                                    </span>
+                                  </div>
+                                  <div className="flex justify-between w-full text-sm text-muted-foreground">
+                                    <span>{product.sku}</span>
+                                    <span>{product.attributes.moduleSize} module{product.attributes.moduleSize > 1 ? 's' : ''}</span>
+                                  </div>
+                                  <div className="text-xs text-muted-foreground mt-1">
+                                    {product.brand} | {product.series} 
+                                    {product.attributes.color && ` | ${product.attributes.color}`}
+                                  </div>
                                 </div>
-                                <div className="flex justify-between w-full text-sm text-muted-foreground">
-                                  <span>{product.sku}</span>
-                                  <span>{product.attributes.moduleSize} module{product.attributes.moduleSize > 1 ? 's' : ''}</span>
-                                </div>
-                                <div className="text-xs text-muted-foreground mt-1">
-                                  {product.brand} | {product.series} 
-                                  {product.attributes.color && ` | ${product.attributes.color}`}
-                                </div>
-                              </div>
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        )}
                       </>
                     )}
                   </CommandList>
